@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { sendEmail, type SendEmail } from "@/lib/email";
+import { recordSubmission, type RecordSubmission } from "@/lib/submissions/store";
 import { type FormState, textValues } from "./form-state";
 import { isHoneypotFilled, verifyTurnstile } from "./spam";
 
@@ -7,11 +8,14 @@ import { isHoneypotFilled, verifyTurnstile } from "./spam";
 export type SubmissionDeps = {
   sendEmail: SendEmail;
   verifyHuman: (formData: FormData) => Promise<boolean>;
+  /** Persist a valid submission (no-op until a backend is attached). */
+  record?: RecordSubmission;
 };
 
 export const defaultDeps: SubmissionDeps = {
   sendEmail,
   verifyHuman: (formData) => verifyTurnstile(formData),
+  record: recordSubmission,
 };
 
 export const GENERIC_ERROR =

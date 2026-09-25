@@ -126,6 +126,7 @@ export async function handleRegistrationSubmission(
   );
 
   try {
+    await deps.record?.({ type: "registration", data, attachments, submittedAt: new Date() });
     await deps.sendEmail({
       to: recipients.estimating,
       replyTo: data.email,

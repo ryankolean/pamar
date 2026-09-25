@@ -15,12 +15,18 @@ import {
 import { submitContact } from "@/app/contact/actions";
 import { contactTopics } from "@/lib/submissions/contact-topics";
 
-export function ContactForm({ defaultTopic }: { defaultTopic?: string }) {
+export function ContactForm({
+  defaultTopic,
+  preview = false,
+}: {
+  defaultTopic?: string;
+  preview?: boolean;
+}) {
   const { state, formAction, formKey } = useFormAction(submitContact);
 
   if (state.status === "success") {
     return (
-      <FormSuccess title="Message sent">
+      <FormSuccess title="Message sent" preview={preview}>
         <TrackEvent name="contact_submitted" />
         <p>{state.message}</p>
       </FormSuccess>

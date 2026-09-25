@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { TrackEvent } from "@/components/analytics/track-event";
+import { PreviewSubmissionNote } from "@/components/forms/fields";
 import { ButtonLink } from "@/components/ui/button";
+import { isPreviewMode } from "@/lib/site-mode";
 
 export const metadata: Metadata = {
   title: "Registration received",
@@ -17,6 +19,11 @@ export default function RegistrationThanksPage() {
         Thanks for registering! We’ve emailed you a confirmation. Our estimating team will review
         your information and reach out about packages that match your trades.
       </p>
+      {isPreviewMode() && (
+        <div className="max-w-2xl">
+          <PreviewSubmissionNote />
+        </div>
+      )}
       <ButtonLink href="/subcontractors/opportunities" variant="dark">
         View open opportunities
       </ButtonLink>

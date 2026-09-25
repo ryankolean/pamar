@@ -3,10 +3,12 @@ import "@fontsource-variable/inter";
 import "@fontsource-variable/oswald";
 import "./globals.css";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
+import { PreviewBanner } from "@/components/layout/preview-banner";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { JsonLd } from "@/components/seo/json-ld";
 import { organizationJsonLd } from "@/lib/seo";
+import { isPreviewMode } from "@/lib/site-mode";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -24,6 +26,8 @@ export const metadata: Metadata = {
     description: site.description,
   },
   twitter: { card: "summary_large_image" },
+  // Keep preview deployments out of search results.
+  ...(isPreviewMode() ? { robots: { index: false, follow: false } } : {}),
 };
 
 export const viewport: Viewport = {
@@ -40,6 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to main content
         </a>
+        <PreviewBanner />
         <SiteHeader />
         <main id="main" className="flex-1">
           {children}

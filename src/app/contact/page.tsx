@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact/contact-form";
 import { PageHero } from "@/components/ui/page-hero";
 import { mapUrl, site, telHref } from "@/lib/site";
+import { isPreviewMode } from "@/lib/site-mode";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -20,7 +21,7 @@ export default function ContactPage() {
         <div className="container-page grid gap-12 lg:grid-cols-[1.5fr_1fr]">
           <div>
             <h2 className="mb-8 text-2xl font-bold uppercase">Send a message</h2>
-            <ContactForm />
+            <ContactForm preview={isPreviewMode()} />
           </div>
           <aside className="space-y-8">
             {site.offices.map((office) => (

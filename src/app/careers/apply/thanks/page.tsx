@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { TrackEvent } from "@/components/analytics/track-event";
+import { PreviewSubmissionNote } from "@/components/forms/fields";
 import { ButtonLink } from "@/components/ui/button";
+import { isPreviewMode } from "@/lib/site-mode";
 
 export const metadata: Metadata = {
   title: "Application received",
@@ -17,6 +19,11 @@ export default function ApplicationThanksPage() {
         Thanks for applying! We’ve sent a confirmation to your email. Our HR team reviews every
         application and will reach out if there’s a fit.
       </p>
+      {isPreviewMode() && (
+        <div className="max-w-2xl">
+          <PreviewSubmissionNote />
+        </div>
+      )}
       <div className="flex flex-wrap gap-4">
         <ButtonLink href="/careers#openings" variant="dark">
           See other openings
