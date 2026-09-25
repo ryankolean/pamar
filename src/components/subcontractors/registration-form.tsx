@@ -169,9 +169,17 @@ export function RegistrationForm({ trades, documents }: RegistrationFormProps) {
             name="coi"
             label="Certificate of insurance"
             accept={documents.accept}
+            maxBytes={documents.maxMb * 1024 * 1024}
             hint={docHint}
           />
-          <FileField state={state} name="w9" label="W-9" accept={documents.accept} hint={docHint} />
+          <FileField
+            state={state}
+            name="w9"
+            label="W-9"
+            accept={documents.accept}
+            maxBytes={documents.maxMb * 1024 * 1024}
+            hint={docHint}
+          />
         </div>
       </Section>
 

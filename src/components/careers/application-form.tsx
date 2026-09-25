@@ -93,6 +93,7 @@ export function ApplicationForm({ positions, defaultPosition, resume }: Applicat
         label="Resume"
         required
         accept={resume.accept}
+        maxBytes={resume.maxMb * 1024 * 1024}
         hint={`PDF or Word document, up to ${resume.maxMb} MB.`}
       />
 
