@@ -335,12 +335,17 @@ export function FileField({
 }: FileFieldProps) {
   const id = `field-${name}`;
   const errors = errorsFor(state, name);
+  // Browsers can't restore a chosen file after a round trip, so remind the user to re-attach it.
+  const fullHint =
+    state.status === "error"
+      ? [hint, "Please attach your file again."].filter(Boolean).join(" ")
+      : hint;
   return (
     <FieldShell
       id={id}
       label={label}
       required={required}
-      hint={hint}
+      hint={fullHint}
       errors={errors}
       className={className}
     >
@@ -351,10 +356,41 @@ export function FileField({
         accept={accept}
         required={required}
         aria-invalid={errors?.length ? true : undefined}
-        aria-describedby={describedBy(id, hint, errors)}
+        aria-describedby={describedBy(id, fullHint, errors)}
         className="block w-full text-sm text-ink-700 file:mr-4 file:rounded-sm file:border-0 file:bg-ink-100 file:px-4 file:py-2.5 file:font-semibold file:text-ink-900 hover:file:bg-ink-200"
       />
     </FieldShell>
+  );
+}
+
+type ConsentCheckboxProps = {
+  state: FormState;
+  name: string;
+  children: ReactNode;
+};
+
+/** Single required checkbox (e.g. "I certify…"). Submits "yes" when checked. */
+export function ConsentCheckbox({ state, name, children }: ConsentCheckboxProps) {
+  const id = `field-${name}`;
+  const errors = errorsFor(state, name);
+  return (
+    <div className="flex flex-col gap-1.5">
+      <label htmlFor={id} className="flex items-start gap-2.5 text-ink-800">
+        <input
+          id={id}
+          type="checkbox"
+          name={name}
+          value="yes"
+          required
+          defaultChecked={valueFor(state, name) === "yes"}
+          aria-invalid={errors?.length ? true : undefined}
+          aria-describedby={errors?.length ? `${id}-error` : undefined}
+          className="mt-1 h-4 w-4 accent-brand-600"
+        />
+        <span>{children}</span>
+      </label>
+      <FieldErrors id={id} errors={errors} />
+    </div>
   );
 }
 
