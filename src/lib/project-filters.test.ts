@@ -82,9 +82,14 @@ describe("helpers", () => {
     expect(hasActiveFilters({ year: 2024 })).toBe(true);
   });
 
-  it("lists distinct years newest first", () => {
+  it("lists distinct years newest first, skipping projects without one", () => {
     expect(
-      projectYears([project({ year: 2021 }), project({ year: 2024 }), project({ year: 2021 })]),
+      projectYears([
+        project({ year: 2021 }),
+        project({ year: 2024 }),
+        project({ year: 2021 }),
+        project({ year: undefined }),
+      ]),
     ).toEqual([2024, 2021]);
   });
 });

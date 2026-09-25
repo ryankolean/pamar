@@ -30,10 +30,12 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
   const projectServices = services.filter((s) => project.services.includes(s.slug));
 
   const facts = [
+    { label: "Job name", value: project.jobName },
     { label: "Owner", value: project.owner },
+    { label: "Engineer", value: project.engineer },
     { label: "Location", value: project.location },
     { label: "Market", value: project.market },
-    { label: "Completed", value: String(project.year) },
+    { label: "Completed", value: project.year?.toString() },
     { label: "Contract value", value: project.valueRange },
     { label: "Duration", value: project.duration },
   ].filter((fact): fact is { label: string; value: string } => Boolean(fact.value));
@@ -50,7 +52,9 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
         ])}
       />
       <PageHero
-        eyebrow={`${project.market} · ${project.year}`}
+        eyebrow={
+          project.year !== undefined ? `${project.market} · ${project.year}` : project.market
+        }
         title={project.title}
         intro={project.summary}
       />
@@ -77,16 +81,22 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
               </ul>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2">
-              <div className="border-l-4 border-ink-300 pl-6">
-                <h2 className="text-xl font-bold uppercase">The challenge</h2>
-                <p className="mt-3 text-ink-700">{project.challenge}</p>
+            {(project.challenge || project.result) && (
+              <div className="grid gap-8 md:grid-cols-2">
+                {project.challenge && (
+                  <div className="border-l-4 border-ink-300 pl-6">
+                    <h2 className="text-xl font-bold uppercase">The challenge</h2>
+                    <p className="mt-3 text-ink-700">{project.challenge}</p>
+                  </div>
+                )}
+                {project.result && (
+                  <div className="border-l-4 border-brand-500 pl-6">
+                    <h2 className="text-xl font-bold uppercase">The result</h2>
+                    <p className="mt-3 text-ink-700">{project.result}</p>
+                  </div>
+                )}
               </div>
-              <div className="border-l-4 border-brand-500 pl-6">
-                <h2 className="text-xl font-bold uppercase">The result</h2>
-                <p className="mt-3 text-ink-700">{project.result}</p>
-              </div>
-            </div>
+            )}
 
             {gallery.length > 0 && (
               <div>

@@ -12,7 +12,8 @@ export function ProjectCard({ project }: { project: Project }) {
       />
       <div className="flex flex-1 flex-col border-x border-b border-ink-100 p-6">
         <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">
-          {project.market} · {project.year}
+          {project.market}
+          {project.year !== undefined && ` · ${project.year}`}
         </p>
         <h3 className="mt-2 text-xl font-bold uppercase">
           <Link href={`/projects/${project.slug}`} className="after:absolute after:inset-0">

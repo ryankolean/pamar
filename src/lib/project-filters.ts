@@ -44,5 +44,6 @@ export function hasActiveFilters(filters: ProjectFilters): boolean {
 
 /** Distinct completion years, newest first. */
 export function projectYears(projects: Project[]): number[] {
-  return [...new Set(projects.map((p) => p.year))].sort((a, b) => b - a);
+  const years = projects.map((p) => p.year).filter((y): y is number => y !== undefined);
+  return [...new Set(years)].sort((a, b) => b - a);
 }
