@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button";
 import { ArrowRightIcon } from "@/components/ui/icons";
-import { PlaceholderImage } from "@/components/ui/placeholder-image";
+import { ProjectPhoto } from "@/components/projects/project-photo";
 import { ProjectGrid } from "@/components/projects/project-card";
 import { ServiceCard } from "@/components/services/service-card";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -76,16 +76,16 @@ export default async function HomePage() {
               Subcontract Opportunities <ArrowRightIcon />
             </Link>
           </div>
-          {/* Hero visual: swap for a project photo or video when Pamar supplies one. */}
           <div className="relative hidden lg:block">
             <div
               aria-hidden="true"
               className="absolute -bottom-5 -right-5 h-full w-full bg-brand-500"
             />
-            <PlaceholderImage
-              label="Pamar excavator at work"
-              scene="excavator"
+            <ProjectPhoto
+              image={{ src: "/images/site/excavator.jpg", alt: "Pamar excavator at work" }}
+              sizes="(min-width: 1024px) 45vw, 100vw"
               className="relative aspect-[4/3] w-full shadow-2xl"
+              priority
             />
           </div>
         </div>
