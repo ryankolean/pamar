@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   title: "Bid Opportunities",
   description:
     "Open subcontract and supply packages on projects Pamar Enterprises has been awarded.",
+  // Filtered views (?service=…) share one canonical URL.
+  alternates: { canonical: "/subcontractors/opportunities" },
 };
 
 export default async function OpportunitiesPage(props: PageProps<"/subcontractors/opportunities">) {

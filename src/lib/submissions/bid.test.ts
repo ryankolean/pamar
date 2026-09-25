@@ -126,3 +126,11 @@ describe("handleBidSubmission", () => {
     expect(state.message).toMatch(/couldn’t find/);
   });
 });
+
+describe("handleBidSubmission success state", () => {
+  it("echoes the submission type for analytics", async () => {
+    const { deps } = setup();
+    const state = await handleBidSubmission(form({ ...base, submissionType: "intent" }), deps);
+    expect(state.values).toEqual({ submissionType: "intent" });
+  });
+});

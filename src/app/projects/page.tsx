@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   title: "Projects",
   description:
     "Completed projects by Pamar Enterprises across municipal, commercial, and industrial work.",
+  // Filtered views (?service=…) share one canonical URL.
+  alternates: { canonical: "/projects" },
 };
 
 export default async function ProjectsPage(props: PageProps<"/projects">) {

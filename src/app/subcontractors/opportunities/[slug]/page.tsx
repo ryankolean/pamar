@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";
+import { JsonLd } from "@/components/seo/json-ld";
 import { BidForm } from "@/components/subcontractors/bid-form";
 import { StatusBadge } from "@/components/subcontractors/status-badge";
 import { ButtonLink } from "@/components/ui/button";
 import { getOpportunityBySlug } from "@/content/opportunities";
 import { acceptAttribute, uploadLimits } from "@/lib/forms/files";
 import { dueLabel, formatDateTime, opportunityStatus } from "@/lib/opportunities";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import { telHref } from "@/lib/site";
 
 export async function generateMetadata(
@@ -35,6 +37,17 @@ export default async function OpportunityPage(
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Subcontractors", path: "/subcontractors" },
+          { name: "Opportunities", path: "/subcontractors/opportunities" },
+          {
+            name: opportunity.projectName,
+            path: `/subcontractors/opportunities/${opportunity.slug}`,
+          },
+        ])}
+      />
       <section className="bg-hatch bg-ink-950 text-white">
         <div className="container-page py-16 sm:py-20">
           <Link

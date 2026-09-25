@@ -176,5 +176,9 @@ export async function handleBidSubmission(
     console.error("Bid confirmation email failed", error);
   }
 
-  return { status: "success", message: successMessage };
+  return {
+    status: "success",
+    message: successMessage,
+    values: { submissionType: data.submissionType },
+  };
 }
