@@ -11,7 +11,7 @@ export function FaqList({ faqs, title = "Common questions" }: { faqs: Faq[]; tit
       <h2 className="text-2xl font-bold uppercase">{title}</h2>
       <div className="mt-6 divide-y divide-ink-100 border-y border-ink-100">
         {faqs.map((faq) => (
-          <details key={faq.question} className="group py-5">
+          <details key={faq.question} className="faq group py-5">
             <summary className="flex cursor-pointer list-none items-start justify-between gap-6 font-semibold text-ink-900 [&::-webkit-details-marker]:hidden">
               <span>{faq.question}</span>
               <span

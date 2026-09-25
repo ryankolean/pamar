@@ -499,6 +499,12 @@ export function SubmitButton({
       aria-disabled={pending}
       className={buttonClasses("primary", "w-full sm:w-auto")}
     >
+      {pending && (
+        <span
+          aria-hidden="true"
+          className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent"
+        />
+      )}
       {pending ? pendingLabel : children}
     </button>
   );
@@ -548,7 +554,7 @@ export function FormSuccess({
   preview?: boolean;
 }) {
   return (
-    <div role="status" className="border-l-4 border-brand-500 bg-brand-50 p-8">
+    <div role="status" className="hero-in border-l-4 border-brand-500 bg-brand-50 p-8">
       <h2 className="text-2xl font-bold uppercase">{title}</h2>
       <div className="mt-3 text-ink-700">{children}</div>
       {preview && <PreviewSubmissionNote />}

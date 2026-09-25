@@ -8,6 +8,7 @@ import { ProjectPhoto } from "@/components/projects/project-photo";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { careersFaqs } from "@/content/faqs";
 import { getJobs } from "@/content/jobs";
+import { revealDelay } from "@/lib/motion";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -80,8 +81,13 @@ export default async function CareersPage() {
         <div className="container-page">
           <SectionHeading id="benefits-heading" eyebrow="Why Pamar" title="Benefits" inverse />
           <ul className="mt-12 grid gap-px bg-ink-800 sm:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((benefit) => (
-              <li key={benefit.title} className="bg-ink-950 p-8">
+            {benefits.map((benefit, index) => (
+              <li
+                key={benefit.title}
+                data-reveal
+                style={revealDelay(index)}
+                className="bg-ink-950 p-8"
+              >
                 <span aria-hidden="true" className="mb-4 block h-1 w-10 bg-brand-500" />
                 <h3 className="text-xl font-bold uppercase text-white">{benefit.title}</h3>
                 <p className="mt-2 text-ink-300">{benefit.body}</p>

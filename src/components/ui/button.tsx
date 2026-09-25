@@ -5,7 +5,7 @@ import { cn } from "@/lib/cn";
 export type ButtonVariant = "primary" | "dark" | "outline" | "outline-light";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-sm px-5 py-3 font-display text-sm font-semibold uppercase tracking-wider transition-colors disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex items-center justify-center gap-2 rounded-sm px-5 py-3 font-display text-sm font-semibold uppercase tracking-wider transition-[background-color,color,border-color,translate,box-shadow] duration-200 hover:-translate-y-px hover:shadow-md active:translate-y-0 active:shadow-none disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none";
 
 const variants: Record<ButtonVariant, string> = {
   primary: "bg-brand-500 text-ink-950 hover:bg-brand-600",

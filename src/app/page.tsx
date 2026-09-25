@@ -7,6 +7,7 @@ import { ServiceCard } from "@/components/services/service-card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { getFeaturedProjects } from "@/content/projects";
 import { getServices } from "@/content/services";
+import { inDelay, revealDelay } from "@/lib/motion";
 import { site } from "@/lib/site";
 
 const pathways = [
@@ -56,14 +57,22 @@ export default async function HomePage() {
       <section className="bg-hatch relative isolate overflow-hidden bg-ink-950 text-white">
         <div className="container-page grid min-h-[70vh] items-center gap-14 py-20 lg:grid-cols-[1.15fr_1fr] lg:py-24">
           <div className="flex flex-col">
-            <p className="mb-4 font-display text-sm font-semibold uppercase tracking-[0.25em] text-brand-400">
+            <p className="hero-in mb-4 font-display text-sm font-semibold uppercase tracking-[0.25em] text-brand-400">
               {site.name}
             </p>
-            <h1 className="max-w-4xl text-5xl font-bold uppercase leading-[1.05] text-white sm:text-6xl xl:text-7xl">
+            <h1
+              className="hero-in max-w-4xl text-5xl font-bold uppercase leading-[1.05] text-white sm:text-6xl xl:text-7xl"
+              style={inDelay(80)}
+            >
               {site.tagline}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-ink-200 sm:text-xl">{site.description}</p>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <p
+              className="hero-in mt-6 max-w-2xl text-lg text-ink-200 sm:text-xl"
+              style={inDelay(160)}
+            >
+              {site.description}
+            </p>
+            <div className="hero-in mt-10 flex flex-wrap gap-4" style={inDelay(240)}>
               <ButtonLink href="/projects">View Our Work</ButtonLink>
               <ButtonLink href="/careers" variant="outline-light">
                 Join Our Team
@@ -71,20 +80,23 @@ export default async function HomePage() {
             </div>
             <Link
               href="/subcontractors"
-              className="mt-6 inline-flex items-center gap-2 self-start font-display text-sm font-semibold uppercase tracking-wider text-ink-200 hover:text-white"
+              className="hero-in group mt-6 inline-flex items-center gap-2 self-start font-display text-sm font-semibold uppercase tracking-wider text-ink-200 hover:text-white"
+              style={inDelay(320)}
             >
-              Subcontract Opportunities <ArrowRightIcon />
+              Subcontract Opportunities{" "}
+              <ArrowRightIcon className="transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
           <div className="relative hidden lg:block">
             <div
               aria-hidden="true"
-              className="absolute -bottom-5 -right-5 h-full w-full bg-brand-500"
+              className="hero-in absolute -bottom-5 -right-5 h-full w-full bg-brand-500"
+              style={inDelay(400)}
             />
             <ProjectPhoto
               image={{ src: "/images/site/excavator.jpg", alt: "Pamar excavator at work" }}
               sizes="(min-width: 1024px) 45vw, 100vw"
-              className="relative aspect-[4/3] w-full shadow-2xl"
+              className="hero-in kenburns relative aspect-[4/3] w-full shadow-2xl"
               priority
             />
           </div>
@@ -98,10 +110,12 @@ export default async function HomePage() {
             Where would you like to start?
           </h2>
           <ul className="grid gap-6 md:grid-cols-3">
-            {pathways.map((item) => (
+            {pathways.map((item, index) => (
               <li
                 key={item.href}
-                className="group relative flex flex-col border border-ink-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-lg"
+                data-reveal
+                style={revealDelay(index)}
+                className="group relative flex flex-col border border-ink-100 bg-white p-8 shadow-sm transition-[translate,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <span aria-hidden="true" className="mb-6 block h-1 w-12 bg-brand-500" />
                 <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">
@@ -113,7 +127,8 @@ export default async function HomePage() {
                   href={item.href}
                   className="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-ink-950 after:absolute after:inset-0 group-hover:text-brand-700"
                 >
-                  {item.cta} <ArrowRightIcon />
+                  {item.cta}{" "}
+                  <ArrowRightIcon className="transition-transform group-hover:translate-x-1" />
                 </Link>
               </li>
             ))}
@@ -135,8 +150,8 @@ export default async function HomePage() {
             </ButtonLink>
           </div>
           <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <li key={service.slug}>
+            {services.map((service, index) => (
+              <li key={service.slug} data-reveal style={revealDelay(index)}>
                 <ServiceCard service={service} />
               </li>
             ))}

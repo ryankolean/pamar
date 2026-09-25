@@ -2,12 +2,13 @@ import Link from "next/link";
 import { ArrowRightIcon } from "@/components/ui/icons";
 import type { Job } from "@/content/jobs";
 import { formatDate } from "@/lib/dates";
+import { revealDelay } from "@/lib/motion";
 
 export function JobList({ jobs }: { jobs: Job[] }) {
   return (
     <ul className="divide-y divide-ink-100 border border-ink-100 bg-white">
-      {jobs.map((job) => (
-        <li key={job.slug} className="group relative">
+      {jobs.map((job, index) => (
+        <li key={job.slug} data-reveal style={revealDelay(index)} className="group relative">
           <div className="flex flex-col gap-3 p-6 transition-colors group-hover:bg-ink-50 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h3 className="text-xl font-bold uppercase">
