@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Captured copies of the live site (scripts/capture-brand.mjs).
+    "docs/brand/source/**",
   ]),
 ]);
 
