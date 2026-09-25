@@ -1,4 +1,5 @@
 import { site } from "@/lib/site";
+import { isPreviewMode } from "@/lib/site-mode";
 
 export type EmailAttachment = { filename: string; content: Buffer };
 
@@ -49,11 +50,18 @@ async function sendWithResend(apiKey: string, message: EmailMessage) {
 /**
  * Send a transactional email.
  *
- * With RESEND_API_KEY set, mail goes through Resend. Without it, development logs the
+ * In preview mode (SITE_MODE=preview) nothing is sent. With RESEND_API_KEY set, mail goes
+ * through Resend. Without it, development logs the
  * message to the console, while production throws so a missing configuration surfaces
  * as a visible form error instead of silently dropping submissions.
  */
 export const sendEmail: SendEmail = async (message) => {
+  // Preview deployments accept submissions but never email anyone.
+  if (isPreviewMode()) {
+    console.info("[email:preview] Suppressed", { to: message.to, subject: message.subject });
+    return;
+  }
+
   const apiKey = process.env.RESEND_API_KEY;
   if (apiKey) return sendWithResend(apiKey, message);
 

@@ -82,7 +82,14 @@ export async function handleApplicationSubmission(
   }
 
   const data = parsed.data;
+  const resumeAttachment = await toAttachment(resume!, data.name.replace(/\s+/g, "_"));
   try {
+    await deps.record?.({
+      type: "application",
+      data: { ...data, positionTitle: title },
+      attachments: [resumeAttachment],
+      submittedAt: new Date(),
+    });
     await deps.sendEmail({
       to: recipients.hr,
       replyTo: data.email,
@@ -96,7 +103,7 @@ export async function handleApplicationSubmission(
         ["Certifications", data.certifications.join(", ") || "None listed"],
         ["Message", data.message],
       ]),
-      attachments: [await toAttachment(resume!, data.name.replace(/\s+/g, "_"))],
+      attachments: [resumeAttachment],
     });
   } catch (error) {
     console.error("Application submission failed", error);

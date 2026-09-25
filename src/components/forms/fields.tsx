@@ -521,11 +521,31 @@ export function FormMessage({ state }: { state: FormState }) {
   );
 }
 
-export function FormSuccess({ title, children }: { title: string; children: ReactNode }) {
+export function FormSuccess({
+  title,
+  children,
+  preview = false,
+}: {
+  title: string;
+  children: ReactNode;
+  /** Preview deployments: make clear nothing was actually sent. */
+  preview?: boolean;
+}) {
   return (
     <div role="status" className="border-l-4 border-brand-500 bg-brand-50 p-8">
       <h2 className="text-2xl font-bold uppercase">{title}</h2>
       <div className="mt-3 text-ink-700">{children}</div>
+      {preview && <PreviewSubmissionNote />}
     </div>
+  );
+}
+
+/** Shown after a submission on preview deployments. */
+export function PreviewSubmissionNote() {
+  return (
+    <p className="mt-4 border-t border-brand-200 pt-4 text-sm text-ink-600">
+      <strong>Preview site:</strong> this submission wasn’t sent anywhere. On the live site it goes
+      straight to the right team at Pamar.
+    </p>
   );
 }

@@ -20,6 +20,7 @@ import type { FormState } from "@/lib/forms/form-state";
 import { submissionTypes } from "@/lib/submissions/bid-options";
 
 type BidFormProps = {
+  preview?: boolean;
   opportunitySlug: string;
   trades: string[];
   document: { accept: string; maxMb: number };
@@ -112,12 +113,12 @@ function BidFields({
   );
 }
 
-export function BidForm({ opportunitySlug, trades, document }: BidFormProps) {
+export function BidForm({ opportunitySlug, trades, document, preview = false }: BidFormProps) {
   const { state, formAction, formKey } = useFormAction(submitBid);
 
   if (state.status === "success") {
     return (
-      <FormSuccess title="Submission received">
+      <FormSuccess title="Submission received" preview={preview}>
         <TrackEvent
           name={
             state.values?.submissionType === "bid" ? "bid_submitted" : "intent_to_bid_submitted"

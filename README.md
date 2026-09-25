@@ -45,3 +45,14 @@ src/
 ## Placeholder content
 
 Brand colors, fonts, logo, contact details, and all copy are **placeholders** until the client delivers brand assets and content (Jira SUMMIT-228). Design tokens live in `src/app/globals.css` (`@theme`) and site-wide details live in `src/lib/site.ts`.
+
+## Preview deployment (for client review)
+
+Deploy to [Vercel](https://vercel.com) (free Hobby plan works):
+
+1. **Add New → Project**, import `ryankolean/pamar`, keep the detected Next.js settings.
+2. **Environment variables:** `SITE_MODE=preview` and `PREVIEW_PASSWORD=<something to share>`.
+3. Deploy the preview branch. Share the URL and the password; any username works.
+
+Preview mode shows a banner, keeps the site out of search engines, and accepts form submissions
+without sending anything. See [`docs/BACKEND.md`](docs/BACKEND.md) for where the backend attaches.

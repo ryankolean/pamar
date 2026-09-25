@@ -131,6 +131,12 @@ export async function handleBidSubmission(
     : [];
 
   try {
+    await deps.record?.({
+      type: "bid",
+      data: { ...data, opportunity: opportunity.slug, amount },
+      attachments,
+      submittedAt: new Date(),
+    });
     await deps.sendEmail({
       to: recipients.estimating,
       replyTo: data.email,

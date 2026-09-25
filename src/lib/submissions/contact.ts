@@ -47,6 +47,7 @@ export async function handleContactSubmission(
 
   const data = parsed.data;
   try {
+    await deps.record?.({ type: "contact", data, attachments: [], submittedAt: new Date() });
     await deps.sendEmail({
       to: recipients.contact,
       replyTo: data.email,

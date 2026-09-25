@@ -10,6 +10,7 @@ import { getOpportunityBySlug } from "@/content/opportunities";
 import { acceptAttribute, uploadLimits } from "@/lib/forms/files";
 import { dueLabel, formatDateTime, opportunityStatus } from "@/lib/opportunities";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { isPreviewMode } from "@/lib/site-mode";
 import { telHref } from "@/lib/site";
 
 export async function generateMetadata(
@@ -134,6 +135,7 @@ export default async function OpportunityPage(
                     .
                   </p>
                   <BidForm
+                    preview={isPreviewMode()}
                     opportunitySlug={opportunity.slug}
                     trades={opportunity.trades}
                     document={{

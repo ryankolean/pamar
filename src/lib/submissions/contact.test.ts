@@ -91,3 +91,38 @@ describe("handleContactSubmission", () => {
     expect(state.values?.email).toBe("pat@example.com");
   });
 });
+
+describe("submission recording (backend attachment point)", () => {
+  it("records each valid submission before notifying", async () => {
+    const calls: string[] = [];
+    const record = vi.fn(async () => {
+      calls.push("record");
+    });
+    const sendEmail = vi.fn(async () => {
+      calls.push("email");
+    });
+    const state = await handleContactSubmission(form(valid), {
+      sendEmail,
+      verifyHuman: async () => true,
+      record,
+    });
+    expect(state.status).toBe("success");
+    expect(calls).toEqual(["record", "email"]);
+    expect(record).toHaveBeenCalledWith(
+      expect.objectContaining({
+        type: "contact",
+        data: expect.objectContaining({ email: "pat@example.com" }),
+      }),
+    );
+  });
+
+  it("does not record invalid submissions", async () => {
+    const record = vi.fn(async () => {});
+    await handleContactSubmission(form({ ...valid, email: "bad" }), {
+      sendEmail: vi.fn(async () => {}),
+      verifyHuman: async () => true,
+      record,
+    });
+    expect(record).not.toHaveBeenCalled();
+  });
+});
