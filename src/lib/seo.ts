@@ -19,6 +19,11 @@ export function organizationJsonLd() {
     legalName: site.legalName,
     description: site.description,
     url: site.url,
+    foundingDate: "1972",
+    founder: [
+      { "@type": "Person", name: "Pasquale R. Acciavatti" },
+      { "@type": "Person", name: "Mary Ann Acciavatti" },
+    ],
     logo: absoluteUrl("/brand/pamar-logo-lockup.png"),
     email: site.contact.email,
     telephone: site.contact.phone,
