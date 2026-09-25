@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";
+import { BidForm } from "@/components/subcontractors/bid-form";
 import { StatusBadge } from "@/components/subcontractors/status-badge";
 import { ButtonLink } from "@/components/ui/button";
 import { getOpportunityBySlug } from "@/content/opportunities";
+import { acceptAttribute, uploadLimits } from "@/lib/forms/files";
 import { dueLabel, formatDateTime, opportunityStatus } from "@/lib/opportunities";
 import { telHref } from "@/lib/site";
 
@@ -106,16 +108,26 @@ export default async function OpportunityPage(
             <div id="submit" className="scroll-mt-28 border-t-4 border-brand-500 bg-ink-50 p-8">
               {status === "Open" ? (
                 <>
-                  <h2 className="text-2xl font-bold uppercase">Interested in this package?</h2>
-                  <p className="mt-3 text-ink-700">
-                    Contact our estimating team to request documents, ask questions, or submit your
-                    quote before the due date.
+                  <h2 className="text-2xl font-bold uppercase">Submit your interest or bid</h2>
+                  <p className="mb-8 mt-3 text-ink-700">
+                    Let us know you intend to bid, or send your price and bid document before{" "}
+                    {formatDateTime(opportunity.bidDueAt)}. Need documents or have questions? Email{" "}
+                    <a
+                      href={`mailto:${opportunity.contact.email}?subject=${mailSubject}`}
+                      className="font-semibold underline"
+                    >
+                      {opportunity.contact.email}
+                    </a>
+                    .
                   </p>
-                  <div className="mt-6 flex flex-wrap gap-4">
-                    <ButtonLink href={`mailto:${opportunity.contact.email}?subject=${mailSubject}`}>
-                      Email estimating
-                    </ButtonLink>
-                  </div>
+                  <BidForm
+                    opportunitySlug={opportunity.slug}
+                    trades={opportunity.trades}
+                    document={{
+                      accept: acceptAttribute(uploadLimits.bidDocument.kinds),
+                      maxMb: uploadLimits.bidDocument.maxBytes / 1024 / 1024,
+                    }}
+                  />
                 </>
               ) : (
                 <>

@@ -363,6 +363,56 @@ export function FileField({
   );
 }
 
+type RadioCardsProps = {
+  state: FormState;
+  name: string;
+  legend: string;
+  options: readonly { value: string; label: string; description?: string }[];
+  value: string;
+  onChange: (value: string) => void;
+};
+
+/** Controlled radio group rendered as selectable cards. */
+export function RadioCards({ state, name, legend, options, value, onChange }: RadioCardsProps) {
+  const id = `field-${name}`;
+  const errors = errorsFor(state, name);
+  return (
+    <fieldset aria-describedby={errors?.length ? `${id}-error` : undefined}>
+      <legend className="mb-2 text-sm font-semibold text-ink-800">
+        {legend}
+        <span className="text-red-700"> *</span>
+      </legend>
+      <div className="grid gap-3 sm:grid-cols-2">
+        {options.map((option) => (
+          <label
+            key={option.value}
+            className={cn(
+              "flex cursor-pointer items-start gap-3 border-2 bg-white p-4 transition-colors",
+              value === option.value ? "border-brand-500" : "border-ink-200 hover:border-ink-400",
+            )}
+          >
+            <input
+              type="radio"
+              name={name}
+              value={option.value}
+              checked={value === option.value}
+              onChange={() => onChange(option.value)}
+              className="mt-1 h-4 w-4 accent-brand-600"
+            />
+            <span>
+              <span className="block font-semibold text-ink-900">{option.label}</span>
+              {option.description && (
+                <span className="block text-sm text-ink-600">{option.description}</span>
+              )}
+            </span>
+          </label>
+        ))}
+      </div>
+      <FieldErrors id={id} errors={errors} />
+    </fieldset>
+  );
+}
+
 type ConsentCheckboxProps = {
   state: FormState;
   name: string;
