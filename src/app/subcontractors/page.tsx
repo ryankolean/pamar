@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { connection } from "next/server";
 import { OpportunityList } from "@/components/subcontractors/opportunity-list";
 import { ButtonLink } from "@/components/ui/button";
+import { FaqList } from "@/components/ui/faq-list";
 import { PageHero } from "@/components/ui/page-hero";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { subcontractorFaqs } from "@/content/faqs";
 import { getOpportunities } from "@/content/opportunities";
 import { opportunityStatus, sortOpportunities } from "@/lib/opportunities";
 import { site } from "@/lib/site";
@@ -117,6 +119,11 @@ export default async function SubcontractorsPage() {
               Register your company
             </ButtonLink>
           </div>
+        </div>
+      </section>
+      <section className="bg-ink-50 py-16 sm:py-20">
+        <div className="container-page">
+          <FaqList faqs={subcontractorFaqs} title="Subcontractor questions" />
         </div>
       </section>
     </>

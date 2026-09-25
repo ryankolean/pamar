@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { JobList } from "@/components/careers/job-list";
 import { ButtonLink } from "@/components/ui/button";
+import { FaqList } from "@/components/ui/faq-list";
 import { FilterBar } from "@/components/ui/filter-bar";
 import { PageHero } from "@/components/ui/page-hero";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { careersFaqs } from "@/content/faqs";
 import { departments, employmentTypes, getJobs } from "@/content/jobs";
 import { filterJobs, hasActiveJobFilters, jobLocations, parseJobFilters } from "@/lib/job-filters";
 import { site } from "@/lib/site";
@@ -133,6 +135,12 @@ export default async function CareersPage(props: PageProps<"/careers">) {
               application below.
             </p>
           )}
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20">
+        <div className="container-page">
+          <FaqList faqs={careersFaqs} title="Applying at Pamar" />
         </div>
       </section>
 
