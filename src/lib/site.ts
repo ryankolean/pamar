@@ -13,7 +13,25 @@ export const site = {
     phone: "(000) 000-0000",
     email: "info@pamarenterprises.com",
   },
+  offices: [
+    {
+      name: "Main Office",
+      address: ["Street address", "City, ST 00000"],
+      phone: "(000) 000-0000",
+      hours: "Monday–Friday, 7:00 a.m.–4:30 p.m.",
+    },
+  ],
 } as const;
+
+/** Google Maps search link for a postal address. */
+export function mapUrl(addressLines: readonly string[]): string {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressLines.join(", "))}`;
+}
+
+/** Normalize a display phone number into a tel: href. */
+export function telHref(phone: string): string {
+  return `tel:${phone.replace(/[^\d+]/g, "")}`;
+}
 
 export type NavItem = { label: string; href: string };
 
@@ -21,7 +39,9 @@ export type NavItem = { label: string; href: string };
 export const mainNav: NavItem[] = [
   { label: "Services", href: "/services" },
   { label: "Projects", href: "/projects" },
+  { label: "About", href: "/about" },
+  { label: "Safety", href: "/safety" },
 ];
 
 /** Header call to action. */
-export const headerCta: NavItem | null = null;
+export const headerCta: NavItem | null = { label: "Contact Us", href: "/contact" };
