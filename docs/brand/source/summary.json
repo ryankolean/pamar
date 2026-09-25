@@ -1,0 +1,1456 @@
+{
+  "capturedAt": "2026-09-25T14:32:37.451Z",
+  "startUrl": "https://www.pamarenterprises.com/",
+  "platform": [
+    "Powered by WPBakery Page Builder - drag and drop page builder for WordPress.",
+    "WordPress (wp-content detected)",
+    "Divi"
+  ],
+  "pages": [
+    {
+      "url": "https://www.pamarenterprises.com/",
+      "file": "pages/home.html",
+      "title": "Home - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/about/",
+      "file": "pages/about.html",
+      "title": "About - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/safety/",
+      "file": "pages/safety.html",
+      "title": "Safety - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/services/",
+      "file": "pages/services.html",
+      "title": "Services - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/projects/",
+      "file": "pages/projects.html",
+      "title": "Projects - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/careers/",
+      "file": "pages/careers.html",
+      "title": "Careers - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/news/",
+      "file": "pages/news.html",
+      "title": "News - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/contact/",
+      "file": "pages/contact.html",
+      "title": "Contact - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/cso-3-5-phase-ii-control-123688/",
+      "file": "pages/cso-3-5-phase-ii-control-123688.html",
+      "title": "CSO #3 & #5, Phase II, Control #123688 - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/water-main-replacement-using-pipeburst/",
+      "file": "pages/water-main-replacement-using-pipeburst.html",
+      "title": "Water Main Replacement and Road Resurfacing - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/2017-water-main-replacement/",
+      "file": "pages/2017-water-main-replacement.html",
+      "title": "2017 Water Main Replacement - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/sitemap/",
+      "file": "pages/sitemap.html",
+      "title": "Sitemap - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/section-24-area-3-southfield/",
+      "file": "pages/section-24-area-3-southfield.html",
+      "title": "Section 24 Area 3, Southfield - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/brown-road-widening/",
+      "file": "pages/brown-road-widening.html",
+      "title": "Brown Road Widening - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/worth-township-contract-4/",
+      "file": "pages/worth-township-contract-4.html",
+      "title": "Worth Township Contract #4-Sanitary Installation - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/news/now-located-on-pamar-court",
+      "file": "pages/news-now-located-on-pamar-court.html",
+      "title": "Now Located On Pamar Court!! - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/news/thank-you-merry-christmas-to-all",
+      "file": "pages/news-thank-you-merry-christmas-to-all.html",
+      "title": "THANK YOU! Merry Christmas to all! - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/news/donate-for-christmas-to-safe-horizons",
+      "file": "pages/news-donate-for-christmas-to-safe-horizons.html",
+      "title": "Donate For Christmas to Safe Horizons! - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/news/pamar-enterprises-inc-launches-new-site",
+      "file": "pages/news-pamar-enterprises-inc-launches-new-site.html",
+      "title": "Pamar Enterprises Inc. Launches New Site! - Pamar Enterprises"
+    },
+    {
+      "url": "https://www.pamarenterprises.com/essential/",
+      "file": "pages/essential.html",
+      "title": "Essential - Pamar Enterprises"
+    }
+  ],
+  "stylesheets": [
+    {
+      "href": "https://www.pamarenterprises.com/wp-content/themes/alpha/alpha-custom.css",
+      "file": "css/2ffaf68f-alpha-custom.css"
+    },
+    {
+      "href": "https://www.pamarenterprises.com/wp-content/themes/alpha/print.css",
+      "file": "css/3c50c344-print.css"
+    },
+    {
+      "href": "https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,300,700,800|Open+Sans+Condensed:300,700&ver=7.1.2",
+      "file": "css/0a4628ff-css.css"
+    },
+    {
+      "href": "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css",
+      "file": "css/195f2ffb-font-awesome.min.css"
+    },
+    {
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/css/js_composer.min.css",
+      "file": "css/57221e7a-js_composer.min.css"
+    },
+    {
+      "href": "https://www.pamarenterprises.com/wp-content/themes/alpha/style.css",
+      "file": "css/ee5c335b-style.css"
+    },
+    {
+      "href": "https://fonts.googleapis.com/css?family=Raleway:400,500,300,700,900&ver=7.1.2",
+      "file": "css/8bd307c0-css.css"
+    },
+    {
+      "href": "https://www.pamarenterprises.com/wp-content/themes/alpha-child/style.css",
+      "file": "css/c61ad8c4-style.css"
+    },
+    {
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/lib/vendor/dist/animate.css/animate.min.css",
+      "file": "css/015859e0-animate.min.css"
+    },
+    {
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/simple-job-board/includes/css/font-awesome.min.css",
+      "file": "css/1508b150-font-awesome.min.css"
+    },
+    {
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/simple-job-board/public/css/jquery-ui.css",
+      "file": "css/bce65a2d-jquery-ui.css"
+    },
+    {
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/simple-job-board/public/css/simple-job-board-public.css",
+      "file": "css/4236271b-simple-job-board-public.css"
+    },
+    {
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/gravityforms/legacy/css/formreset.min.css",
+      "file": "css/cc253d69-formreset.min.css"
+    },
+    {
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/gravityforms/legacy/css/formsmain.min.css",
+      "file": "css/8a474ed6-formsmain.min.css"
+    },
+    {
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/gravityforms/legacy/css/readyclass.min.css",
+      "file": "css/26adc8fe-readyclass.min.css"
+    },
+    {
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/gravityforms/legacy/css/browsers.min.css",
+      "file": "css/d8e64de1-browsers.min.css"
+    },
+    {
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/simple-sitemap/lib/assets/css/simple-sitemap.css",
+      "file": "css/e8636cce-simple-sitemap.css"
+    }
+  ],
+  "fontLinks": [
+    "https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,300,700,800|Open+Sans+Condensed:300,700&ver=7.1.2",
+    "https://fonts.googleapis.com/css?family=Raleway:400,500,300,700,900&ver=7.1.2"
+  ],
+  "fontFaces": [
+    "'Montserrat' 400 normal",
+    "'Montserrat' 700 normal",
+    "'Open Sans' 300 normal",
+    "'Open Sans' 400 normal",
+    "'Open Sans' 700 normal",
+    "'Open Sans' 800 normal",
+    "'Open Sans Condensed' 300 normal",
+    "'Open Sans Condensed' 700 normal",
+    "'FontAwesome' normal normal",
+    "vcpb-plugin-icons 400 normal",
+    "vc_grid_v1 400 normal",
+    "'Raleway' 300 normal",
+    "'Raleway' 400 normal",
+    "'Raleway' 500 normal",
+    "'Raleway' 700 normal",
+    "'Raleway' 900 normal",
+    "'Font Awesome 5 Brands' 400 normal",
+    "'Font Awesome 5 Free' 400 normal",
+    "'Font Awesome 5 Free' 900 normal"
+  ],
+  "fontFamilies": [
+    [
+      "'Open Sans'",
+      40
+    ],
+    [
+      "inherit",
+      29
+    ],
+    [
+      "'Raleway'",
+      25
+    ],
+    [
+      "'Open Sans Condensed'",
+      14
+    ],
+    [
+      "'Montserrat'",
+      10
+    ],
+    [
+      "vc_grid_v1",
+      6
+    ],
+    [
+      "sans-serif",
+      5
+    ],
+    [
+      "'Montserrat', sans-serif",
+      5
+    ],
+    [
+      "'Font Awesome 5 Free'",
+      4
+    ],
+    [
+      "vcpb-plugin-icons",
+      2
+    ],
+    [
+      "'Font Awesome 5 Brands'",
+      2
+    ],
+    [
+      "Arial,Helvetica,sans-serif",
+      2
+    ],
+    [
+      "\"Font Awesome 5 Free\"",
+      2
+    ],
+    [
+      "Georgia,Times, serif",
+      1
+    ],
+    [
+      "'FontAwesome'",
+      1
+    ],
+    [
+      "monospace, monospace",
+      1
+    ],
+    [
+      "\"Courier 10 Pitch\", Courier, monospace",
+      1
+    ],
+    [
+      "Monaco, Consolas, \"Andale Mono\", \"DejaVu Sans Mono\", monospace",
+      1
+    ],
+    [
+      "'Open Sans', sans-serif",
+      1
+    ],
+    [
+      "\"Roboto\", sans-serif",
+      1
+    ],
+    [
+      "helvetica,arial,sans-serif",
+      1
+    ],
+    [
+      "arial,sans-serif",
+      1
+    ]
+  ],
+  "cssColors": [
+    [
+      "#ffffff",
+      630
+    ],
+    [
+      "#00000000",
+      255
+    ],
+    [
+      "#f7f7f7",
+      101
+    ],
+    [
+      "#15b8cb",
+      100
+    ],
+    [
+      "#eeeeee",
+      84
+    ],
+    [
+      "#000000",
+      80
+    ],
+    [
+      "#2a2a2a",
+      71
+    ],
+    [
+      "#f2f2f2",
+      68
+    ],
+    [
+      "#ebebeb",
+      64
+    ],
+    [
+      "#0693e3",
+      60
+    ],
+    [
+      "#32373c",
+      60
+    ],
+    [
+      "#ff6900",
+      60
+    ],
+    [
+      "#dddddd",
+      59
+    ],
+    [
+      "#0094a5",
+      54
+    ],
+    [
+      "#00c1cf",
+      54
+    ],
+    [
+      "#75d69c",
+      54
+    ],
+    [
+      "#5472d2",
+      53
+    ],
+    [
+      "#fe6c61",
+      52
+    ],
+    [
+      "#8d6dc4",
+      52
+    ],
+    [
+      "#4cadc9",
+      52
+    ],
+    [
+      "#cec2ab",
+      52
+    ],
+    [
+      "#50485b",
+      52
+    ],
+    [
+      "#f7be68",
+      52
+    ],
+    [
+      "#5aa1e3",
+      52
+    ],
+    [
+      "#6dab3c",
+      52
+    ],
+    [
+      "#f4524d",
+      52
+    ],
+    [
+      "#f79468",
+      52
+    ],
+    [
+      "#b97ebb",
+      52
+    ],
+    [
+      "#00000040",
+      49
+    ],
+    [
+      "#444444",
+      44
+    ],
+    [
+      "#cccccc",
+      43
+    ],
+    [
+      "#000000 @ 0.2",
+      41
+    ],
+    [
+      "#313131",
+      40
+    ],
+    [
+      "#00d084",
+      40
+    ],
+    [
+      "#020381",
+      40
+    ],
+    [
+      "#2874fc",
+      40
+    ],
+    [
+      "#cf2e2e",
+      40
+    ],
+    [
+      "#fcb900",
+      40
+    ],
+    [
+      "#9b51e0",
+      40
+    ],
+    [
+      "#666666",
+      37
+    ],
+    [
+      "#000000 @ 0.4",
+      21
+    ],
+    [
+      "#0a2742",
+      21
+    ],
+    [
+      "#790000",
+      21
+    ],
+    [
+      "#7a00df",
+      20
+    ],
+    [
+      "#007cba",
+      20
+    ],
+    [
+      "#006ba1",
+      20
+    ],
+    [
+      "#005a87",
+      20
+    ],
+    [
+      "#34e2e4",
+      20
+    ],
+    [
+      "#4721fb",
+      20
+    ],
+    [
+      "#ab1dfe",
+      20
+    ],
+    [
+      "#faaca8",
+      20
+    ],
+    [
+      "#dad0ec",
+      20
+    ],
+    [
+      "#fafae1",
+      20
+    ],
+    [
+      "#67a671",
+      20
+    ],
+    [
+      "#fdd79a",
+      20
+    ],
+    [
+      "#004a59",
+      20
+    ],
+    [
+      "#330968",
+      20
+    ],
+    [
+      "#31cdcf",
+      20
+    ],
+    [
+      "#abb8c3",
+      20
+    ],
+    [
+      "#f78da7",
+      20
+    ]
+  ],
+  "inlineColors": [
+    [
+      "#ffffff",
+      19
+    ],
+    [
+      "#00c1cf",
+      12
+    ],
+    [
+      "#ff9900",
+      9
+    ],
+    [
+      "#5472d2",
+      3
+    ],
+    [
+      "#ebebeb",
+      3
+    ],
+    [
+      "#666666",
+      2
+    ]
+  ],
+  "cssVariables": {
+    "--wp-block-synced-color": "#7a00df",
+    "--wp-block-synced-color--rgb": "122,0,223",
+    "--wp-bound-block-color": "var(--wp-block-synced-color)",
+    "--wp-editor-canvas-background": "#ddd",
+    "--wp-admin-theme-color": "#007cba",
+    "--wp-admin-theme-color--rgb": "0,124,186",
+    "--wp-admin-theme-color-darker-10": "#006ba1",
+    "--wp-admin-theme-color-darker-10--rgb": "0,107,160.5",
+    "--wp-admin-theme-color-darker-20": "#005a87",
+    "--wp-admin-theme-color-darker-20--rgb": "0,90,135",
+    "--wp-admin-border-width-focus": "1.5px",
+    "--wp--preset--font-size--normal": "16px",
+    "--wp--preset--font-size--huge": "42px",
+    "--wp-admin--admin-bar--position-offset": "0px",
+    "--wp--preset--aspect-ratio--square": "1",
+    "--wp--preset--aspect-ratio--4-3": "4/3",
+    "--wp--preset--aspect-ratio--3-4": "3/4",
+    "--wp--preset--aspect-ratio--3-2": "3/2",
+    "--wp--preset--aspect-ratio--2-3": "2/3",
+    "--wp--preset--aspect-ratio--16-9": "16/9",
+    "--wp--preset--aspect-ratio--9-16": "9/16",
+    "--wp--preset--color--black": "#000000",
+    "--wp--preset--color--cyan-bluish-gray": "#abb8c3",
+    "--wp--preset--color--white": "#ffffff",
+    "--wp--preset--color--pale-pink": "#f78da7",
+    "--wp--preset--color--vivid-red": "#cf2e2e",
+    "--wp--preset--color--luminous-vivid-orange": "#ff6900",
+    "--wp--preset--color--luminous-vivid-amber": "#fcb900",
+    "--wp--preset--color--light-green-cyan": "#7bdcb5",
+    "--wp--preset--color--vivid-green-cyan": "#00d084",
+    "--wp--preset--color--pale-cyan-blue": "#8ed1fc",
+    "--wp--preset--color--vivid-cyan-blue": "#0693e3",
+    "--wp--preset--color--vivid-purple": "#9b51e0",
+    "--wp--preset--font-size--small": "13px",
+    "--wp--preset--font-size--medium": "20px",
+    "--wp--preset--font-size--large": "36px",
+    "--wp--preset--font-size--x-large": "42px",
+    "--wp--preset--spacing--20": "0.44rem",
+    "--wp--preset--spacing--30": "0.67rem",
+    "--wp--preset--spacing--40": "1rem",
+    "--wp--preset--spacing--50": "1.5rem",
+    "--wp--preset--spacing--60": "2.25rem",
+    "--wp--preset--spacing--70": "3.38rem",
+    "--wp--preset--spacing--80": "5.06rem",
+    "--wp--preset--dimension--25": "25%",
+    "--wp--preset--dimension--50": "50%",
+    "--wp--preset--dimension--75": "75%",
+    "--wp--preset--dimension--100": "100%",
+    "--col-width": "1fr",
+    "--gap": "0px",
+    "--container": "hover {\r\n    cursor: pointer",
+    "--hidden-on-empty": "empty{display:none"
+  },
+  "navLabels": [
+    [
+      "Home",
+      40
+    ],
+    [
+      "About",
+      40
+    ],
+    [
+      "Safety",
+      40
+    ],
+    [
+      "Services",
+      40
+    ],
+    [
+      "Projects",
+      40
+    ],
+    [
+      "Careers",
+      40
+    ],
+    [
+      "News",
+      40
+    ],
+    [
+      "Contact",
+      40
+    ],
+    [
+      "THANK YOU! Merry Christmas to all!",
+      2
+    ],
+    [
+      "Donate For Christmas to Safe Horizons!",
+      2
+    ],
+    [
+      "Now Located On Pamar Court!!",
+      1
+    ],
+    [
+      "Pamar Enterprises Inc. Launches New Site!",
+      1
+    ]
+  ],
+  "buttonLabels": [],
+  "logoCandidates": [
+    {
+      "file": "assets/logo-93c3ce-logo-1.png",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/logo-1.png",
+      "type": "image/png",
+      "bytes": 8470,
+      "logoCandidate": true,
+      "from": "og:image"
+    },
+    {
+      "file": "assets/logo-b0ea44-logo-2.png",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/04/logo-2.png",
+      "type": "image/png",
+      "bytes": 22179,
+      "logoCandidate": true,
+      "from": "img",
+      "alt": "Pamar Enterprises Inc.",
+      "class": "custom-logo",
+      "page": "/essential/"
+    },
+    {
+      "file": "assets/logo-815461-footer-logo-2-300x98.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/footer-logo-2-300x98.jpg",
+      "type": "image/jpeg",
+      "bytes": 6130,
+      "logoCandidate": true,
+      "from": "img",
+      "alt": "",
+      "class": "alignnone size-medium wp-image-74",
+      "page": "/news/pamar-enterprises-inc-launches-new-site"
+    },
+    {
+      "file": "assets/logo-b0962b-footer-logo-2.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/footer-logo-2.jpg",
+      "type": "image/jpeg",
+      "bytes": 26379,
+      "logoCandidate": true,
+      "from": "img",
+      "alt": "",
+      "class": "alignnone size-medium wp-image-74",
+      "page": "/news/pamar-enterprises-inc-launches-new-site"
+    },
+    {
+      "file": "assets/logo-388aa9-ABC_Logo.png",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/ABC_Logo.png",
+      "type": "image/png",
+      "bytes": 15114,
+      "logoCandidate": true,
+      "from": "img",
+      "alt": "ABC Logo",
+      "class": "aligncenter wp-image-91",
+      "page": "/about/"
+    }
+  ],
+  "assets": [
+    {
+      "file": "assets/logo-93c3ce-logo-1.png",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/logo-1.png",
+      "type": "image/png",
+      "bytes": 8470,
+      "logoCandidate": true,
+      "from": "og:image"
+    },
+    {
+      "file": "assets/logo-b0ea44-logo-2.png",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/04/logo-2.png",
+      "type": "image/png",
+      "bytes": 22179,
+      "logoCandidate": true,
+      "from": "img",
+      "alt": "Pamar Enterprises Inc.",
+      "class": "custom-logo",
+      "page": "/essential/"
+    },
+    {
+      "file": "assets/logo-815461-footer-logo-2-300x98.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/footer-logo-2-300x98.jpg",
+      "type": "image/jpeg",
+      "bytes": 6130,
+      "logoCandidate": true,
+      "from": "img",
+      "alt": "",
+      "class": "alignnone size-medium wp-image-74",
+      "page": "/news/pamar-enterprises-inc-launches-new-site"
+    },
+    {
+      "file": "assets/logo-b0962b-footer-logo-2.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/footer-logo-2.jpg",
+      "type": "image/jpeg",
+      "bytes": 26379,
+      "logoCandidate": true,
+      "from": "img",
+      "alt": "",
+      "class": "alignnone size-medium wp-image-74",
+      "page": "/news/pamar-enterprises-inc-launches-new-site"
+    },
+    {
+      "file": "assets/logo-388aa9-ABC_Logo.png",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/ABC_Logo.png",
+      "type": "image/png",
+      "bytes": 15114,
+      "logoCandidate": true,
+      "from": "img",
+      "alt": "ABC Logo",
+      "class": "aligncenter wp-image-91",
+      "page": "/about/"
+    },
+    {
+      "file": "assets/901340-favicon.png",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/05/favicon.png",
+      "type": "image/png",
+      "bytes": 7127,
+      "logoCandidate": false,
+      "from": "msapplication-TileImage"
+    },
+    {
+      "file": "assets/a8acb6-image004.png",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/image004.png",
+      "type": "image/png",
+      "bytes": 324234,
+      "logoCandidate": false,
+      "from": "og:image"
+    },
+    {
+      "file": "assets/0609d2-excavator-bg-compressor-e1495200795519.jpeg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/excavator-bg-compressor-e1495200795519.jpeg",
+      "type": "image/jpeg",
+      "bytes": 379270,
+      "logoCandidate": false,
+      "from": "og:image"
+    },
+    {
+      "file": "assets/29ef64-fontawesome-webfont.svg",
+      "href": "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/fonts/fontawesome-webfont.svg?v=4.6.2#fontawesomeregular",
+      "type": "image/svg+xml",
+      "bytes": 390452,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/2b299f-alert.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/vc/alert.png",
+      "type": "image/png",
+      "bytes": 302,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/ceb747-info.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/vc/info.png",
+      "type": "image/png",
+      "bytes": 323,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/d5493f-tick.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/vc/tick.png",
+      "type": "image/png",
+      "bytes": 244,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/dc9949-exclamation.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/vc/exclamation.png",
+      "type": "image/png",
+      "bytes": 495,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/83524f-address-book.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/address-book.png",
+      "type": "image/png",
+      "bytes": 712,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/3ea206-alarm-clock.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/alarm-clock.png",
+      "type": "image/png",
+      "bytes": 841,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/390eb9-anchor.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/anchor.png",
+      "type": "image/png",
+      "bytes": 694,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/061356-application-image.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/application-image.png",
+      "type": "image/png",
+      "bytes": 544,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/e9335e-arrow.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/arrow.png",
+      "type": "image/png",
+      "bytes": 590,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/4ee284-asterisk.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/asterisk.png",
+      "type": "image/png",
+      "bytes": 682,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/c401b4-auction-hammer.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/auction-hammer.png",
+      "type": "image/png",
+      "bytes": 705,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/4c92e6-balloon.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/balloon.png",
+      "type": "image/png",
+      "bytes": 674,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/c66313-balloon-buzz.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/balloon-buzz.png",
+      "type": "image/png",
+      "bytes": 717,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/1cdd0e-balloon-facebook.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/balloon-facebook.png",
+      "type": "image/png",
+      "bytes": 691,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/1b1f8b-balloon-twitter.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/balloon-twitter.png",
+      "type": "image/png",
+      "bytes": 700,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/523a40-battery-full.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/battery-full.png",
+      "type": "image/png",
+      "bytes": 648,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/d30547-binocular.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/binocular.png",
+      "type": "image/png",
+      "bytes": 621,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/51caa6-blue-document-excel.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/blue-document-excel.png",
+      "type": "image/png",
+      "bytes": 688,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/b7d928-blue-document-image.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/blue-document-image.png",
+      "type": "image/png",
+      "bytes": 700,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/f45031-blue-document-music.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/blue-document-music.png",
+      "type": "image/png",
+      "bytes": 647,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/fef578-blue-document-office.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/blue-document-office.png",
+      "type": "image/png",
+      "bytes": 763,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/fa6a2d-blue-document-pdf.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/blue-document-pdf.png",
+      "type": "image/png",
+      "bytes": 690,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/e3baa6-blue-document-powerpoint.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/blue-document-powerpoint.png",
+      "type": "image/png",
+      "bytes": 709,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/50f401-blue-document-word.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/blue-document-word.png",
+      "type": "image/png",
+      "bytes": 691,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/219c97-bookmark.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/bookmark.png",
+      "type": "image/png",
+      "bytes": 635,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/1cf1ec-camcorder.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/camcorder.png",
+      "type": "image/png",
+      "bytes": 590,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/e6dc48-camera.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/camera.png",
+      "type": "image/png",
+      "bytes": 635,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/7750fc-chart.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/chart.png",
+      "type": "image/png",
+      "bytes": 659,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/000ecc-chart-pie.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/chart-pie.png",
+      "type": "image/png",
+      "bytes": 1686,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/84f043-clock.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/clock.png",
+      "type": "image/png",
+      "bytes": 706,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/bd801e-control.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/control.png",
+      "type": "image/png",
+      "bytes": 470,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/6cc055-fire.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/fire.png",
+      "type": "image/png",
+      "bytes": 606,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/0c14a9-heart.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/heart.png",
+      "type": "image/png",
+      "bytes": 792,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/cc6ca9-mail.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/mail.png",
+      "type": "image/png",
+      "bytes": 505,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/469095-plus-shield.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/plus-shield.png",
+      "type": "image/png",
+      "bytes": 756,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/3757ee-video.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/icons/video.png",
+      "type": "image/png",
+      "bytes": 657,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/34fcd4-vcpb-plugin-icons.svg",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/fonts/vc_icons/fonts/vcpb-plugin-icons.svg?30guqj#vcpb-plugin-icons",
+      "type": "image/svg+xml",
+      "bytes": 73801,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/2a129f-toggle_open.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/toggle_open.png",
+      "type": "image/png",
+      "bytes": 223,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/9d716d-toggle_close.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/toggle_close.png",
+      "type": "image/png",
+      "bytes": 168,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/023250-flickr.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/flickr.png",
+      "type": "image/png",
+      "bytes": 198,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/52baa9-vc_grid_v1.svg",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/fonts/vc_grid/vc_grid_v1.svg?-9hbgac#vc_grid_v1",
+      "type": "image/svg+xml",
+      "bytes": 13215,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/ce2ec6-spinner.gif",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/images/spinner.gif",
+      "type": "image/gif",
+      "bytes": 673,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/429900-remove.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/js_composer/assets/vc/remove.png",
+      "type": "image/png",
+      "bytes": 265,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/a02bc2-project-bg.png",
+      "href": "https://www.pamarenterprises.com/wp-content/themes/alpha-child/images/project-bg.png",
+      "type": "image/png",
+      "bytes": 2430,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/7d6696-ui-icons_444444_256x240.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/simple-job-board/public/images/ui-icons_444444_256x240.png",
+      "type": "image/png",
+      "bytes": 3266,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/0d745f-ui-icons_555555_256x240.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/simple-job-board/public/images/ui-icons_555555_256x240.png",
+      "type": "image/png",
+      "bytes": 3274,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/6ee02e-flags.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/simple-job-board/public/images/flags.png",
+      "type": "image/png",
+      "bytes": 70857,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/85a6af-flags_2x.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/simple-job-board/public/images/flags@2x.png",
+      "type": "image/png",
+      "bytes": 174369,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/2775b9-select-arrow.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/simple-job-board/public/images/select-arrow.png",
+      "type": "image/png",
+      "bytes": 14532,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/0f93fb-gf-creditcards.svg",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/gravityforms/images/gf-creditcards.svg",
+      "type": "image/svg+xml",
+      "bytes": 12707,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/4b79cb-gf-creditcards-check.svg",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/gravityforms/images/gf-creditcards-check.svg",
+      "type": "image/svg+xml",
+      "bytes": 281,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/8fcc0a-chosen-sprite.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/gravityforms/legacy/css/chosen-sprite.png",
+      "type": "image/png",
+      "bytes": 538,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/298097-chosen-sprite_2x.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/gravityforms/legacy/css/chosen-sprite@2x.png",
+      "type": "image/png",
+      "bytes": 738,
+      "logoCandidate": false,
+      "from": "css"
+    },
+    {
+      "file": "assets/0e38f6-header-phone.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/themes/alpha-child/images/header-phone.jpg",
+      "type": "image/jpeg",
+      "bytes": 1894,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "Pamar Phone (586) 749-8593",
+      "class": "",
+      "page": "/essential/"
+    },
+    {
+      "file": "assets/03f7d5-header-location.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/themes/alpha-child/images/header-location.jpg",
+      "type": "image/jpeg",
+      "bytes": 2048,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "Pamar Address 31604 Pamar Court, New Haven, MI 48048",
+      "class": "",
+      "page": "/essential/"
+    },
+    {
+      "file": "assets/3fdea1-footer-location-1.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/footer-location-1.jpg",
+      "type": "image/jpeg",
+      "bytes": 4367,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "",
+      "class": "alignnone wp-image-62 size-full",
+      "page": "/news/pamar-enterprises-inc-launches-new-site"
+    },
+    {
+      "file": "assets/dd40d1-footer-phone-1.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/footer-phone-1.jpg",
+      "type": "image/jpeg",
+      "bytes": 4275,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "",
+      "class": "alignnone wp-image-63 size-full",
+      "page": "/news/pamar-enterprises-inc-launches-new-site"
+    },
+    {
+      "file": "assets/033ed7-about-pamar-3.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/about-pamar-3.jpg",
+      "type": "image/jpeg",
+      "bytes": 197881,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "Pamar Enterprises Inc. Worksite 3",
+      "class": "vc_single_image-img attachment-full",
+      "page": "/about/"
+    },
+    {
+      "file": "assets/b21cc0-about-pamar-2.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/about-pamar-2.jpg",
+      "type": "image/jpeg",
+      "bytes": 276292,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "Pamar Enterprises Inc. Worksite 2",
+      "class": "vc_single_image-img attachment-full",
+      "page": "/about/"
+    },
+    {
+      "file": "assets/8430ea-about-pamar-1.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/about-pamar-1.jpg",
+      "type": "image/jpeg",
+      "bytes": 231902,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "Pamar Enterprises Inc. Worksite 1",
+      "class": "vc_single_image-img attachment-full",
+      "page": "/about/"
+    },
+    {
+      "file": "assets/107d19-project-budget-design-300x300.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/04/project-budget-design-300x300.jpg",
+      "type": "image/jpeg",
+      "bytes": 19003,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "Pamar Enterprises Inc. Worksite 4",
+      "class": "vc_single_image-img ",
+      "page": "/services/"
+    },
+    {
+      "file": "assets/cd7a35-mass-grading-300x300.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/04/mass-grading-300x300.jpg",
+      "type": "image/jpeg",
+      "bytes": 18393,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "Pamar Enterprises Inc. Worksite 5",
+      "class": "vc_single_image-img ",
+      "page": "/services/"
+    },
+    {
+      "file": "assets/103d17-sanitary-sewer-300x300.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/04/sanitary-sewer-300x300.jpg",
+      "type": "image/jpeg",
+      "bytes": 20242,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "Pamar Enterprises Inc. Worksite 6",
+      "class": "vc_single_image-img ",
+      "page": "/services/"
+    },
+    {
+      "file": "assets/499cde-infrastructure-300x300.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/04/infrastructure-300x300.jpg",
+      "type": "image/jpeg",
+      "bytes": 25127,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "Pamar Enterprises Inc. Worksite 7",
+      "class": "vc_single_image-img ",
+      "page": "/services/"
+    },
+    {
+      "file": "assets/003e37-maintenance-emergency-300x300.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/04/maintenance-emergency-300x300.jpg",
+      "type": "image/jpeg",
+      "bytes": 28756,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "Pamar Enterprises Inc. Worksite 8",
+      "class": "vc_single_image-img ",
+      "page": "/services/"
+    },
+    {
+      "file": "assets/b86a0c-specialty-work-300x300.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/04/specialty-work-300x300.jpg",
+      "type": "image/jpeg",
+      "bytes": 19750,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "Pamar Enterprises Inc. Worksite 9",
+      "class": "vc_single_image-img ",
+      "page": "/services/"
+    },
+    {
+      "file": "assets/d1ba68-aggregate-sand-gravel-sales-300x300.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/04/aggregate-sand-gravel-sales-300x300.jpg",
+      "type": "image/jpeg",
+      "bytes": 17969,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "Pamar Enterprises Inc. Worksite 10",
+      "class": "vc_single_image-img ",
+      "page": "/services/"
+    },
+    {
+      "file": "assets/23266d-topsoil-screening-sales-1-300x300.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/04/topsoil-screening-sales-1-300x300.jpg",
+      "type": "image/jpeg",
+      "bytes": 31135,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "Pamar Enterprises Inc. Worksite 12",
+      "class": "vc_single_image-img ",
+      "page": "/services/"
+    },
+    {
+      "file": "assets/dda22c-not-found.png",
+      "href": "https://www.pamarenterprises.com/wp-content/plugins/simple-job-board/public/images/not-found.png",
+      "type": "image/png",
+      "bytes": 86732,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "No jobs found",
+      "class": "",
+      "page": "/careers/"
+    },
+    {
+      "file": "assets/a1c55b-Safe-Horizons-Donations-300x400.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/12/Safe-Horizons-Donations-300x400.jpg",
+      "type": "image/jpeg",
+      "bytes": 29789,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "",
+      "class": " wp-image-298 alignleft",
+      "page": "/news/thank-you-merry-christmas-to-all"
+    },
+    {
+      "file": "assets/fae09d-Safe-Horizons-Donations.jpg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/12/Safe-Horizons-Donations.jpg",
+      "type": "image/jpeg",
+      "bytes": 727697,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "",
+      "class": " wp-image-298 alignleft",
+      "page": "/news/thank-you-merry-christmas-to-all"
+    },
+    {
+      "file": "assets/baf741-excavator-bg-compressor-1024x681.jpeg",
+      "href": "https://www.pamarenterprises.com/wp-content/uploads/2017/01/excavator-bg-compressor-1024x681.jpeg",
+      "type": "image/jpeg",
+      "bytes": 128761,
+      "logoCandidate": false,
+      "from": "img",
+      "alt": "",
+      "class": "attachment-large size-large wp-post-image",
+      "page": "/news/pamar-enterprises-inc-launches-new-site"
+    }
+  ],
+  "screenshots": [
+    "screenshots/home-desktop.png",
+    "screenshots/about-desktop.png",
+    "screenshots/safety-desktop.png",
+    "screenshots/services-desktop.png",
+    "screenshots/projects-desktop.png",
+    "screenshots/careers-desktop.png",
+    "screenshots/home-mobile.png",
+    "screenshots/about-mobile.png",
+    "screenshots/safety-mobile.png",
+    "screenshots/services-mobile.png",
+    "screenshots/projects-mobile.png",
+    "screenshots/careers-mobile.png"
+  ]
+}

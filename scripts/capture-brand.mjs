@@ -138,7 +138,9 @@ async function screenshots(urls) {
       [1440, "desktop"],
       [390, "mobile"],
     ]) {
-      const page = await browser.newPage({ viewport: { width, height: 900 }, userAgent: UA });
+      // No custom user agent here: the live site answers a spoofed UA in headless Chromium with
+      // a "Checking your browser" interstitial instead of the page.
+      const page = await browser.newPage({ viewport: { width, height: 900 } });
       for (const u of urls) {
         try {
           await page.goto(u, { waitUntil: "networkidle", timeout: 45000 });

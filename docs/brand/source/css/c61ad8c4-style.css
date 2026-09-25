@@ -1,0 +1,875 @@
+/* https://www.pamarenterprises.com/wp-content/themes/alpha-child/style.css */
+/*
+Theme Name: Alpha Child
+Description: Alpha Child Theme
+Author: Web Ascender
+Template: alpha
+*/
+/*--------------------------------------------------------------
+HEADER
+--------------------------------------------------------------*/
+.header-menu
+{
+	background:#f7c92d;
+	height:84px;
+	width:100%;
+}
+.pull-right.contact {
+	background:#0094a5;
+	color:#fff;
+	height:43px;
+    text-align: right;
+    width: 100%;
+}
+.site-header .site-branding {
+    display: block;
+    float: left;
+    vertical-align: middle;
+    width: 26%;
+}
+#site-navigation .pull-right
+{
+	padding:0 5% 0 0;
+}
+#site-navigation {
+    display: block;
+    float: left;
+    height: 97px;
+    vertical-align: middle;
+    width: 74%;
+}
+.site-header .site-branding img {
+    float: right;
+    height: auto !important;
+    margin: 0 -32px 0 0;
+    position: relative;
+	max-width:100%;
+    z-index: 1000;
+}
+.location {
+    border-right: 1px solid #00a3b6;
+    border-left: 1px solid #00a3b6;
+    padding: 6px 20px;
+    height: 43px;
+    float: right;
+    margin: 0px;
+}
+.location  img
+{
+	float:left;
+	margin:0px 8px 0 0;
+}
+.phone {
+    border-right: 1px solid #00a3b6;
+    padding: 0 20px; padding: 6px 20px;
+    height: 43px;
+    float: right;
+    margin: 0px;
+}
+.phone img
+{
+	float:left;
+	margin:0px 8px 0 0;
+}
+/*--------------------------------------------------------------
+HOME
+--------------------------------------------------------------*/
+.home-banner
+{
+	padding:0 0 40px;
+}
+.home h1
+{
+	border-top:solid 3px #f7c92d;
+	border-bottom:solid 3px #f7c92d;
+	color:#fff;
+	font-size:77px;
+	font-weight:300;
+	padding: 30px 0;
+	margin: 30px 0;
+	text-transform:uppercase;
+	width:400px;
+}
+.home h1 .bold
+{
+	color:#f7c92d;
+	font-size:88px;
+	font-weight:700;
+}
+.home-banner p
+{
+	color:#fff;
+	font-size:20px;
+	width:600px;
+}
+.hiring h2
+{
+	color:#fff;
+	font-size:20px;
+	text-transform:uppercase;
+}
+.hiring h3
+{
+	color:#fff;
+	font-weight:300;
+	margin:30px 0 10px;
+}
+.hiring p
+{
+	color:#fff;
+}
+.hiring hr
+{
+	border-bottom:none;
+	border-left:none;
+	border-right:none;
+	border-top:solid 2px #0094a5;
+	width:100px
+}
+.what-we-do h2
+{
+	color:#0094a5;
+	margin:20px 0;
+	text-transform:uppercase;	
+}
+.what-we-do-p
+{
+	background:rgba(247,201,45,0.8);
+	color:#fff;
+	outline: 1px solid #fff;
+	outline-offset: -10px;
+	text-transform: uppercase;
+	font-weight: 700;
+	margin:0 0 23px;
+	text-align: center;
+	padding: 23px 70px;
+	line-height: 100%;
+	width: 100%;
+	float:left;
+	display:table-cell;
+}
+.what-we-do-contact
+{	background:rgba(0,148,165,0.8);
+	color:#fff;
+	outline: 1px solid #fff;
+	outline-offset: -10px;
+	text-transform: uppercase;
+	font-weight: 700;
+	text-align: center;
+	
+	line-height: 100%;
+	width: 100%;
+	float:left;
+	display:table-cell;
+}
+.what-we-do-contact a
+{
+	color: #fff;
+	width: 100%;
+	display: inline-block;
+	padding: 23px 40px;
+}
+.what-we-do-contact:hover
+{
+	background:#0094a5;
+}
+.featured-projects h2
+{
+	color:#000;
+	font-weight:300;
+	text-transform:uppercase;
+}
+.contact-cta 
+{
+	display:table;
+	margin:20px auto 60px;
+}
+
+.contact-cta p.contact-text
+{
+    background: #000;
+	color:#fff;
+    display: table-cell;
+	font-size:20px;
+    height: 80px;
+	padding: 0 30px;
+    vertical-align: middle;
+}
+.contact-cta p.contact-btn {
+    background: #f7c92d;
+    display: table-cell;
+    height: 80px;
+    vertical-align: middle;
+}
+.contact-cta p.contact-btn a
+{
+	background:#f7c92d;
+	color: #000;
+	display:table-cell;
+	height: 80px;
+	padding: 0 30px;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 2px;
+	vertical-align:middle;
+}
+.contact-cta p.contact-btn a:hover
+{
+	background:#e7b304;
+}
+.footer-logo p
+{
+	color:#0094a5;
+}
+.footer-location p
+{
+	color:#0094a5;
+	font-size:24px;
+	float:left;
+}
+.footer-phone p
+{
+	color:#0094a5;
+	font-size:24px;
+	float:left;
+}
+.footer-location img, .footer-phone img {
+    float: left;
+    margin: -10px 20px 0 0;
+}
+.site-footer
+{
+	background:#0094a5;
+	color:#fff;
+}
+.footer-copyright
+{
+	color:#fff;
+}
+.footer-copyright a
+{
+	color:#a9f6ff;
+}
+.site-footer ul#menu-main
+{
+	margin:20px 0 0;
+	padding:0;
+}
+.site-footer ul#menu-main li
+{
+	display:inline-block;
+	list-style-type:none;
+}
+.site-footer ul#menu-main li a
+{
+	color:#fff;
+	font-size:18px;
+	padding:10px;
+	text-transform:uppercase;
+}
+.site-footer ul#menu-main li.current_page_item a, .site-footer ul#menu-main li a:hover
+{
+	color:#a9f6ff;
+}
+.site-footer a {
+    color: #a9f6ff;
+}
+/*
+
+ABOUT
+
+*/
+.light-text
+{
+	color:#fff;
+}
+.light-text hr
+{
+	border-bottom:none;
+	border-right:none;
+	border-left:none;
+	border-top:solid 1px #fff;
+	opacity:.5;
+	margin:30px 0;
+}
+p.large
+{
+	font-size:24px;
+}
+.affiliate h2
+{
+	color:#333;
+	font-size:20px;
+	text-transform:uppercase;
+}
+.affiliate h3
+{
+	font-weight:normal;
+}
+.affiliate hr
+{
+	border-bottom:none;
+	border-left:none;
+	border-right:none;
+	border-top:solid 2px #0094a5;
+	width:100px
+}
+.company-history p
+{
+	font-size:22px;
+	text-align:left;
+}
+.company-history h2
+{
+	color:#fff;
+	font-size:28px;
+	text-transform:uppercase;
+}
+.company-history 
+{
+	text-align:center;
+}
+.company-history hr
+{
+	border-bottom:none;
+	border-left:none;
+	border-right:none;
+	border-top:solid 2px #fff;
+	width:100px;
+	margin:0;
+	text-align:center;
+	display:inline-block;
+}
+.top-banner h1, h1
+{
+	text-transform:uppercase;
+}
+.top-banner h2
+{
+	text-transform:uppercase;
+}
+.services-text h2
+{
+	font-size:28px;
+	text-transform:uppercase;
+}
+.services-text hr
+{
+	border-bottom:none;
+	border-left:none;
+	border-right:none;
+	border-top:solid 2px #0094a5;
+	display: inline-block;
+    margin: 0 0 18px;
+	width:100px;
+}
+.gform_wrapper .gform_footer input[type="submit"]
+{
+	background:#0094a5;
+}
+.project-title {
+    background: #000 none repeat scroll 0 0;
+    padding: 100px 15px 60px;
+}
+.project-title h1 .small
+{
+	color:#f7c92d;
+	font-size:20px;
+	font-weight:700;
+	letter-spacing: 4px;
+	text-transform:uppercase;
+}
+.project-title h1
+{
+	color:#fff;
+	font-weight:300;
+	text-transform:uppercase;
+}
+#project-primary
+{
+	padding:0 15px;
+}
+.project-images
+{
+	text-align:center;
+	margin:0 0 50px;
+}
+.project-image {
+    display: inline-block;
+    max-width: 380px;
+}
+.job-name {
+	border-top:solid 1px #ccc;
+	border-bottom:solid 1px #ccc;
+	font-size:30px;
+    margin: 60px 0 0;
+	padding:20px 0;
+}
+.owner {
+	border-bottom:solid 1px #ccc;
+	font-size:30px;
+	padding:20px 0;
+}
+.owner {
+	border-bottom:solid 1px #ccc;
+	font-size:30px;
+	padding:20px 0;
+}
+.engineer
+{
+	border-bottom:solid 1px #ccc;
+	font-size:30px;
+	padding:20px 0;
+}
+.est_completion_date{
+	border-bottom:solid 1px #ccc;
+	font-size:30px;
+	padding:20px 0;
+}
+.contract_amount{
+	border-bottom:solid 1px #ccc;
+	font-size:30px;
+	padding:20px 0;
+	margin:0 0 60px;
+}
+.project-content .small
+{
+	color:#999;
+	font-size:20px;
+	letter-spacing:2px;
+	text-transform:uppercase;
+}
+.project-grid
+{
+	background: #d89e00 !important;
+	border:1px solid #f7c92d;
+	padding:40px 0 0;
+}
+.project-grid .vc_gitem-zone-mini
+{
+	background:url(images/project-bg.png) no-repeat top center;
+	padding:25px 0 0;
+}
+.project-grid .vc_gitem-zone-mini .vc_gitem_row
+{
+	background:#fff;
+}
+.vc_btn3.vc_btn3-color-warning, .vc_btn3.vc_btn3-color-warning.vc_btn3-style-flat
+{
+	background:#d89e00 !important;
+}
+.project-grid h4
+{
+	border-bottom: solid 1px #ccc;
+	font-size: 24px;
+    font-weight: normal;
+    line-height: 130%;
+	margin:0 0 10px;
+	padding:0 0 20px;
+	text-align:center;
+}
+.vc_gitem-acf
+{
+	border-bottom:solid 1px #ccc;
+	padding:5px 0;
+	font-size:15px;
+}
+.vc_gitem-acf-label 
+{
+	font-weight:bold;
+}
+.news-posts-content {
+    float: left;
+	margin:0 2% 0 0;
+    width: 70%;
+}
+.news-sidebar
+{
+	float:left;
+	width:28%;
+}
+#secondary
+{
+	width:100%;
+}
+#main-news article {
+    padding: 80px 0 30px !important;
+}
+.single .post-image {
+    text-align: left;
+	margin:20px 0 30px;
+}
+.search-submit
+{
+	background:#d89e00;
+	padding:11px 20px;
+}
+#main-news .entry-header {
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 30px;
+    padding: 0 0 30px;
+}
+#main-news .entry-title
+{
+	font-weight:300;
+}
+.news-sidebar h3
+{
+	font-weight:300;
+	margin:0 0 10px;
+}
+.news-sidebar ul li
+{
+	margin:0;
+}
+.news-sidebar .widget {
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 1.5em;
+    padding: 0 0 20px;
+}
+.vc_gitem-zone-mini h3
+{
+	font-weight:300;
+	font-size:30px;
+	margin:0;
+}
+.grid-date
+{
+	color:#999;
+	text-transform:uppercase;
+}
+.sjb-page
+{
+	margin:0 auto;
+	max-width:1200px;
+}
+.sjb-page .list-data
+{
+	padding:15px 20px;
+}
+.sjb-page .list-data .job-info h4 a
+{
+	color:#0094a5 !important; 
+	font-size:24px;
+}
+.sjb-page .list-data .job-info h4 a:hover
+{
+	color:#000 !important;
+}
+.sjb-page .list-data .job-date
+{
+	color:#999 !important;
+	margin:5px 0 0;
+}
+.sjb-page .sjb-detail .list-data .job-detail h3 {
+    border-bottom: 1px solid #ccc;
+    font-size: 44px;
+    font-weight: 500;
+    padding: 0 0 30px;
+}
+.sjb-detail .col-md-2 {
+    padding: 0;
+    width: auto;
+}
+.sjb-detail .col-md-5 {
+    padding: 0;
+    width: auto;
+}
+.sjb-page .list-data .job-description-new {
+    float: left;
+    margin: 50px 0 20px;
+    width: 100%;
+}
+.sjb-page p {
+    font-size: 20px;
+    margin: 0 0 10px;
+}
+.sjb-page .sjb-detail .jobpost-form {
+    border: 1px solid #ccc;
+    float: left;
+    margin: 0 0 100px;
+    padding: 30px;
+    width: 100%;
+}
+.sjb-page .sjb-detail .jobpost-form h3
+{
+	border-bottom:solid 1px #ccc;
+	font-size:30px;
+	padding:0 0 20px;
+}
+.sjb-content
+{
+	padding:0 15px;
+}
+#main-news
+{
+	padding:0 15px;
+}
+/*--------------------------------------------------------------
+PAGE
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+SITE NAVIGATION
+--------------------------------------------------------------*/
+.main-navigation ul
+{
+	text-align:right;
+}
+.main-navigation ul li a {
+    color: #0a2742;
+    display: table-cell;
+	font-size:14px;
+    height: 84px;
+	padding:8px 30px !important;
+    vertical-align: middle;
+}
+.main-navigation ul.menu > li.current-menu-item > a, .main-navigation ul.menu > li a:hover {
+	background:#e7b304;
+    color: #fff;
+}
+
+.post-navigation
+{
+	display:none;
+}
+#archive-primary
+{
+	padding:70px 0 0;
+}
+#archive-primary h1
+{
+	font-size:20px;
+	letter-spacing:2px;
+	border-bottom:solid 1px #ccc;
+	padding:0 0 10px;
+}
+#archive-primary article
+{
+	padding:0;
+}
+#search-primary
+{
+	padding:70px 0;
+}
+/*--------------------------------------------------------------
+MOBILE MENU
+--------------------------------------------------------------*/
+.slideout-menu
+{
+	background:#0094a5;
+}
+#mobile-menu ul li a
+{
+	border-top: none;
+	border-bottom: 1px solid #00b2c6;
+}
+#mobile-menu ul li.current-menu-item a
+{
+	color:#a7f6ff;
+}
+/*--------------------------------------------------------------
+BLOG
+--------------------------------------------------------------*/
+
+@media (max-width: 1450px){
+	.site-header .site-branding
+	{
+		height:127px;
+		width:32%;
+	}
+	#site-navigation
+	{
+		width:68%;
+	}
+    .main-navigation ul li a
+    {
+	    padding:8px 17px !important;
+    }
+}
+@media (max-width: 1200px)
+{
+	.main-navigation ul li a {
+		padding: 10px 11px !important;
+		height: 72px;
+		font-size: 13px;
+	}
+	.header-menu
+	{
+		height: 72px !important;
+	}
+	#site-navigation .pull-right
+	{
+		height:38px;
+	}
+	.site-header .site-branding {
+		height: 110px;
+		width: 32%;
+	}
+	.site-header .site-branding img
+	{
+		height: 110px !important;
+		width:auto;
+	}
+	.footer-new-logo .vc_col-sm-3
+	{
+		width:100%;
+		text-align:center;	
+	}
+	.footer-new-logo
+	{
+		padding:0 0 20px !important;
+	}
+	.footer-new-logo  .vc_col-sm-6
+	{
+		width:100%;
+	}
+	.footer-new-logo .wpb_text_column
+	{
+		margin:0 !important;
+	}
+	.footer-location img, .footer-phone img, .footer-location p, .footer-phone p
+	{
+		float:none;
+		text-align:center;
+	}
+@media (max-width: 1024px)
+{
+	.header-menu
+	{
+		display:none;
+	}
+	#site-navigation {
+		width: 100%;
+		height: auto;
+		text-align: center;
+	}
+	.site-header .site-branding img
+	{
+		float:none;
+	}
+	.site-header .site-branding
+	{
+		width:100%;
+	}
+	.phone, .location {
+		float: none;
+		display: inline-block;
+		height: auto;
+		line-height:170%;
+		border: none;
+	}
+	#site-navigation .pull-right {
+		height: auto;
+		padding: 2px 0;
+		text-align: center;
+	}
+	.home-banner {
+		padding: 30px 0 20px;
+		text-align: center;
+		width: 100%;
+	}
+	.home h1
+	{
+		margin:30px auto;
+		width:80%;
+	}
+	.home-banner p {
+		width: 80%;
+		margin: 0 auto;
+	}
+	.what-we-do.wpb_column.vc_column_container.vc_col-sm-4 {
+		width: 100%;
+	}
+	.what-we-do-boxes.wpb_column.vc_column_container.vc_col-sm-4 {
+		width: 50%;
+	}
+	#main-news
+	{
+		padding:60px 15px 0;
+	}
+	.news-posts-content {
+		margin: 0;
+		width: 100%;
+	}
+	.news-sidebar
+	{
+		width:100%;
+	}
+}
+@media (max-width: 800px)
+{
+	.what-we-do-boxes.wpb_column.vc_column_container.vc_col-sm-4 {
+		width: 100%;
+	}
+	.project-grid .vc_gitem-zone-mini
+	{
+		padding: 21px 0 0;
+	}
+	.contact-cta p.contact-btn
+	{
+		display:table-row;
+		text-align:center;
+	}
+	.footer-location p, .footer-phone p
+	{
+		font-size:18px;
+		padding:0 20px;
+	}
+	.footer-location img, .footer-phone img
+	{
+		margin:0 5px 0 0;
+		width:20px;
+	}
+}
+@media (max-width: 600px)
+{
+	.phone, .location
+	{
+		font-size:12px;
+		font-weight:normal;
+		padding:0px 5px 4px;
+	}
+	#site-navigation .pull-right
+	{
+		padding: 2px 0 2px;
+	}
+	.phone img
+	{
+		margin:0 3px 0 0;
+		width:15px;
+	}
+	.location img
+	{
+		margin:0 3px 0 0;
+		width:10px;
+	}
+	.site-header .site-branding img {
+		float: none;
+		width: 260px;
+		height: auto !important;
+	}
+	.site-header .site-branding
+	{
+		height:auto;
+	}
+	.home h1 {
+		margin: 10px auto;
+		width: 101%;
+		font-size: 50px;
+	}
+	.home h1 .bold
+	{
+		font-size:58px;
+	}
+	.home-banner p
+	{
+		width:100%;
+	}
+	.contact-cta p.contact-text
+	{
+		font-size:18px;
+		padding:20px 30px;
+		text-align:center;
+	}
+}

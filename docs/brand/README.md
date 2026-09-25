@@ -22,6 +22,9 @@ npm run capture:brand
 # Optional: add screenshots (package.json is not changed)
 npm i --no-save playwright && npx playwright install chromium
 npm run capture:brand
+
+# Optional: rendered styles + hover/focus states (needs Playwright, see above)
+node scripts/capture-brand-styles.mjs
 ```
 
 Then commit `docs/brand/source/` and push. Captured files are excluded from lint and format checks.
