@@ -9,6 +9,8 @@ export const site = {
   description:
     "Pamar Enterprises is a construction contractor delivering infrastructure projects safely, on schedule, and built to last.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  /** Time zone for bid due dates and meeting times. PLACEHOLDER: confirm with client. */
+  timeZone: "America/New_York",
   contact: {
     phone: "(000) 000-0000",
     email: "info@pamarenterprises.com",
@@ -42,6 +44,7 @@ export const mainNav: NavItem[] = [
   { label: "About", href: "/about" },
   { label: "Safety", href: "/safety" },
   { label: "Careers", href: "/careers" },
+  { label: "Subcontractors", href: "/subcontractors" },
 ];
 
 /** Header call to action. */
