@@ -1,13 +1,16 @@
 /**
  * Global site configuration.
- * Contact details are PLACEHOLDERS until confirmed with the client (SUMMIT-228).
+ * Contact details come from the live site (docs/brand/source/copy.md); items marked PLACEHOLDER
+ * are still unconfirmed with the client.
  */
 export const site = {
   name: "Pamar Enterprises",
+  /** Registered name, for the copyright line, structured data, and bid documents. */
+  legalName: "Pamar Enterprises, Inc.",
   shortName: "Pamar",
-  tagline: "Building the infrastructure our communities run on.",
+  tagline: "Precision. Strength. Experts.",
   description:
-    "Pamar Enterprises is a construction contractor delivering infrastructure projects safely, on schedule, and built to last.",
+    "Pamar Enterprises, Inc. is a family-owned heavy civil and underground utility contractor in New Haven, Michigan, working with MDOT, municipalities, and private developers since 1976.",
   /**
    * Public origin for canonical URLs, the sitemap, and links in emails. Set NEXT_PUBLIC_SITE_URL
    * per environment; production builds fall back to the live domain rather than localhost.
@@ -17,17 +20,19 @@ export const site = {
     (process.env.NODE_ENV === "production"
       ? "https://www.pamarenterprises.com"
       : "http://localhost:3000"),
-  /** Time zone for bid due dates and meeting times. PLACEHOLDER: confirm with client. */
-  timeZone: "America/New_York",
+  /** Time zone for bid due dates and meeting times. */
+  timeZone: "America/Detroit",
   contact: {
-    phone: "(000) 000-0000",
+    phone: "(586) 749-8593",
+    /** PLACEHOLDER: the live site publishes no email address, only a contact form. */
     email: "info@pamarenterprises.com",
   },
   offices: [
     {
       name: "Main Office",
-      address: ["Street address", "City, ST 00000"],
-      phone: "(000) 000-0000",
+      address: ["31604 Pamar Court", "New Haven, MI 48048"],
+      phone: "(586) 749-8593",
+      /** PLACEHOLDER: hours are not published on the live site. */
       hours: "Monday–Friday, 7:00 a.m.–4:30 p.m.",
     },
   ],

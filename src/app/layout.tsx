@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/inter";
-import "@fontsource-variable/oswald";
+import "@fontsource-variable/montserrat";
+import "@fontsource-variable/open-sans";
 import "./globals.css";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { PreviewBanner } from "@/components/layout/preview-banner";
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0d1013",
+  themeColor: "#0094a5",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

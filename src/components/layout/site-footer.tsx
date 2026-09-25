@@ -6,7 +6,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-ink-950 text-ink-300">
+    <footer className="bg-teal-700 text-teal-100">
       <div className="container-page grid gap-10 py-14 md:grid-cols-3">
         <div className="space-y-4">
           <Logo inverse />
@@ -48,9 +48,9 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-ink-800">
-        <p className="container-page py-6 text-xs text-ink-400">
-          © {year} {site.name}. All rights reserved.
+      <div className="border-t border-teal-600">
+        <p className="container-page py-6 text-xs text-teal-100">
+          © {year} {site.legalName} All rights reserved.
         </p>
       </div>
     </footer>

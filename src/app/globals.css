@@ -1,38 +1,53 @@
 @import "tailwindcss";
 
 /*
- * Design tokens.
- * PLACEHOLDER palette and type until Pamar's brand assets are delivered (SUMMIT-228).
- * Swap values here; components only reference the token names.
+ * Design tokens, from Pamar's brand (docs/brand/brand-style-guide.html).
+ * Components only reference the token names.
  */
 @theme {
-  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Oswald Variable", "Arial Narrow", ui-sans-serif, sans-serif;
+  /* Open Sans carries all text on the live site; Montserrat is its nav and button label face. */
+  --font-sans: "Open Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat Variable", "Open Sans Variable", ui-sans-serif, sans-serif;
 
-  /* Charcoal / steel neutrals */
-  --color-ink-50: #f5f6f7;
-  --color-ink-100: #e7e9ec;
-  --color-ink-200: #cfd4da;
-  --color-ink-300: #aab2bc;
-  --color-ink-400: #7d8793;
-  --color-ink-500: #5c6570;
-  --color-ink-600: #454d57;
-  --color-ink-700: #333a42;
-  --color-ink-800: #22282e;
-  --color-ink-900: #161a1f;
-  --color-ink-950: #0d1013;
+  /* Neutral grays, as the site uses them: #404040 body text, #333 headings, #191919 dark sections. */
+  --color-ink-50: #f7f7f7;
+  --color-ink-100: #eeeeee;
+  --color-ink-200: #e0e0e0;
+  --color-ink-300: #cccccc;
+  --color-ink-400: #999999;
+  --color-ink-500: #767676;
+  --color-ink-600: #666666;
+  --color-ink-700: #404040;
+  --color-ink-800: #333333;
+  --color-ink-900: #262626;
+  --color-ink-950: #191919;
 
-  /* Safety amber accent. Use 400/500 as fills with dark text; 700 for text on light backgrounds. */
-  --color-brand-50: #fff8e6;
-  --color-brand-100: #ffecb8;
-  --color-brand-200: #ffdc80;
-  --color-brand-300: #ffcb47;
-  --color-brand-400: #fbb91c;
-  --color-brand-500: #f2a900;
-  --color-brand-600: #c98a00;
+  /* Pamar yellow (#f7c92d). 500 is the fill with dark text; 600 is the hover; 700 is text on light. */
+  --color-brand-50: #fff9e0;
+  --color-brand-100: #fff0b3;
+  --color-brand-200: #fce27a;
+  --color-brand-300: #f9d65a;
+  --color-brand-400: #f8cf42;
+  --color-brand-500: #f7c92d;
+  --color-brand-600: #e7b304;
   --color-brand-700: #9a6700;
   --color-brand-800: #6e4a00;
   --color-brand-900: #472f00;
+
+  /* Pamar teal (#0094a5): structure, links, footer, focus. 600+ meets AA for white or body text. */
+  --color-teal-50: #e6f5f7;
+  --color-teal-100: #c2e8ec;
+  --color-teal-200: #8fd6de;
+  --color-teal-300: #4dbfcb;
+  --color-teal-400: #00a4b0;
+  --color-teal-500: #0094a5;
+  --color-teal-600: #007a88;
+  --color-teal-700: #00626e;
+  --color-teal-800: #004a53;
+  --color-teal-900: #00333a;
+
+  /* Navy from the live navigation: text on yellow. */
+  --color-navy: #0a2742;
 }
 
 @layer base {
@@ -58,7 +73,7 @@
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-brand-500;
+    @apply outline-2 outline-offset-2 outline-teal-600;
   }
 }
 

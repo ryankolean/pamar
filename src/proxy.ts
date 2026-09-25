@@ -18,5 +18,5 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   // Static build assets don't need the check; the browser reuses the credentials anyway.
-  matcher: ["/((?!_next/static|_next/image|icon.svg).*)"],
+  matcher: ["/((?!_next/static|_next/image|icon\\.png).*)"],
 };
