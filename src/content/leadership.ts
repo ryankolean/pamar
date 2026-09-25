@@ -53,11 +53,8 @@ export const leadership: Leader[] = [
     bio: "With Pamar since 2009. Former Michigan State Representative (2003 to 2008) and a University of Michigan engineering graduate.",
     confidence: "verified",
   },
-  {
-    name: "Steve Brown",
-    role: "Vice President",
-    confidence: "single-source",
-  },
+  // Steve Brown, Vice President, appears only in the ZoomInfo directory. Add him back once
+  // Pamar confirms: { name: "Steve Brown", role: "Vice President", confidence: "single-source" }.
 ];
 
 export const founders = {
