@@ -1,0 +1,2696 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pamar Enterprises: Brand and Web Style Guide</title>
+    <meta
+      name="description"
+      content="Brand guide and web style guide for Pamar Enterprises, Inc., documented from the live site www.pamarenterprises.com."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Guide chrome. Brand values are applied inside the examples, not here. */
+      :root {
+        --teal: #0094a5;
+        --teal-bright: #00c1cf;
+        --teal-hover: #00a4b0;
+        --yellow: #f7c92d;
+        --yellow-dark: #e7b304;
+        --yellow-band: #d89e00;
+        --orange: #ff9900;
+        --navy: #0a2742;
+        --ink: #404040;
+        --ink-strong: #333333;
+        --near-black: #191919;
+        --rule: #cccccc;
+        --page: #ffffff;
+        --paper: #f7f7f7;
+        --footer-link-active: #a9f6ff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--ink);
+        background: var(--page);
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: var(--teal);
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.9em;
+        background: var(--paper);
+        padding: 0.1em 0.35em;
+        border-radius: 3px;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+      .masthead {
+        background: var(--near-black);
+        color: #fff;
+        padding: 40px 0 32px;
+        border-top: 6px solid var(--yellow);
+      }
+      .masthead h1 {
+        font-weight: 300;
+        text-transform: uppercase;
+        font-size: clamp(28px, 5vw, 46px);
+        line-height: 1.05;
+        margin: 0 0 12px;
+      }
+      .masthead h1 strong {
+        font-weight: 700;
+        color: var(--yellow);
+      }
+      .masthead p {
+        margin: 0;
+        max-width: 70ch;
+        color: #ddd;
+      }
+      .masthead code {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+      }
+      .icon-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        border: 1px solid #ccc;
+        padding: 12px;
+        background: #fff;
+      }
+      .icon-strip img {
+        height: 48px;
+        width: auto;
+        max-width: 100%;
+        border: 0;
+      }
+      .icon-strip img.chevron {
+        height: auto;
+        width: 160px;
+      }
+      .draft {
+        display: inline-block;
+        margin-bottom: 14px;
+        font-family: Montserrat, sans-serif;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background: var(--yellow);
+        color: #000;
+        padding: 4px 10px;
+      }
+      nav.toc {
+        background: var(--paper);
+        border-bottom: 1px solid var(--rule);
+        padding: 14px 0;
+      }
+      nav.toc ol {
+        margin: 0;
+        padding: 0 0 0 20px;
+        columns: 2;
+        column-gap: 32px;
+        font-size: 14px;
+      }
+      nav.toc li {
+        break-inside: avoid;
+      }
+      nav.toc a {
+        text-decoration: none;
+      }
+      nav.toc a:hover {
+        text-decoration: underline;
+      }
+      .part {
+        border-top: 4px solid var(--teal);
+        margin-top: 56px;
+        padding-top: 6px;
+      }
+      .part > .wrap > .kicker {
+        font-family: Montserrat, sans-serif;
+        font-size: 13px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin: 0;
+      }
+      section {
+        padding: 36px 0 8px;
+      }
+      h2 {
+        font-size: 26px;
+        line-height: 1.15;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--ink-strong);
+        margin: 0 0 6px;
+      }
+      h2 .num {
+        color: var(--teal);
+        margin-right: 8px;
+      }
+      h2::after {
+        content: "";
+        display: block;
+        width: 56px;
+        border-top: 2px solid var(--teal);
+        margin-top: 12px;
+      }
+      h3 {
+        font-size: 19px;
+        font-weight: 700;
+        margin: 28px 0 8px;
+        color: var(--ink-strong);
+      }
+      h4 {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 20px 0 6px;
+        color: var(--ink-strong);
+      }
+      p,
+      ul,
+      ol {
+        margin: 0 0 14px;
+      }
+      li {
+        margin-bottom: 4px;
+      }
+      blockquote {
+        margin: 12px 0 18px;
+        padding: 10px 18px;
+        border-left: 4px solid var(--yellow);
+        background: var(--paper);
+        font-size: 17px;
+      }
+      blockquote cite {
+        display: block;
+        font-size: 13px;
+        font-style: normal;
+        color: #666;
+        margin-top: 6px;
+      }
+      .note {
+        border-left: 4px solid var(--teal);
+        background: #eef8f9;
+        padding: 10px 16px;
+        margin: 14px 0 18px;
+        font-size: 15px;
+      }
+      .rec {
+        border-left: 4px solid var(--orange);
+        background: #fff6e8;
+        padding: 10px 16px;
+        margin: 14px 0 18px;
+        font-size: 15px;
+      }
+      .rec::before,
+      .missing::before {
+        display: block;
+        font-family: Montserrat, sans-serif;
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      .rec::before {
+        content: "Recommendation";
+        color: #a85f00;
+      }
+      .missing {
+        border-left: 4px solid #999;
+        background: var(--paper);
+        padding: 10px 16px;
+        margin: 14px 0 18px;
+        font-size: 15px;
+      }
+      .missing::before {
+        content: "Not found on current site";
+        color: #666;
+      }
+      .tablewrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 0 20px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 14px;
+        min-width: 560px;
+      }
+      th,
+      td {
+        text-align: left;
+        vertical-align: top;
+        padding: 8px 10px;
+        border-bottom: 1px solid var(--rule);
+      }
+      th {
+        background: var(--paper);
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      td.chip::before,
+      span.chip {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        vertical-align: -2px;
+        margin-right: 6px;
+      }
+      .pass {
+        color: #1f7a3a;
+        font-weight: 700;
+      }
+      .fail {
+        color: #b3261e;
+        font-weight: 700;
+      }
+      .large-only {
+        color: #a85f00;
+        font-weight: 700;
+      }
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        margin-bottom: 20px;
+      }
+      .swatch {
+        border: 1px solid var(--rule);
+        overflow: hidden;
+      }
+      .swatch .color {
+        height: 84px;
+      }
+      .swatch .meta {
+        padding: 10px 12px;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      .swatch .meta b {
+        display: block;
+        font-size: 14px;
+      }
+      .swatch .meta code {
+        background: none;
+        padding: 0;
+      }
+      .figure {
+        margin: 12px 0 22px;
+      }
+      .figure img {
+        display: block;
+        border: 1px solid var(--rule);
+      }
+      .figure figcaption {
+        font-size: 13px;
+        color: #666;
+        margin-top: 6px;
+      }
+      .logos {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        margin-bottom: 8px;
+      }
+      .logo-card {
+        border: 1px solid var(--rule);
+      }
+      .logo-card .bg {
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 150px;
+      }
+      .logo-card .bg img {
+        max-height: 100px;
+        width: auto;
+      }
+      .logo-card .meta {
+        padding: 10px 12px;
+        font-size: 13px;
+        border-top: 1px solid var(--rule);
+      }
+      .checker {
+        background-color: #eee;
+        background-image:
+          linear-gradient(45deg, #ddd 25%, transparent 25%, transparent 75%, #ddd 75%),
+          linear-gradient(45deg, #ddd 25%, transparent 25%, transparent 75%, #ddd 75%);
+        background-size: 16px 16px;
+        background-position:
+          0 0,
+          8px 8px;
+      }
+      .dont {
+        position: relative;
+      }
+      .dont::after {
+        content: "Don't";
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        font-family: Montserrat, sans-serif;
+        font-size: 11px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background: #b3261e;
+        color: #fff;
+        padding: 2px 8px;
+      }
+      .do::after {
+        content: "Do";
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        font-family: Montserrat, sans-serif;
+        font-size: 11px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background: #1f7a3a;
+        color: #fff;
+        padding: 2px 8px;
+      }
+      .do {
+        position: relative;
+      }
+      .clearspace {
+        position: relative;
+        display: inline-block;
+        padding: 32px;
+        border: 1px dashed var(--teal);
+        background: #fff;
+      }
+      .clearspace img {
+        display: block;
+        width: 260px;
+      }
+      .clearspace span {
+        position: absolute;
+        font-size: 11px;
+        color: var(--teal);
+        font-family: Montserrat, sans-serif;
+      }
+      .type-sample {
+        border-bottom: 1px solid var(--rule);
+        padding: 14px 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+      .type-sample .spec {
+        font-size: 12px;
+        color: #666;
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+      }
+      .type-sample .dark {
+        background: var(--near-black);
+        padding: 16px 20px;
+      }
+      @media (min-width: 720px) {
+        .type-sample {
+          grid-template-columns: 220px 1fr;
+          align-items: baseline;
+        }
+      }
+      .demo {
+        border: 1px solid var(--rule);
+        padding: 24px;
+        margin: 10px 0 20px;
+        overflow-x: auto;
+      }
+      .demo.dark {
+        background: var(--near-black);
+      }
+      .demo.teal {
+        background: var(--teal);
+      }
+      .demo.yellow {
+        background: var(--yellow);
+      }
+      .demo .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+      }
+      .demo .label {
+        font-size: 12px;
+        color: #666;
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+        margin-top: 12px;
+      }
+      .demo.dark .label,
+      .demo.teal .label {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* Live-site component recreations. Values come from computed-styles.json. */
+      .btn {
+        display: inline-block;
+        font-family: Montserrat, sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 14px 20px;
+        border: 1px solid transparent;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .btn-teal {
+        background: var(--teal-bright);
+        border-color: var(--teal-bright);
+        color: #fff;
+        border-radius: 28px;
+      }
+      .btn-teal:hover {
+        background: var(--teal-hover);
+        border-color: var(--teal-hover);
+        color: #f7f7f7;
+      }
+      .btn-teal.is-hover {
+        background: var(--teal-hover);
+        border-color: var(--teal-hover);
+        color: #f7f7f7;
+      }
+      .btn-white {
+        background: #fff;
+        border-color: #fff;
+        color: #666;
+        border-radius: 28px;
+      }
+      .btn-white:hover,
+      .btn-white.is-hover {
+        background: #f0f0f0;
+        border-color: #f0f0f0;
+        color: #5e5e5e;
+      }
+      .btn-orange {
+        background: var(--orange);
+        color: #fff;
+        border-radius: 0;
+      }
+      .btn-orange:hover,
+      .btn-orange.is-hover {
+        opacity: 0.9;
+      }
+      .btn.is-focus {
+        outline: 2px solid var(--navy);
+        outline-offset: 2px;
+      }
+      .cta-bar {
+        display: inline-flex;
+        flex-wrap: wrap;
+        max-width: 100%;
+      }
+      .cta-bar .text {
+        flex: 1 1 320px;
+        background: #000;
+        color: #fff;
+        font-size: 20px;
+        padding: 0 30px;
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+      }
+      .cta-bar a {
+        flex: 0 0 auto;
+        background: var(--yellow);
+        color: #000;
+        font-family: "Open Sans", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 0 30px;
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+      }
+      .cta-bar a:hover,
+      .cta-bar a.is-hover {
+        background: var(--yellow-dark);
+      }
+      .link-body {
+        font-size: 18px;
+        color: var(--teal);
+        text-decoration: none;
+      }
+      .link-body:hover {
+        text-decoration: underline;
+      }
+      .field {
+        display: block;
+        margin-bottom: 14px;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .field input,
+      .field select,
+      .field textarea {
+        display: block;
+        width: 100%;
+        max-width: 360px;
+        margin-top: 4px;
+        font:
+          400 18px "Open Sans",
+          sans-serif;
+        color: var(--ink);
+        background: #fff;
+        border: 2px solid #767676;
+        padding: 5px 4px;
+        border-radius: 0;
+      }
+      .field .req {
+        color: #c02b0a;
+      }
+      .submit-default {
+        font: 400 16px sans-serif;
+        color: var(--ink);
+        background: #efefef;
+        border: 2px solid #000;
+        padding: 1px 6px;
+      }
+      .card {
+        background: var(--yellow-band);
+        border: 1px solid var(--yellow);
+        padding: 40px 0 0;
+        max-width: 380px;
+      }
+      .card .band {
+        background: url("source/assets/a02bc2-project-bg.png") no-repeat top center;
+        padding-top: 25px;
+      }
+      .card .body {
+        background: #fff;
+        padding: 26px 12px 12px;
+      }
+      .card h4 {
+        margin: 0 0 12px;
+        font-size: 24px;
+        line-height: 1.3;
+        font-weight: 400;
+        text-align: center;
+        color: var(--ink);
+        border-bottom: 1px solid var(--rule);
+        padding-bottom: 20px;
+      }
+      .card dl {
+        margin: 0 0 16px;
+        font-size: 15px;
+      }
+      .card dl div {
+        border-bottom: 1px solid var(--rule);
+        padding: 6px 0;
+      }
+      .card dt {
+        display: inline;
+        font-weight: 700;
+      }
+      .card dd {
+        display: inline;
+        margin: 0;
+      }
+      .card .btn {
+        display: block;
+        text-align: center;
+      }
+      .hdr {
+        border: 1px solid var(--rule);
+        background: #fff;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.18);
+        font-family: "Open Sans", sans-serif;
+        overflow: hidden;
+      }
+      .hdr .top {
+        background: var(--teal);
+        color: #fff;
+        height: 43px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 24px;
+        padding: 0 20px;
+        font-size: 15px;
+      }
+      .hdr .bar {
+        background: var(--yellow);
+        height: 84px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: stretch;
+        padding-right: 8px;
+      }
+      .hdr .logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 127px;
+        width: 320px;
+        background: #fff;
+        clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+        display: flex;
+        align-items: center;
+        padding: 0 20px 0 16px;
+      }
+      .hdr .logo img {
+        width: 240px;
+      }
+      .hdr .frame {
+        position: relative;
+      }
+      .hdr .bar a {
+        font-family: Montserrat, sans-serif;
+        font-size: 14px;
+        text-transform: uppercase;
+        color: var(--navy);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        padding: 8px 17px;
+      }
+      .hdr .bar a.active,
+      .hdr .bar a:hover {
+        background: var(--yellow-dark);
+        color: #fff;
+      }
+      .ftr {
+        font-family: "Open Sans", sans-serif;
+        border: 1px solid var(--rule);
+      }
+      .ftr .upper {
+        background: #fff;
+        padding: 24px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        align-items: center;
+        color: var(--teal);
+        font-size: 22px;
+      }
+      .ftr .upper img {
+        width: 220px;
+      }
+      .ftr .upper small {
+        display: block;
+        font-size: 16px;
+      }
+      .ftr .lower {
+        background: var(--teal);
+        color: #fff;
+        padding: 30px 20px;
+        font-size: 14px;
+      }
+      .ftr .lower nav a {
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 18px;
+        padding: 10px;
+        display: inline-block;
+      }
+      .ftr .lower nav a.active,
+      .ftr .lower nav a:hover {
+        color: var(--footer-link-active);
+      }
+      .ftr .lower .fine {
+        margin-top: 10px;
+        color: #fff;
+      }
+      .ftr .lower .fine a {
+        color: var(--footer-link-active);
+      }
+      .space-scale {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: flex-end;
+      }
+      .space-scale div {
+        background: var(--teal);
+        color: #fff;
+        font-size: 11px;
+        text-align: center;
+        font-family: Montserrat, sans-serif;
+      }
+      .two {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 720px) {
+        .two {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      footer.end {
+        margin-top: 60px;
+        padding: 24px 0 40px;
+        border-top: 1px solid var(--rule);
+        font-size: 13px;
+        color: #666;
+      }
+      @media print {
+        nav.toc,
+        .masthead .draft {
+          display: none;
+        }
+        body {
+          font-size: 12px;
+        }
+        .masthead {
+          background: #000 !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        * {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        section {
+          break-inside: auto;
+        }
+        h2 {
+          break-after: avoid;
+        }
+        .demo,
+        .swatch,
+        .logo-card,
+        .figure,
+        table {
+          break-inside: avoid;
+        }
+        a[href^="http"]::after {
+          content: " (" attr(href) ")";
+          font-size: 0.85em;
+          color: #666;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <span class="draft">Draft for review</span>
+        <h1>Pamar Enterprises, Inc.<br /><strong>Brand and Web Style Guide</strong></h1>
+        <p>
+          Everything in this document is taken from the live site,
+          <a href="https://www.pamarenterprises.com/" style="color: #fff"
+            >www.pamarenterprises.com</a
+          >, captured on 25 September 2026 into <code>docs/brand/source/</code> (pages, stylesheets,
+          assets, screenshots, rendered styles). Where the site gives no evidence, the guide says so
+          and separates any recommendation from what was found.
+        </p>
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="Contents">
+      <div class="wrap">
+        <ol>
+          <li><a href="#glance">Brand at a glance</a></li>
+          <li><a href="#logo">Logo</a></li>
+          <li><a href="#color">Color</a></li>
+          <li><a href="#type">Typography</a></li>
+          <li><a href="#imagery">Imagery</a></li>
+          <li><a href="#voice">Voice and tone</a></li>
+          <li><a href="#tokens">Color roles as tokens</a></li>
+          <li><a href="#scale">Type scale</a></li>
+          <li><a href="#components">Components</a></li>
+          <li><a href="#layout">Spacing, layout, radius, shadows, icons</a></li>
+          <li><a href="#gap">Gap analysis vs the new site</a></li>
+          <li><a href="#questions">Open questions for the client</a></li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- ============================ BRAND GUIDE ============================ -->
+    <div class="part">
+      <div class="wrap"><p class="kicker">Part A: Brand guide</p></div>
+
+      <section id="glance">
+        <div class="wrap">
+          <h2><span class="num">1</span>Brand at a glance</h2>
+          <p>
+            Pamar Enterprises, Inc. is a family-owned heavy civil and underground utility contractor
+            in New Haven, Michigan. This is how the site describes the company, in its own words:
+          </p>
+          <blockquote>
+            "Precision. Strength. Experts."
+            <cite>Home page hero, H1</cite>
+          </blockquote>
+          <blockquote>
+            "Paving the way in technology and process advancements throughout the civil construction
+            industry."
+            <cite>Home page hero, subheading</cite>
+          </blockquote>
+          <blockquote>
+            "Pamar Enterprises, Inc., active since 1976 in Heavy Civil Construction, regularly works
+            with MDOT, local municipalities, businesses, and private developers to complete some of
+            the most challenging infrastructure projects. Call us to see how our knowledgeable staff
+            and vast equipment inventory can be utilized on your next project."
+            <cite>Home page, "What We Do"</cite>
+          </blockquote>
+          <blockquote>
+            "Pamar Enterprises is a family owned business that will soon be celebrating 50 years in
+            operation. Over the years, we have established a reputation for implementing tough
+            infrastructure projects and respond quickly to utility maintenance and emergencies. We
+            have a team of over 120 employees that work hard everyday to ensure our clients
+            success."
+            <cite>About page, intro</cite>
+          </blockquote>
+          <blockquote>
+            "In 1968, Pasquale and Mary Ann Acciavatti founded P&amp;M Contracting Company, which
+            laid the foundation for Pamar Enterprises, Inc. [...] In 1972, P&amp;M Contracting
+            Company was incorporated with Pamar Enterprises, Inc."
+            <cite>About page, "Company History"</cite>
+          </blockquote>
+
+          <h3>Facts stated on the site</h3>
+          <div class="tablewrap">
+            <table>
+              <tr>
+                <th>Item</th>
+                <th>Value on the live site</th>
+                <th>Where</th>
+              </tr>
+              <tr>
+                <td>Address</td>
+                <td>31604 Pamar Court, New Haven, MI 48048</td>
+                <td>Header, footer, contact page</td>
+              </tr>
+              <tr>
+                <td>Phone</td>
+                <td>(586) 749-8593</td>
+                <td>Header, footer, contact page</td>
+              </tr>
+              <tr>
+                <td>Founded</td>
+                <td>1968 (P&amp;M Contracting), incorporated 1972, "active since 1976"</td>
+                <td>About page history; home page</td>
+              </tr>
+              <tr>
+                <td>Size</td>
+                <td>"over 120 employees"</td>
+                <td>About page</td>
+              </tr>
+              <tr>
+                <td>Clients</td>
+                <td>MDOT, local municipalities, businesses, private developers</td>
+                <td>Home page</td>
+              </tr>
+              <tr>
+                <td>Services</td>
+                <td>
+                  Project budget and design; mass grading and land balancing; sanitary sewer, water
+                  main and storm; infrastructure projects; maintenance and emergency work; specialty
+                  work; aggregate, sand and gravel sales; topsoil screening and sales
+                </td>
+                <td>Services page H2s</td>
+              </tr>
+              <tr>
+                <td>Affiliations</td>
+                <td>
+                  Michigan Infrastructure &amp; Transportation Association (MITA); Associated
+                  Builders &amp; Contractors (ABC)
+                </td>
+                <td>About page</td>
+              </tr>
+              <tr>
+                <td>Employer statement</td>
+                <td>"An Equal Opportunity Employer"</td>
+                <td>Footer, every page</td>
+              </tr>
+              <tr>
+                <td>Site platform</td>
+                <td>
+                  WordPress, WPBakery Page Builder, "Alpha Child" theme by Web Ascender (launched
+                  2017 per the News page)
+                </td>
+                <td><code>summary.json</code>, theme CSS header</td>
+              </tr>
+            </table>
+          </div>
+          <div class="note">
+            Inconsistencies worth fixing on the new site: the Sitemap page and one news post still
+            show the old address "58021 Gratiot Ave"; the Services page says "half a decade" where
+            the About page says nearly 50 years; the home page says "since 1976" while the history
+            gives 1968 and 1972. See <a href="#questions">open questions</a>.
+          </div>
+        </div>
+      </section>
+
+      <section id="logo">
+        <div class="wrap">
+          <h2><span class="num">2</span>Logo</h2>
+          <p>
+            One logo is in use: a teal dome (arc) with a yellow three-point star cut through it, a
+            registered-trademark mark at the right edge of the dome, and the wordmark "Pamar
+            Enterprises" in teal with "Inc." in yellow beneath it. Three raster files were found. No
+            SVG or other vector file is served anywhere on the site.
+          </p>
+
+          <div class="logos">
+            <div class="logo-card">
+              <div class="bg checker">
+                <img
+                  src="source/assets/logo-b0ea44-logo-2.png"
+                  alt="Pamar Enterprises Inc. logo, transparent PNG"
+                />
+              </div>
+              <div class="meta">
+                <b>Primary (header)</b><br />
+                <code>logo-2.png</code>, PNG with transparency, 377 x 127 px, 22 KB.<br />
+                Used in the site header on a white panel. Best file available.
+              </div>
+            </div>
+            <div class="logo-card">
+              <div class="bg" style="background: #fff">
+                <img
+                  src="source/assets/logo-b0962b-footer-logo-2.jpg"
+                  alt="Pamar Enterprises Inc. footer logo, JPEG with white background"
+                />
+              </div>
+              <div class="meta">
+                <b>Footer</b><br />
+                <code>footer-logo-2.jpg</code>, JPEG, 320 x 105 px (also served at 300 x 98).<br />
+                White background baked in; the off-white box is visible on the live footer.
+              </div>
+            </div>
+            <div class="logo-card">
+              <div class="bg" style="background: #fff">
+                <img
+                  src="source/assets/901340-favicon.png"
+                  alt="Pamar dome-and-star mark, favicon"
+                  style="max-height: 96px"
+                />
+              </div>
+              <div class="meta">
+                <b>Mark only (favicon)</b><br />
+                <code>favicon.png</code>, PNG, 150 x 150 px.<br />
+                The dome-and-star symbol without the wordmark. Only appearance of the symbol alone.
+              </div>
+            </div>
+          </div>
+
+          <h3>Colors sampled from the logo files</h3>
+          <div class="tablewrap">
+            <table>
+              <tr>
+                <th>Element</th>
+                <th>Sampled HEX</th>
+                <th>Nearest site color</th>
+              </tr>
+              <tr>
+                <td class="chip" style="--c: #0394a6">
+                  <span class="chip" style="background: #0394a6"></span>Dome, "Pamar Enterprises"
+                </td>
+                <td>#0394A6</td>
+                <td>#0094A5 (site teal). Within JPEG/PNG rounding; treat as the same color.</td>
+              </tr>
+              <tr>
+                <td><span class="chip" style="background: #f4ca39"></span>Star, "Inc."</td>
+                <td>#F4CA39</td>
+                <td>
+                  #F7C92D (site yellow). Close but not identical; the source file's exact value is
+                  unknown.
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <h3>Backgrounds it sits on</h3>
+          <p>
+            On the live site the logo only ever appears on white: a white angled panel in the
+            header, a white footer band, and a white browser tab. It is never placed on teal,
+            yellow, dark, or photographic backgrounds. No reversed (white) version exists.
+          </p>
+
+          <h3>Clear space and minimum size</h3>
+          <div class="missing">
+            The site defines no clear space or minimum size. The header renders the logo at 377 px
+            wide on desktop and about 230 px wide on a 390 px phone; the footer uses 273 px.
+          </div>
+          <div class="rec">
+            Clear space: keep a margin equal to the height of the star (about one quarter of the
+            logo height) on all sides. Minimum size: 140 px wide on screen and 1 inch (25 mm) in
+            print for the full lockup; below that, use the mark alone at no less than 24 px.
+          </div>
+          <div class="figure">
+            <div class="clearspace">
+              <img
+                src="source/assets/logo-b0ea44-logo-2.png"
+                alt="Logo with recommended clear space shown as a dashed boundary"
+              />
+              <span style="top: 8px; left: 50%; transform: translateX(-50%)"
+                >clear space = star height</span
+              >
+            </div>
+            <figcaption>
+              Recommended clear space (dashed line). Recommendation, not a site rule.
+            </figcaption>
+          </div>
+
+          <h3>Do and don't</h3>
+          <div class="logos">
+            <div class="logo-card do">
+              <div class="bg" style="background: #fff">
+                <img src="source/assets/logo-b0ea44-logo-2.png" alt="Logo on white" />
+              </div>
+              <div class="meta">On white, transparent PNG. Matches every use on the site.</div>
+            </div>
+            <div class="logo-card dont">
+              <div class="bg" style="background: #0094a5">
+                <img
+                  src="source/assets/logo-b0962b-footer-logo-2.jpg"
+                  alt="JPEG logo with white box on teal"
+                />
+              </div>
+              <div class="meta">JPEG on a colored background. The baked-in white box shows.</div>
+            </div>
+            <div class="logo-card dont">
+              <div class="bg" style="background: #f7c92d">
+                <img
+                  src="source/assets/logo-b0ea44-logo-2.png"
+                  alt="Logo on yellow, the yellow star and Inc. disappear"
+                />
+              </div>
+              <div class="meta">
+                On brand yellow. The star and "Inc." vanish into the background.
+              </div>
+            </div>
+            <div class="logo-card dont">
+              <div class="bg" style="background: #fff">
+                <img
+                  src="source/assets/logo-b0ea44-logo-2.png"
+                  alt="Logo stretched horizontally"
+                  style="width: 100%; height: 60px; max-height: none"
+                />
+              </div>
+              <div class="meta">Stretched or squashed. Always scale proportionally.</div>
+            </div>
+            <div class="logo-card dont">
+              <div class="bg" style="background: #191919">
+                <img
+                  src="source/assets/logo-b0ea44-logo-2.png"
+                  alt="Logo on near-black, teal wordmark loses contrast"
+                />
+              </div>
+              <div class="meta">
+                On dark backgrounds. The teal wordmark drops to about 3.6:1 contrast; no reversed
+                version exists.
+              </div>
+            </div>
+            <div class="logo-card dont">
+              <div class="bg" style="background: #fff">
+                <img
+                  src="source/assets/logo-b0ea44-logo-2.png"
+                  alt="Logo with a color filter applied"
+                  style="filter: hue-rotate(140deg)"
+                />
+              </div>
+              <div class="meta">
+                Recolored. Teal and yellow are the identity; do not tint or grayscale.
+              </div>
+            </div>
+          </div>
+
+          <div class="note">
+            Vector status: <b>a vector redraw is needed</b> unless the client has the original
+            artwork. The 377 px PNG is too small for print, large hero use, or high-density screens
+            (it is already upscaled on 2x phones). Also note a site bug: the
+            <code>og:image</code> on every page points at <code>logo-1.png</code>, which is actually
+            the MITA association logo, so social shares show the wrong logo.
+          </div>
+        </div>
+      </section>
+
+      <section id="color">
+        <div class="wrap">
+          <h2><span class="num">3</span>Color</h2>
+          <p>
+            Ranked by use in the theme's own stylesheet (<code>alpha-child/style.css</code>),
+            confirmed against rendered pages and screenshots. Colors that only come from WPBakery,
+            Gutenberg presets, Font Awesome, Gravity Forms, or jQuery UI are left out: they are
+            framework palettes, not Pamar's.
+          </p>
+
+          <h3>Primary</h3>
+          <div class="grid">
+            <div class="swatch">
+              <div class="color" style="background: #0094a5"></div>
+              <div class="meta">
+                <b>Pamar Teal</b>
+                <code>#0094A5</code> · rgb(0, 148, 165)<br />
+                Header contact bar, footer, "Company History" section, body links, "What We Do"
+                heading, footer address and phone, heading underline rules, form submit. Logo dome.
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="color" style="background: #f7c92d"></div>
+              <div class="meta">
+                <b>Pamar Yellow</b>
+                <code>#F7C92D</code> · rgb(247, 201, 45)<br />
+                Navigation bar, "Featured Projects" and "We're Growing" sections, contact CTA
+                button, hero rules and accent word, project card borders, service tiles. Logo star.
+              </div>
+            </div>
+          </div>
+
+          <h3>Secondary (used for actions and states)</h3>
+          <div class="grid">
+            <div class="swatch">
+              <div class="color" style="background: #e7b304"></div>
+              <div class="meta">
+                <b>Yellow Dark</b>
+                <code>#E7B304</code> · rgb(231, 179, 4)<br />
+                Active and hover state of nav items; CTA button hover.
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="color" style="background: #d89e00"></div>
+              <div class="meta">
+                <b>Yellow Band</b>
+                <code>#D89E00</code> · rgb(216, 158, 0)<br />
+                Project card top band; WPBakery "warning" button override.
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="color" style="background: #00c1cf"></div>
+              <div class="meta">
+                <b>Teal Bright</b>
+                <code>#00C1CF</code> · rgb(0, 193, 207)<br />
+                Round pill buttons ("View our job openings", "Tell us about your needs today").
+                Hover: <code>#00A4B0</code>. Mobile menu rules use <code>#00B2C6</code>.
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="color" style="background: #ff9900"></div>
+              <div class="meta">
+                <b>Orange</b>
+                <code>#FF9900</code> · rgb(255, 153, 0)<br />
+                "Read More" buttons on project cards (WPBakery orange preset, inline). Nowhere else.
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="color" style="background: #0a2742"></div>
+              <div class="meta">
+                <b>Navy</b>
+                <code>#0A2742</code> · rgb(10, 39, 66)<br />
+                Navigation link text on the yellow bar. Only use.
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="color" style="background: #a9f6ff"></div>
+              <div class="meta">
+                <b>Footer Link Active</b>
+                <code>#A9F6FF</code> · rgb(169, 246, 255)<br />
+                Current page and hover in the footer nav; footer "Sitemap" and "Login" links.
+              </div>
+            </div>
+          </div>
+
+          <h3>Neutrals</h3>
+          <div class="grid">
+            <div class="swatch">
+              <div class="color" style="background: #ffffff"></div>
+              <div class="meta">
+                <b>White</b>
+                <code>#FFFFFF</code> · rgb(255, 255, 255)<br />
+                Page background, header logo panel, card bodies, text on teal and dark sections.
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="color" style="background: #404040"></div>
+              <div class="meta">
+                <b>Body Gray</b>
+                <code>#404040</code> · rgb(64, 64, 64)<br />
+                Body text, H3 and H4, form text, service H2s.
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="color" style="background: #333333"></div>
+              <div class="meta">
+                <b>Heading Gray</b>
+                <code>#333333</code> · rgb(51, 51, 51)<br />
+                Small section labels ("Our Affiliations").
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="color" style="background: #191919"></div>
+              <div class="meta">
+                <b>Near Black</b>
+                <code>#191919</code> · rgb(25, 25, 25)<br />
+                "Now Hiring" section background.
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="color" style="background: #000000"></div>
+              <div class="meta">
+                <b>Black</b>
+                <code>#000000</code> · rgb(0, 0, 0)<br />
+                Contact CTA text block, "Our Focus on Safety" section, project title band, CTA
+                button text.
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="color" style="background: #cccccc"></div>
+              <div class="meta">
+                <b>Rule Gray</b>
+                <code>#CCCCCC</code> · rgb(204, 204, 204)<br />
+                Card dividers, form textarea border, job list rules.
+              </div>
+            </div>
+            <div class="swatch">
+              <div class="color" style="background: #666666"></div>
+              <div class="meta">
+                <b>Mid Gray</b>
+                <code>#666666</code> · rgb(102, 102, 102)<br />
+                Text on the white pill button ("View all projects").
+              </div>
+            </div>
+          </div>
+
+          <h3>Contrast (WCAG 2.x) for the pairs actually rendered</h3>
+          <p>
+            Normal text needs 4.5:1 for AA and 7:1 for AAA. Large text (24 px+ regular, or 19 px+
+            bold) needs 3:1 for AA and 4.5:1 for AAA.
+          </p>
+          <div class="tablewrap">
+            <table>
+              <tr>
+                <th>Where</th>
+                <th>Text</th>
+                <th>Background</th>
+                <th>Ratio</th>
+                <th>AA</th>
+                <th>AAA</th>
+              </tr>
+              <tr>
+                <td>Body text</td>
+                <td>#404040</td>
+                <td>#FFFFFF</td>
+                <td>10.37</td>
+                <td class="pass">Pass</td>
+                <td class="pass">Pass</td>
+              </tr>
+              <tr>
+                <td>Section label on white</td>
+                <td>#333333</td>
+                <td>#FFFFFF</td>
+                <td>12.63</td>
+                <td class="pass">Pass</td>
+                <td class="pass">Pass</td>
+              </tr>
+              <tr>
+                <td>Nav links</td>
+                <td>#0A2742</td>
+                <td>#F7C92D</td>
+                <td>9.66</td>
+                <td class="pass">Pass</td>
+                <td class="pass">Pass</td>
+              </tr>
+              <tr>
+                <td>CTA button, "Featured Projects" heading</td>
+                <td>#000000</td>
+                <td>#F7C92D</td>
+                <td>13.35</td>
+                <td class="pass">Pass</td>
+                <td class="pass">Pass</td>
+              </tr>
+              <tr>
+                <td>"Now Hiring" section</td>
+                <td>#FFFFFF</td>
+                <td>#191919</td>
+                <td>17.58</td>
+                <td class="pass">Pass</td>
+                <td class="pass">Pass</td>
+              </tr>
+              <tr>
+                <td>Hero accent word "EXPERTS."</td>
+                <td>#F7C92D</td>
+                <td>#191919</td>
+                <td>11.17</td>
+                <td class="pass">Pass</td>
+                <td class="pass">Pass</td>
+              </tr>
+              <tr>
+                <td>CTA text block</td>
+                <td>#FFFFFF</td>
+                <td>#000000</td>
+                <td>21.00</td>
+                <td class="pass">Pass</td>
+                <td class="pass">Pass</td>
+              </tr>
+              <tr>
+                <td>White pill button</td>
+                <td>#666666</td>
+                <td>#FFFFFF</td>
+                <td>5.74</td>
+                <td class="pass">Pass</td>
+                <td class="large-only">Large only</td>
+              </tr>
+              <tr>
+                <td>Body links, "What We Do" heading</td>
+                <td>#0094A5</td>
+                <td>#FFFFFF</td>
+                <td>3.63</td>
+                <td class="large-only">Large only</td>
+                <td class="fail">Fail</td>
+              </tr>
+              <tr>
+                <td>Footer text and links, top contact bar</td>
+                <td>#FFFFFF</td>
+                <td>#0094A5</td>
+                <td>3.63</td>
+                <td class="large-only">Large only</td>
+                <td class="fail">Fail</td>
+              </tr>
+              <tr>
+                <td>Teal pill button hover</td>
+                <td>#FFFFFF</td>
+                <td>#00A4B0</td>
+                <td>3.03</td>
+                <td class="large-only">Large only</td>
+                <td class="fail">Fail</td>
+              </tr>
+              <tr>
+                <td>Footer active link</td>
+                <td>#A9F6FF</td>
+                <td>#0094A5</td>
+                <td>3.00</td>
+                <td class="fail">Fail</td>
+                <td class="fail">Fail</td>
+              </tr>
+              <tr>
+                <td>Teal pill button</td>
+                <td>#FFFFFF</td>
+                <td>#00C1CF</td>
+                <td>2.20</td>
+                <td class="fail">Fail</td>
+                <td class="fail">Fail</td>
+              </tr>
+              <tr>
+                <td>Orange "Read More" button</td>
+                <td>#FFFFFF</td>
+                <td>#FF9900</td>
+                <td>2.14</td>
+                <td class="fail">Fail</td>
+                <td class="fail">Fail</td>
+              </tr>
+              <tr>
+                <td>Nav active and hover</td>
+                <td>#FFFFFF</td>
+                <td>#E7B304</td>
+                <td>1.94</td>
+                <td class="fail">Fail</td>
+                <td class="fail">Fail</td>
+              </tr>
+              <tr>
+                <td>Service tiles on the home page</td>
+                <td>#FFFFFF</td>
+                <td>#F7C92D</td>
+                <td>1.57</td>
+                <td class="fail">Fail</td>
+                <td class="fail">Fail</td>
+              </tr>
+            </table>
+          </div>
+          <div class="rec">
+            Keep the two brand colors, change how text sits on them. White text on yellow, bright
+            teal, or orange fails everywhere it is used. The site already has the accessible pattern
+            in its contact CTA: black text on yellow (13.35:1). Use dark text (#0A2742 or #191919)
+            on yellow fills, and reserve white text for teal #0094A5 at large sizes or a darker teal
+            (for example #007A88, 4.7:1) at body sizes.
+          </div>
+        </div>
+      </section>
+
+      <section id="type">
+        <div class="wrap">
+          <h2><span class="num">4</span>Typography</h2>
+          <p>
+            Two families render on the site. Both are loaded from Google Fonts by the WordPress
+            theme (<code>fonts.googleapis.com/css?family=...</code>). The rendered-font check
+            (<code>document.fonts</code>) on the home page shows exactly these faces in use: Open
+            Sans 300, 400, 700 and Montserrat 400.
+          </p>
+
+          <div class="type-sample">
+            <div class="spec">Open Sans 300<br />Light</div>
+            <div
+              style="
+                font:
+                  300 34px/1.1 &quot;Open Sans&quot;,
+                  sans-serif;
+                text-transform: uppercase;
+              "
+            >
+              Precision. Strength.
+            </div>
+          </div>
+          <div class="type-sample">
+            <div class="spec">Open Sans 400<br />Regular</div>
+            <div
+              style="
+                font:
+                  400 18px/1.6 &quot;Open Sans&quot;,
+                  sans-serif;
+              "
+            >
+              Pamar Enterprises, Inc., active since 1976 in Heavy Civil Construction, regularly
+              works with MDOT, local municipalities, businesses, and private developers.
+            </div>
+          </div>
+          <div class="type-sample">
+            <div class="spec">Open Sans 700<br />Bold</div>
+            <div
+              style="
+                font:
+                  700 28px/1.1 &quot;Open Sans&quot;,
+                  sans-serif;
+                text-transform: uppercase;
+              "
+            >
+              Serving businesses and municipalities
+            </div>
+          </div>
+          <div class="type-sample">
+            <div class="spec">Montserrat 400<br />Regular</div>
+            <div
+              style="
+                font:
+                  400 14px/1 Montserrat,
+                  sans-serif;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+              "
+            >
+              Home &nbsp; About &nbsp; Safety &nbsp; Services &nbsp; · &nbsp; View our job openings
+            </div>
+          </div>
+
+          <div class="tablewrap" style="margin-top: 20px">
+            <table>
+              <tr>
+                <th>Family</th>
+                <th>Weights loaded</th>
+                <th>Weights rendered</th>
+                <th>Used for</th>
+                <th>Source</th>
+                <th>Fallback in CSS</th>
+              </tr>
+              <tr>
+                <td>Open Sans</td>
+                <td>300, 400, 700, 800</td>
+                <td>300, 400, 700</td>
+                <td>Body, all headings H1 to H4, footer, forms, contact CTA button</td>
+                <td>Google Fonts</td>
+                <td><code>sans-serif</code></td>
+              </tr>
+              <tr>
+                <td>Montserrat</td>
+                <td>400, 700</td>
+                <td>400</td>
+                <td>Main navigation, mobile menu, WPBakery buttons, footer credit line</td>
+                <td>Google Fonts</td>
+                <td><code>sans-serif</code></td>
+              </tr>
+              <tr>
+                <td>Raleway</td>
+                <td>300, 400, 500, 700, 900</td>
+                <td>none</td>
+                <td>Requested by the parent theme; no rendered element uses it</td>
+                <td>Google Fonts</td>
+                <td>n/a</td>
+              </tr>
+              <tr>
+                <td>Open Sans Condensed</td>
+                <td>300, 700</td>
+                <td>none</td>
+                <td>Requested by the parent theme; no rendered element uses it</td>
+                <td>Google Fonts</td>
+                <td>n/a</td>
+              </tr>
+              <tr>
+                <td>Font Awesome 4.6.2 and 5</td>
+                <td>icon fonts</td>
+                <td>not visible</td>
+                <td>Loaded by plugins; the visible icons are image files (see Imagery)</td>
+                <td>CDN and plugin</td>
+                <td>n/a</td>
+              </tr>
+            </table>
+          </div>
+
+          <h3>Licensing</h3>
+          <p>
+            Open Sans and Montserrat are published under the SIL Open Font License 1.1. They may be
+            self-hosted, embedded in the site, and used in print and PDF at no cost. Self-hosting
+            (as the new site already does with Fontsource) removes the Google Fonts request and the
+            related privacy consideration. Raleway is also OFL but does not need to be carried over.
+          </p>
+          <div class="note">
+            The logo wordmark is not Open Sans or Montserrat. It is a bold, tight grotesque closest
+            to Arial Bold or Helvetica Bold. Its source is unknown and it should be treated as
+            artwork, not as a typeface to set text in.
+          </div>
+          <div class="rec">
+            Carry over Open Sans (300, 400, 700) as the single text family. Montserrat 400 is
+            optional: it only ever appears as small uppercase UI labels, and Open Sans 700 uppercase
+            with 1 px tracking reads the same at that size. Dropping it saves a font download.
+          </div>
+        </div>
+      </section>
+
+      <section id="imagery">
+        <div class="wrap">
+          <h2><span class="num">5</span>Imagery</h2>
+          <p>The captured photos fall into three groups.</p>
+          <div class="two">
+            <div class="figure">
+              <img
+                src="source/assets/baf741-excavator-bg-compressor-1024x681.jpeg"
+                alt="Excavator bucket against a blue sky, the hero photo used on interior pages"
+              />
+              <figcaption>
+                <b>Hero backdrop.</b> One excavator photo (<code>excavator-bg</code>) sits behind
+                every interior page title, darkened with an overlay so white text sits on it. The
+                home page hero uses a different photo: a worker in a hard hat shading his eyes at
+                sunset, which reads as stock. Both crop to a wide band about 270 px tall.
+              </figcaption>
+            </div>
+            <div class="figure">
+              <img
+                src="source/assets/8430ea-about-pamar-1.jpg"
+                alt="Pamar crew installing pipe in an open trench"
+              />
+              <figcaption>
+                <b>Jobsite photos.</b> Real Pamar work: trench and pipe installation, tunneling and
+                shaft work, mass grading, a dump truck being loaded, crews in blue shirts, an aerial
+                of the yard. Daylight, unstaged, snapshot quality, mixed aspect ratios. On the About
+                page they carry a 4 px white frame; on Services they are 300 x 300 square crops.
+              </figcaption>
+            </div>
+          </div>
+          <div class="two">
+            <div class="figure">
+              <div class="icon-strip">
+                <img src="source/assets/3fdea1-footer-location-1.jpg" alt="Location pin icon" />
+                <img src="source/assets/dd40d1-footer-phone-1.jpg" alt="Phone icon" />
+                <img
+                  class="chevron"
+                  src="source/assets/a02bc2-project-bg.png"
+                  alt="Chevron shape used on project cards"
+                />
+              </div>
+              <figcaption>
+                <b>Graphics.</b> Thin-line teal location and phone icons (saved as JPEG and PNG, not
+                icon fonts), the angled white logo panel in the header, a chevron notch on project
+                cards (<code>project-bg.png</code>), and yellow rules above and below the hero
+                headline. The mobile menu uses a plain three-bar hamburger.
+              </figcaption>
+            </div>
+            <div class="figure">
+              <img
+                src="source/screenshots/home-desktop.png"
+                alt="Full-page screenshot of the live home page at 1440 px"
+              />
+              <figcaption>
+                Live home page at 1,440 px, for reference. More in <code>source/screenshots/</code>.
+              </figcaption>
+            </div>
+          </div>
+          <div class="missing">
+            No photo direction, team portraits, equipment fleet shots, before-and-after project
+            pairs, or drone footage beyond one aerial. The Careers page has no imagery at all.
+          </div>
+          <div class="rec">
+            Keep the documentary jobsite style; it is the brand's strongest asset and it is
+            authentic. Commission or collect: a consistent set of 3:2 project photos per featured
+            project, a few crew and leadership portraits, fleet and yard photos for the aggregate
+            and topsoil sales pages, and one owned hero image to replace the stock sunset worker.
+            Apply a consistent teal or near-black overlay for text-over-photo and keep the white
+            frame treatment as an optional accent. Replace icon images with inline SVG so they scale
+            and take the teal token.
+          </div>
+        </div>
+      </section>
+
+      <section id="voice">
+        <div class="wrap">
+          <h2><span class="num">6</span>Voice and tone</h2>
+          <p>Traits below are each backed by a line from the live copy.</p>
+
+          <h3>Traits</h3>
+          <div class="tablewrap">
+            <table>
+              <tr>
+                <th>Trait</th>
+                <th>Evidence (quoted)</th>
+              </tr>
+              <tr>
+                <td>Plain and direct</td>
+                <td>
+                  "Give us a call for pricing." · "Tell us about your project and we'll see how we
+                  can help."
+                </td>
+              </tr>
+              <tr>
+                <td>Experience-led</td>
+                <td>
+                  "Due to our many years of experience, we are often called upon to do some of the
+                  most complex specialty work."
+                </td>
+              </tr>
+              <tr>
+                <td>Capable under pressure</td>
+                <td>
+                  "We are the go-to resource for many Michigan municipalities when they need a quick
+                  turnaround."
+                </td>
+              </tr>
+              <tr>
+                <td>Technical when it counts</td>
+                <td>
+                  "Pipe Bursting 27,000LF of 6″ and 8″ Diameter pipe up to 10″ Diameter HDPE SDR
+                  pipe."
+                </td>
+              </tr>
+              <tr>
+                <td>Safety as a value, not a slogan</td>
+                <td>
+                  "seeking safety above &amp; beyond MIOSHA standards" · "Weekly Crew Safety
+                  Meetings"
+                </td>
+              </tr>
+              <tr>
+                <td>Family and community</td>
+                <td>
+                  "a family owned business" · "Sabrina and I dropped off the donations to Caroline's
+                  House yesterday."
+                </td>
+              </tr>
+              <tr>
+                <td>Occasionally over-claims</td>
+                <td>
+                  "We're the best at delivering huge results" · "world class service and results"
+                  (both unsupported on the page)
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <h3>Do and don't</h3>
+          <div class="two">
+            <div class="note">
+              <b>Do</b>
+              <ul style="margin: 6px 0 0">
+                <li>
+                  Lead with the job and the outcome: "Pump Station Installation with Wet Well, 4,200
+                  LF Water Main."
+                </li>
+                <li>
+                  Say who the work is for: cities, counties, MDOT, townships, private developers,
+                  and individuals with a truck.
+                </li>
+                <li>Use first person plural: "we", "our team", "our clients".</li>
+                <li>
+                  Keep sentences short and concrete. Give quantities, materials, and locations.
+                </li>
+                <li>
+                  End sections with a plain invitation: "Call us", "Tell us about your project".
+                </li>
+              </ul>
+            </div>
+            <div class="rec" style="border-color: #b3261e; background: #fdf0ef">
+              <b>Don't</b>
+              <ul style="margin: 6px 0 0">
+                <li>Use superlatives without proof ("the best", "world class", "huge results").</li>
+                <li>
+                  Mix corporate abstraction with plain talk ("paving the way in technology and
+                  process advancements").
+                </li>
+                <li>
+                  Use double exclamation marks or shouting titles ("Now Located On Pamar Court!!").
+                </li>
+                <li>
+                  Leave typos in place: "it's new website", "half a decade", "everyday" (for "every
+                  day"), "clients success".
+                </li>
+                <li>
+                  Write internal notes into public copy ("If you made a donation please let me
+                  know").
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Naming conventions</h3>
+          <p>The site uses four forms of the name, inconsistently:</p>
+          <div class="tablewrap">
+            <table>
+              <tr>
+                <th>Form</th>
+                <th>Where it appears</th>
+              </tr>
+              <tr>
+                <td>Pamar Enterprises, Inc.</td>
+                <td>History copy, "What We Do" paragraph (with comma)</td>
+              </tr>
+              <tr>
+                <td>Pamar Enterprises Inc.</td>
+                <td>Logo, contact page H3, CTA button, news post titles (no comma)</td>
+              </tr>
+              <tr>
+                <td>Pamar Enterprises</td>
+                <td>Page titles, copyright line, most body copy</td>
+              </tr>
+              <tr>
+                <td>Pamar</td>
+                <td>Rarely, inside history copy ("Pamar began to specialize")</td>
+              </tr>
+            </table>
+          </div>
+          <div class="rec">
+            Use "Pamar Enterprises, Inc." (with comma) once per page where the legal entity matters
+            (footer copyright, contact block, bid documents), "Pamar Enterprises" in running copy
+            and titles, and "Pamar" only in conversational lines and internal headings. Confirm the
+            punctuated legal name with the client (see open questions). Other terms to standardize:
+            "water main" (two words, as the site writes it), "MDOT", "MIOSHA", "LF" for linear feet
+            in project specs.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================ STYLE GUIDE ============================ -->
+    <div class="part">
+      <div class="wrap"><p class="kicker">Part B: Web style guide</p></div>
+
+      <section id="tokens">
+        <div class="wrap">
+          <h2><span class="num">7</span>Color roles as tokens</h2>
+          <p>
+            Role names follow the new site's token convention. Values are what the live site renders
+            today; flagged rows fail contrast and carry a proposed value in the last column.
+          </p>
+          <div class="tablewrap">
+            <table>
+              <tr>
+                <th>Token</th>
+                <th>Live value</th>
+                <th>Role</th>
+                <th>Proposed (only where flagged)</th>
+              </tr>
+              <tr>
+                <td><code>--color-text</code></td>
+                <td><span class="chip" style="background: #404040"></span>#404040</td>
+                <td>Body text on white</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>--color-text-strong</code></td>
+                <td><span class="chip" style="background: #333333"></span>#333333</td>
+                <td>Headings on white</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>--color-text-inverse</code></td>
+                <td>
+                  <span class="chip" style="background: #ffffff; border-color: #999"></span>#FFFFFF
+                </td>
+                <td>Text on teal, near-black, black, photo overlays</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>--color-text-on-yellow</code></td>
+                <td>
+                  <span class="chip" style="background: #000000"></span>#000000 /
+                  <span class="chip" style="background: #0a2742"></span>#0A2742
+                </td>
+                <td>Text on yellow (CTA button, nav)</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>--color-bg</code></td>
+                <td>
+                  <span class="chip" style="background: #ffffff; border-color: #999"></span>#FFFFFF
+                </td>
+                <td>Page background</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>--color-bg-brand</code></td>
+                <td><span class="chip" style="background: #0094a5"></span>#0094A5</td>
+                <td>Teal sections, footer, top bar</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>--color-bg-accent</code></td>
+                <td><span class="chip" style="background: #f7c92d"></span>#F7C92D</td>
+                <td>Yellow sections, nav bar</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>--color-bg-dark</code></td>
+                <td><span class="chip" style="background: #191919"></span>#191919</td>
+                <td>Dark feature sections</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>--color-bg-black</code></td>
+                <td><span class="chip" style="background: #000000"></span>#000000</td>
+                <td>CTA text block, project title band</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>--color-primary</code></td>
+                <td><span class="chip" style="background: #0094a5"></span>#0094A5</td>
+                <td>Brand teal: links, icons, rules, form submit</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>--color-primary-hover</code></td>
+                <td>not defined (submit hover goes to #000)</td>
+                <td>Hover on teal actions</td>
+                <td>#007A88 (recommendation)</td>
+              </tr>
+              <tr>
+                <td><code>--color-action</code></td>
+                <td>
+                  <span class="chip" style="background: #00c1cf"></span>#00C1CF (white text, 2.20:1)
+                </td>
+                <td>Pill buttons</td>
+                <td>Fill #F7C92D with #0A2742 text, or #0094A5 with white text at 18 px+ bold</td>
+              </tr>
+              <tr>
+                <td><code>--color-action-hover</code></td>
+                <td><span class="chip" style="background: #00a4b0"></span>#00A4B0</td>
+                <td>Pill button hover</td>
+                <td>#E7B304 (yellow) or #007A88 (teal)</td>
+              </tr>
+              <tr>
+                <td><code>--color-action-secondary</code></td>
+                <td>
+                  <span class="chip" style="background: #ff9900"></span>#FF9900 (white text, 2.14:1)
+                </td>
+                <td>"Read More" on cards</td>
+                <td>Drop orange; use the primary button style</td>
+              </tr>
+              <tr>
+                <td><code>--color-cta</code></td>
+                <td>
+                  <span class="chip" style="background: #f7c92d"></span>#F7C92D with #000 text
+                </td>
+                <td>Contact CTA bar button</td>
+                <td>Keep; this is the accessible pattern</td>
+              </tr>
+              <tr>
+                <td><code>--color-cta-hover</code></td>
+                <td><span class="chip" style="background: #e7b304"></span>#E7B304</td>
+                <td>CTA and nav hover</td>
+                <td>Keep with dark text</td>
+              </tr>
+              <tr>
+                <td><code>--color-nav-active</code></td>
+                <td>
+                  <span class="chip" style="background: #e7b304"></span>#E7B304 (white text, 1.94:1)
+                </td>
+                <td>Current nav item</td>
+                <td>Same fill, #0A2742 text or a 3 px #0A2742 underline</td>
+              </tr>
+              <tr>
+                <td><code>--color-link</code></td>
+                <td><span class="chip" style="background: #0094a5"></span>#0094A5 (3.63:1)</td>
+                <td>Inline links</td>
+                <td>#007A88 (4.7:1) or underline plus #0094A5 at 24 px+</td>
+              </tr>
+              <tr>
+                <td><code>--color-link-inverse-active</code></td>
+                <td>
+                  <span class="chip" style="background: #a9f6ff"></span>#A9F6FF on #0094A5 (3.00:1)
+                </td>
+                <td>Footer current link</td>
+                <td>#FFFFFF bold with underline</td>
+              </tr>
+              <tr>
+                <td><code>--color-border</code></td>
+                <td><span class="chip" style="background: #cccccc"></span>#CCCCCC</td>
+                <td>Card dividers, rules</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>--color-border-accent</code></td>
+                <td>
+                  <span class="chip" style="background: #f7c92d"></span>#F7C92D /
+                  <span class="chip" style="background: #d89e00"></span>#D89E00
+                </td>
+                <td>Card border and band</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>--color-border-input</code></td>
+                <td>
+                  <span class="chip" style="background: #767676"></span>#767676 (browser default)
+                </td>
+                <td>Form fields</td>
+                <td>#CCCCCC rest, #0094A5 focus</td>
+              </tr>
+              <tr>
+                <td><code>--color-focus</code></td>
+                <td>none (default outline removed on buttons)</td>
+                <td>Keyboard focus ring</td>
+                <td>2 px #0A2742 outline, 2 px offset</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="scale">
+        <div class="wrap">
+          <h2><span class="num">8</span>Type scale</h2>
+          <p>
+            Desktop values read with <code>getComputedStyle</code> at 1,440 px
+            (<code>computed-styles.json</code>). The theme sets no separate mobile sizes; headings
+            simply wrap. Family is Open Sans unless noted.
+          </p>
+          <div class="tablewrap">
+            <table>
+              <tr>
+                <th>Style</th>
+                <th>Size / line height</th>
+                <th>Weight</th>
+                <th>Case, tracking</th>
+                <th>Color</th>
+                <th>Where</th>
+              </tr>
+              <tr>
+                <td>Hero H1 (home)</td>
+                <td>77 / 77 px</td>
+                <td>300, accent word 700</td>
+                <td>Uppercase</td>
+                <td>#FFF, accent #F7C92D; 3 px yellow rules above and below, 30 px padding</td>
+                <td>Home hero</td>
+              </tr>
+              <tr>
+                <td>Page H1</td>
+                <td>46 / 46 px</td>
+                <td>700</td>
+                <td>Uppercase</td>
+                <td>#FFF on darkened photo</td>
+                <td>Interior page headers</td>
+              </tr>
+              <tr>
+                <td>Project H1</td>
+                <td>46 / 46 px, prefix 20 px</td>
+                <td>300, prefix 700</td>
+                <td>Prefix uppercase, 4 px tracking</td>
+                <td>#FFF, prefix #F7C92D on #000</td>
+                <td>Project detail pages</td>
+              </tr>
+              <tr>
+                <td>H2 feature</td>
+                <td>34 / 34 px</td>
+                <td>700 or 300 with one 700 word</td>
+                <td>Uppercase</td>
+                <td>#0094A5 or #000</td>
+                <td>"What We Do", "Featured Projects", "We're Growing"</td>
+              </tr>
+              <tr>
+                <td>H2 section</td>
+                <td>28 / 28 px</td>
+                <td>700</td>
+                <td>Uppercase</td>
+                <td>#404040; #FFF on teal</td>
+                <td>Services, Company History</td>
+              </tr>
+              <tr>
+                <td>H2 label</td>
+                <td>20 / 20 px</td>
+                <td>700</td>
+                <td>Uppercase</td>
+                <td>#333 or #FFF; 2 px teal rule beneath, about 50 px wide</td>
+                <td>"Now Hiring", "Our Affiliations", "Our Focus on Safety"</td>
+              </tr>
+              <tr>
+                <td>H3</td>
+                <td>24 / 24 px (news 30 / 30)</td>
+                <td>300 on dark, 400 or 700 on white</td>
+                <td>None</td>
+                <td>#FFF or #404040</td>
+                <td>Sub-statements, affiliation names, news titles</td>
+              </tr>
+              <tr>
+                <td>H4 card title</td>
+                <td>24 / 31.2 px</td>
+                <td>400</td>
+                <td>None</td>
+                <td>#404040; 1 px #CCC rule beneath, 20 px padding</td>
+                <td>Project cards</td>
+              </tr>
+              <tr>
+                <td>Lead paragraph</td>
+                <td>24 / 38.4 px</td>
+                <td>400</td>
+                <td>None</td>
+                <td>#FFF on photo; #404040</td>
+                <td>Page header subtitle (<code>p.large</code>)</td>
+              </tr>
+              <tr>
+                <td>Hero paragraph</td>
+                <td>20 / 32 px</td>
+                <td>400</td>
+                <td>None</td>
+                <td>#FFF</td>
+                <td>Home hero, CTA text block</td>
+              </tr>
+              <tr>
+                <td>Body</td>
+                <td>18 / 28.8 px (1.6)</td>
+                <td>400</td>
+                <td>None</td>
+                <td>#404040</td>
+                <td>All body copy, form text</td>
+              </tr>
+              <tr>
+                <td>Small</td>
+                <td>14 / 22 px</td>
+                <td>400</td>
+                <td>None</td>
+                <td>#FFF on teal</td>
+                <td>Footer fine print, copyright</td>
+              </tr>
+              <tr>
+                <td>Nav (Montserrat)</td>
+                <td>14 px</td>
+                <td>400</td>
+                <td>Uppercase</td>
+                <td>#0A2742</td>
+                <td>Main navigation, 8 x 17 px padding, 84 px tall bar</td>
+              </tr>
+              <tr>
+                <td>Button (Montserrat)</td>
+                <td>14 px</td>
+                <td>400</td>
+                <td>Uppercase, 1 px tracking</td>
+                <td>#FFF or #666</td>
+                <td>Pill and flat buttons, 14 x 20 px padding</td>
+              </tr>
+              <tr>
+                <td>CTA button</td>
+                <td>18 / 18 px</td>
+                <td>700</td>
+                <td>Uppercase, 2 px tracking</td>
+                <td>#000 on #F7C92D</td>
+                <td>Contact CTA bar, 30 px side padding, 80 px tall</td>
+              </tr>
+              <tr>
+                <td>Footer nav</td>
+                <td>18 px</td>
+                <td>400</td>
+                <td>Uppercase</td>
+                <td>#FFF</td>
+                <td>Footer links, 10 px padding</td>
+              </tr>
+            </table>
+          </div>
+          <div class="rec">
+            For the new site: keep the 18 px / 1.6 body, set H1 at 46 px (56 px on the home hero
+            only), H2 at 32 px, H3 at 24 px, H4 at 20 px, all Open Sans 700, with a fluid
+            <code>clamp()</code> down to 30 / 26 / 22 / 18 px on phones. The 77 px hero only works
+            because it is three one-word lines.
+          </div>
+        </div>
+      </section>
+
+      <section id="components">
+        <div class="wrap">
+          <h2><span class="num">9</span>Components</h2>
+          <p>
+            Rendered from the live values. Hover and focus states are the ones the site actually
+            produces; the "focus" examples show that the site removes the default outline and adds
+            nothing back.
+          </p>
+
+          <h3>Buttons</h3>
+          <div class="demo dark">
+            <div class="row">
+              <a class="btn btn-teal" href="#components">View our job openings</a>
+              <a class="btn btn-teal is-hover" href="#components">Hover</a>
+              <a class="btn btn-teal is-focus" href="#components">Focus (proposed ring)</a>
+            </div>
+            <div class="label">
+              Teal pill: #00C1CF fill, white text, 28 px radius, 1 px border same as fill. Hover
+              #00A4B0 / #F7F7F7. Focus: none on the live site.
+            </div>
+          </div>
+          <div class="demo yellow">
+            <div class="row">
+              <a class="btn btn-white" href="#components">View all projects</a>
+              <a class="btn btn-white is-hover" href="#components">Hover</a>
+            </div>
+            <div class="label" style="color: #5a4a00">
+              White pill on yellow: #FFF fill, #666 text. Hover #F0F0F0 / #5E5E5E.
+            </div>
+          </div>
+          <div class="demo">
+            <div class="row">
+              <a class="btn btn-orange" href="#components">Read more</a>
+              <a class="btn btn-orange is-hover" href="#components">Hover</a>
+            </div>
+            <div class="label">
+              Flat square: #FF9900 fill, white text, no radius. Hover is 90% opacity. Fails contrast
+              (2.14:1).
+            </div>
+          </div>
+          <div class="demo teal">
+            <div class="cta-bar">
+              <div class="text">Tell us about your project and we'll see how we can help.</div>
+              <a href="#components">Contact Pamar Enterprises Inc.</a>
+            </div>
+            <div class="label">
+              Contact CTA bar: black text cell (20 px) plus yellow link cell, Open Sans 700 18 px, 2
+              px tracking, 80 px tall. Hover #E7B304. This is the one fully accessible button on the
+              site.
+            </div>
+          </div>
+          <div class="demo">
+            <div class="row">
+              <button class="submit-default" type="button">Submit</button>
+            </div>
+            <div class="label">
+              Contact form submit as rendered: the theme's teal rule targets
+              <code>input[type=submit]</code> but Gravity Forms outputs a
+              <code>&lt;button&gt;</code>, so the browser default shows.
+            </div>
+          </div>
+
+          <h3>Links</h3>
+          <div class="demo">
+            <p style="margin: 0 0 10px; font-size: 18px">
+              Body link:
+              <a class="link-body" href="#components">Essential Staff &amp; Vendors</a> (#0094A5, no
+              underline at rest; the theme sets no hover style).
+            </p>
+            <p style="margin: 0; font-size: 18px; color: #0094a5">
+              Footer contact line:
+              <span style="font-size: 24px">31604 Pamar Court, New Haven, MI 48048</span> (#0094A5,
+              24 px, with icon image).
+            </p>
+          </div>
+
+          <h3>Form fields</h3>
+          <div class="demo">
+            <label class="field">Name <input type="text" /></label>
+            <label class="field">Email <span class="req">*</span> <input type="email" /></label>
+            <label class="field">Phone <input type="tel" placeholder="(999) 999-9999" /></label>
+            <label class="field"
+              >What's this about?
+              <select>
+                <option>Employment</option>
+                <option>New Project</option>
+                <option>Current Project</option>
+                <option>Question for billing department</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <div class="label">
+              Labels: Open Sans 700 18 px #404040. Inputs: 18 px, 2 px #767676 border (browser
+              default), 5 x 4 px padding, no radius. Textarea gets a 1 px #CCC border from the
+              theme. Required marker is Gravity Forms red.
+            </div>
+          </div>
+
+          <h3>Card</h3>
+          <div class="demo" style="background: #f7f7f7">
+            <div class="card">
+              <div class="band">
+                <div class="body">
+                  <h4>Section 24 Area 3, Southfield</h4>
+                  <dl>
+                    <div>
+                      <dt>Job Name:</dt>
+                      <dd>Section 24 Area 3</dd>
+                    </div>
+                    <div>
+                      <dt>Owner:</dt>
+                      <dd>City of Southfield</dd>
+                    </div>
+                    <div>
+                      <dt>Engineer:</dt>
+                      <dd>Hubbell, Roth &amp; Clark, Inc.</dd>
+                    </div>
+                  </dl>
+                  <a class="btn btn-orange" href="#components">Read more</a>
+                </div>
+              </div>
+            </div>
+            <div class="label">
+              Project card: #D89E00 band with 1 px #F7C92D border, white chevron notch
+              (project-bg.png), white body, H4 24 px 400 with #CCC rule, key-value rows, orange
+              button. No shadow, no radius.
+            </div>
+          </div>
+
+          <h3>Header and navigation</h3>
+          <div class="demo" style="padding: 0; border: 0">
+            <div class="hdr">
+              <div class="frame">
+                <div class="top">
+                  <span>31604 Pamar Court, New Haven, MI 48048</span>
+                  <span>(586) 749-8593</span>
+                </div>
+                <div class="bar">
+                  <a class="active" href="#components">Home</a>
+                  <a href="#components">About</a>
+                  <a href="#components">Safety</a>
+                  <a href="#components">Services</a>
+                  <a href="#components">Projects</a>
+                  <a href="#components">Careers</a>
+                  <a href="#components">News</a>
+                  <a href="#components">Contact</a>
+                </div>
+                <div class="logo">
+                  <img src="source/assets/logo-b0ea44-logo-2.png" alt="Pamar Enterprises Inc." />
+                </div>
+              </div>
+            </div>
+            <div class="label">
+              Fixed header, 127 px tall: 43 px teal contact bar, 84 px yellow nav bar, white angled
+              logo panel, shadow 1 px 1 px 3 px rgba(0,0,0,0.18). Nav: Montserrat 14 px uppercase
+              #0A2742; current and hover: #E7B304 fill with white text. Below about 1,024 px the nav
+              collapses to a hamburger and a teal slide-out menu.
+            </div>
+          </div>
+
+          <h3>Footer</h3>
+          <div class="demo" style="padding: 0; border: 0">
+            <div class="ftr">
+              <div class="upper">
+                <div>
+                  <img src="source/assets/logo-b0ea44-logo-2.png" alt="Pamar Enterprises Inc." />
+                  <small>An Equal Opportunity Employer</small>
+                </div>
+                <div>31604 Pamar Court, New Haven, MI 48048</div>
+                <div>(586) 749-8593</div>
+              </div>
+              <div class="lower">
+                <nav>
+                  <a class="active" href="#components">Home</a><a href="#components">About</a
+                  ><a href="#components">Safety</a><a href="#components">Services</a
+                  ><a href="#components">Projects</a><a href="#components">Careers</a
+                  ><a href="#components">News</a><a href="#components">Contact</a>
+                </nav>
+                <div class="fine">
+                  <b>(586) 749-8593</b> &nbsp; 31604 Pamar Court, New Haven, MI 48048 &nbsp; ·
+                  &nbsp; <a href="#components">Sitemap</a> &nbsp; © 2026 Pamar Enterprises. All
+                  Rights Reserved. &nbsp; <a href="#components">Login</a>
+                </div>
+              </div>
+            </div>
+            <div class="label">
+              Two bands: white with logo, EOE line, address and phone in teal 24 px with icons; then
+              #0094A5 with uppercase 18 px links (current and hover #A9F6FF), 14 px fine print, 35
+              px vertical padding.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="layout">
+        <div class="wrap">
+          <h2><span class="num">10</span>Spacing, layout width, radius, shadows, icons</h2>
+          <div class="tablewrap">
+            <table>
+              <tr>
+                <th>Property</th>
+                <th>Live site</th>
+              </tr>
+              <tr>
+                <td>Content width</td>
+                <td>
+                  About 1,250 px at a 1,440 px viewport (WPBakery rows); job listings capped at
+                  1,200 px in the child theme. Full-bleed color and photo sections.
+                </td>
+              </tr>
+              <tr>
+                <td>Breakpoints</td>
+                <td>Child theme media queries at 1,450, 1,200, 1,024, 800, and 600 px.</td>
+              </tr>
+              <tr>
+                <td>Section padding</td>
+                <td>
+                  Roughly 60 to 100 px top and bottom on feature rows, measured from screenshots
+                  (WPBakery inline values, not a scale).
+                </td>
+              </tr>
+              <tr>
+                <td>Spacing values seen</td>
+                <td>4, 8, 10, 14, 15, 17, 20, 23, 25, 30, 35, 40 px. No consistent scale.</td>
+              </tr>
+              <tr>
+                <td>Radius</td>
+                <td>
+                  0 everywhere except the 28 px pill buttons and a 30 px pill on the current
+                  page-list item.
+                </td>
+              </tr>
+              <tr>
+                <td>Shadows</td>
+                <td>
+                  Header: 1 px 1 px 3 px rgba(0,0,0,0.18). Nav dropdown: 0 3 px 3 px
+                  rgba(0,0,0,0.2). Nothing else.
+                </td>
+              </tr>
+              <tr>
+                <td>Rules and borders</td>
+                <td>
+                  1 px #CCC dividers; 2 px #0094A5 short rule under section labels; 3 px #F7C92D
+                  rules around the hero H1; 1 px #F7C92D card border; 4 px white photo frame on
+                  About.
+                </td>
+              </tr>
+              <tr>
+                <td>Icons</td>
+                <td>
+                  Location pin and phone as raster images (teal line style); hamburger as three
+                  bars; Font Awesome loaded but not visibly used. No icon set for services.
+                </td>
+              </tr>
+              <tr>
+                <td>Motion</td>
+                <td>
+                  animate.css and skrollr loaded by WPBakery; header has a 300 ms transform
+                  transition. No other intentional motion.
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="rec">
+            Adopt a 4 px spacing scale (4, 8, 12, 16, 24, 32, 48, 64, 96) and a 1,280 px content max
+            width with 16 / 24 / 32 px gutters, which matches the new site's
+            <code>container-page</code> utility. Keep radius at 0 for cards and inputs to match the
+            brand's square, industrial feel, and use one pill radius (9999 px) for buttons if the
+            pill is kept. Replace raster icons with a single line-icon set in teal.
+          </div>
+          <div class="figure">
+            <div class="space-scale">
+              <div style="width: 4px; height: 4px"></div>
+              <div style="width: 8px; height: 8px"></div>
+              <div style="width: 12px; height: 12px"></div>
+              <div style="width: 16px; height: 16px"></div>
+              <div style="width: 24px; height: 24px">24</div>
+              <div style="width: 32px; height: 32px">32</div>
+              <div style="width: 48px; height: 48px">48</div>
+              <div style="width: 64px; height: 64px">64</div>
+              <div style="width: 96px; height: 96px">96</div>
+            </div>
+            <figcaption>Proposed spacing scale (recommendation).</figcaption>
+          </div>
+        </div>
+      </section>
+
+      <section id="gap">
+        <div class="wrap">
+          <h2><span class="num">11</span>Gap analysis vs the new site</h2>
+          <p>
+            The new site's current look is a placeholder, not Pamar's brand. This table compares the
+            live brand to the placeholder tokens in <code>src/app/globals.css</code>, the wordmark
+            component <code>src/components/layout/logo.tsx</code>, the fonts, and
+            <code>src/lib/site.ts</code>. Proposals only; no site code changes yet.
+          </p>
+          <div class="tablewrap">
+            <table>
+              <tr>
+                <th>Area</th>
+                <th>Live brand</th>
+                <th>New site placeholder</th>
+                <th>Proposed change</th>
+              </tr>
+              <tr>
+                <td>Body font</td>
+                <td>Open Sans 300/400/700 (Google Fonts)</td>
+                <td><code>--font-sans</code>: Inter Variable (Fontsource)</td>
+                <td>
+                  Swap to <code>@fontsource-variable/open-sans</code>; set
+                  <code>--font-sans: "Open Sans Variable"</code>. Drop Inter.
+                </td>
+              </tr>
+              <tr>
+                <td>Display font</td>
+                <td>
+                  Open Sans 700 uppercase for headings; Montserrat 400 uppercase for nav and buttons
+                </td>
+                <td><code>--font-display</code>: Oswald Variable, condensed</td>
+                <td>
+                  Set <code>--font-display</code> to Open Sans as well (700, uppercase,
+                  tracking-tight to normal). Optionally add Montserrat 400 for nav and button
+                  labels; otherwise use Open Sans 700 at 14 px with 1 px tracking. Drop Oswald.
+                </td>
+              </tr>
+              <tr>
+                <td>Primary color</td>
+                <td>Teal #0094A5 (structure, links, footer)</td>
+                <td>No teal. Accent scale <code>--color-brand-*</code> is amber #F2A900.</td>
+                <td>
+                  Add a <code>--color-teal-*</code> scale with 500 = #0094A5, 600 ≈ #007A88 (AA
+                  text), 400 = #00A4B0, 300 = #00C1CF, 50 = #E6F5F7. Make teal the primary for
+                  links, footer, top bar, focus.
+                </td>
+              </tr>
+              <tr>
+                <td>Accent color</td>
+                <td>Yellow #F7C92D, hover #E7B304, band #D89E00</td>
+                <td>Amber #F2A900 (brand-500), #FBB91C (400), #C98A00 (600)</td>
+                <td>
+                  Re-point the scale: brand-300 = #F7C92D, brand-400 = #E7B304, brand-500 = #D89E00,
+                  brand-700 = #9A6700 for text. Keep dark text on yellow fills (already the
+                  placeholder rule).
+                </td>
+              </tr>
+              <tr>
+                <td>Neutrals</td>
+                <td>Pure grays: #191919, #333, #404040, #666, #CCC, #F7F7F7</td>
+                <td>Cool "ink" scale with a blue cast (#161A1F, #333A42, #5C6570, #CFD4DA)</td>
+                <td>
+                  Re-tune <code>--color-ink-*</code> to neutral gray: 950 #191919, 900 #262626, 800
+                  #333333, 700 #404040, 500 #666666, 300 #CCCCCC, 100 #EEEEEE, 50 #F7F7F7. Or keep a
+                  slight teal cast (chroma toward #0094A5) so dark sections harmonize with the
+                  brand.
+                </td>
+              </tr>
+              <tr>
+                <td>Orange and bright teal</td>
+                <td>#FF9900 and #00C1CF buttons, both failing contrast</td>
+                <td>Not present</td>
+                <td>
+                  Do not carry over. One primary button style (yellow fill, navy text) and one
+                  secondary (teal outline or teal fill with white 18 px bold text).
+                </td>
+              </tr>
+              <tr>
+                <td>Navy nav text</td>
+                <td>#0A2742</td>
+                <td>Not present</td>
+                <td>Add as <code>--color-navy</code> for text on yellow and for the focus ring.</td>
+              </tr>
+              <tr>
+                <td>Focus ring</td>
+                <td>None (outline removed)</td>
+                <td>2 px amber outline, 2 px offset</td>
+                <td>
+                  Keep the pattern, switch color to navy #0A2742 on light and yellow #F7C92D on dark
+                  backgrounds.
+                </td>
+              </tr>
+              <tr>
+                <td>Logo</td>
+                <td>Raster dome-and-star lockup, teal and yellow, on white only</td>
+                <td>Text wordmark with an amber bar in <code>logo.tsx</code></td>
+                <td>
+                  Replace with an image logo: request vector from client or redraw as SVG; provide
+                  full lockup, mark only, and a reversed version for dark headers. Keep the white
+                  header panel if the client cannot approve a reversed logo.
+                </td>
+              </tr>
+              <tr>
+                <td>Header</td>
+                <td>Teal contact bar plus yellow nav bar, fixed, angled white logo panel</td>
+                <td>Single white header, amber accents</td>
+                <td>
+                  Bring back the teal utility bar with address and phone; nav on white or yellow
+                  with navy text. Keep it sticky but shorter than 127 px on mobile.
+                </td>
+              </tr>
+              <tr>
+                <td>Footer</td>
+                <td>White band (logo, EOE, contact) plus teal band (links, legal)</td>
+                <td>Dark ink footer</td>
+                <td>
+                  Teal footer with white text at 16 px+ (3.63:1 only passes for large text; use 18
+                  px 700 or a darker teal #007A88).
+                </td>
+              </tr>
+              <tr>
+                <td>Radius</td>
+                <td>0, except pill buttons</td>
+                <td>Tailwind defaults in components</td>
+                <td>
+                  Set radius to 0 on cards, inputs, and images; pill or 0 on buttons (client
+                  choice).
+                </td>
+              </tr>
+              <tr>
+                <td>Contact details</td>
+                <td>(586) 749-8593; 31604 Pamar Court, New Haven, MI 48048</td>
+                <td>site.ts: "(000) 000-0000", "Street address", "City, ST 00000"</td>
+                <td>
+                  Fill in the phone and address; email is not published on the live site (the
+                  contact form is the only channel) so keep
+                  <code>info@pamarenterprises.com</code> flagged until confirmed.
+                </td>
+              </tr>
+              <tr>
+                <td>Time zone</td>
+                <td>Michigan</td>
+                <td>site.ts: America/New_York</td>
+                <td>Change to America/Detroit (same offset, correct zone).</td>
+              </tr>
+              <tr>
+                <td>Tagline and description</td>
+                <td>"Precision. Strength. Experts." and the "active since 1976" paragraph</td>
+                <td>
+                  "Building the infrastructure our communities run on." plus a generic description
+                </td>
+                <td>
+                  Use the live tagline; write the description from the About intro (family owned,
+                  heavy civil and underground utilities, MDOT and municipalities, New Haven MI,
+                  since 1976 pending confirmation).
+                </td>
+              </tr>
+              <tr>
+                <td>Navigation</td>
+                <td>Home, About, Safety, Services, Projects, Careers, News, Contact</td>
+                <td>
+                  Services, Projects, About, Safety, Careers, Subcontractors, plus "Contact Us" CTA
+                </td>
+                <td>
+                  Keep the new order and the Subcontractors entry; add News only if the client will
+                  publish. Label the CTA "Contact" to match the live site.
+                </td>
+              </tr>
+              <tr>
+                <td>Name form</td>
+                <td>Mixed (see section 6)</td>
+                <td>site.name "Pamar Enterprises", shortName "Pamar"</td>
+                <td>
+                  Add <code>legalName: "Pamar Enterprises, Inc."</code> for the footer, schema.org,
+                  and bid documents.
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="questions">
+        <div class="wrap">
+          <h2><span class="num">12</span>Open questions for the client</h2>
+          <ol>
+            <li>
+              Do you have the original logo artwork (AI, EPS, SVG, or PDF)? If not, may we redraw it
+              as a vector, and who approves the redraw?
+            </li>
+            <li>
+              Are the teal (#0094A5) and yellow (#F7C92D) exact brand values, or were they picked by
+              the 2017 web designer? Do you have Pantone or paint references from trucks, signage,
+              or uniforms?
+            </li>
+            <li>
+              Is there a brand font for print materials, or was Open Sans chosen for the website
+              only?
+            </li>
+            <li>
+              Legal name and punctuation: "Pamar Enterprises, Inc." with the comma, or without? Is
+              the ® on the logo registered, and should it stay on the web version?
+            </li>
+            <li>
+              Founding dates: the site says 1968 (P&amp;M Contracting), 1972 (incorporation), and
+              "active since 1976". Which year should the new site use for "since"?
+            </li>
+            <li>
+              Address: is 31604 Pamar Court the only office and yard? The Sitemap page still shows
+              58021 Gratiot Ave.
+            </li>
+            <li>
+              Is there a public email address, or should the contact form remain the only channel?
+              Which inbox receives submissions?
+            </li>
+            <li>
+              Should the new site keep the "Essential Employees and Vendors" page and the Login
+              link?
+            </li>
+            <li>
+              Do you have a photo library (project photos with owner and engineer names, fleet,
+              crew, leadership)? Are the current site photos owned by Pamar?
+            </li>
+            <li>
+              Affiliations: still MITA and ABC? Any others (for example MDOT prequalification, MUCC,
+              or union affiliations) to show?
+            </li>
+            <li>
+              Are the orange "Read More" buttons and bright teal pill buttons part of the identity,
+              or can they be replaced by yellow-and-navy buttons for accessibility?
+            </li>
+            <li>
+              Is there existing collateral (business cards, letterhead, truck decals, safety vests)
+              that the web palette should match?
+            </li>
+          </ol>
+        </div>
+      </section>
+    </div>
+
+    <footer class="end">
+      <div class="wrap">
+        Sources: <code>docs/brand/source/summary.json</code>, <code>copy.md</code>,
+        <code>computed-styles.json</code>, <code>css/c61ad8c4-style.css</code> (Alpha Child theme),
+        <code>css/ee5c335b-style.css</code> (Alpha parent theme), <code>assets/</code>, and
+        <code>screenshots/</code>. Captured 25 September 2026 with
+        <code>scripts/capture-brand.mjs</code> and <code>scripts/capture-brand-styles.mjs</code>.
+        Contrast ratios computed with the WCAG 2.x relative luminance formula.
+      </div>
+    </footer>
+  </body>
+</html>
