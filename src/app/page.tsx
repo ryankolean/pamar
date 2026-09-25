@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button";
 import { ArrowRightIcon } from "@/components/ui/icons";
+import { ProjectGrid } from "@/components/projects/project-card";
 import { ServiceCard } from "@/components/services/service-card";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { getFeaturedProjects } from "@/content/projects";
 import { getServices } from "@/content/services";
 import { site } from "@/lib/site";
 
@@ -46,7 +48,7 @@ const principles = [
 ] as const;
 
 export default async function HomePage() {
-  const services = await getServices();
+  const [services, featured] = await Promise.all([getServices(), getFeaturedProjects()]);
 
   return (
     <>
@@ -126,6 +128,31 @@ export default async function HomePage() {
           </ul>
         </div>
       </section>
+
+      {featured.length > 0 && (
+        <section className="bg-ink-950 py-20" aria-labelledby="featured-heading">
+          <div className="container-page">
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <SectionHeading
+                id="featured-heading"
+                eyebrow="Featured work"
+                title="Recent projects"
+                inverse
+              />
+              <ButtonLink
+                href="/projects"
+                variant="outline-light"
+                className="self-start md:self-auto"
+              >
+                View all projects
+              </ButtonLink>
+            </div>
+            <div className="mt-12">
+              <ProjectGrid projects={featured} />
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="bg-ink-50 py-20">
         <div className="container-page">
