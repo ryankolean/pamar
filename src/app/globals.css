@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens.
+ * PLACEHOLDER palette and type until Pamar's brand assets are delivered (SUMMIT-228).
+ * Swap values here; components only reference the token names.
+ */
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Oswald Variable", "Arial Narrow", ui-sans-serif, sans-serif;
+
+  /* Charcoal / steel neutrals */
+  --color-ink-50: #f5f6f7;
+  --color-ink-100: #e7e9ec;
+  --color-ink-200: #cfd4da;
+  --color-ink-300: #aab2bc;
+  --color-ink-400: #7d8793;
+  --color-ink-500: #5c6570;
+  --color-ink-600: #454d57;
+  --color-ink-700: #333a42;
+  --color-ink-800: #22282e;
+  --color-ink-900: #161a1f;
+  --color-ink-950: #0d1013;
+
+  /* Safety amber accent. Use 400/500 as fills with dark text; 700 for text on light backgrounds. */
+  --color-brand-50: #fff8e6;
+  --color-brand-100: #ffecb8;
+  --color-brand-200: #ffdc80;
+  --color-brand-300: #ffcb47;
+  --color-brand-400: #fbb91c;
+  --color-brand-500: #f2a900;
+  --color-brand-600: #c98a00;
+  --color-brand-700: #9a6700;
+  --color-brand-800: #6e4a00;
+  --color-brand-900: #472f00;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-white font-sans text-ink-800 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight text-ink-950;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+/* Subtle diagonal hatch used behind dark hero sections and image placeholders. */
+@utility bg-hatch {
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgb(255 255 255 / 0.04) 0 2px,
+    transparent 2px 14px
+  );
+}
