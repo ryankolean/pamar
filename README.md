@@ -9,7 +9,7 @@ Tracked in Jira epic **SUMMIT-226**.
 - [Next.js 16](https://nextjs.org/) (App Router, React Server Components, Server Actions)
 - TypeScript, Tailwind CSS v4
 - Vitest for unit tests, ESLint + Prettier
-- Self-hosted fonts via Fontsource (Inter, Oswald). No external font requests at build or run time
+- Self-hosted fonts via Fontsource (Open Sans, Montserrat). No external font requests at build or run time
 
 ## Getting started
 
@@ -44,7 +44,7 @@ src/
 
 ## Placeholder content
 
-Brand colors, fonts, logo, contact details, and all copy are **placeholders** until the client delivers brand assets and content (Jira SUMMIT-228). Design tokens live in `src/app/globals.css` (`@theme`) and site-wide details live in `src/lib/site.ts`.
+Brand colors, fonts, and the logo follow [`docs/brand/brand-style-guide.html`](docs/brand/brand-style-guide.html), built from the live site. Project, job, and bid content is still **sample data** until the client delivers it (Jira SUMMIT-228). Design tokens live in `src/app/globals.css` (`@theme`) and site-wide details live in `src/lib/site.ts`; the email address and office hours there are still unconfirmed.
 
 ## Preview deployment (for client review)
 

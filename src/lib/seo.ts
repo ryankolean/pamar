@@ -16,9 +16,10 @@ export function organizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "GeneralContractor",
     name: site.name,
+    legalName: site.legalName,
     description: site.description,
     url: site.url,
-    logo: absoluteUrl("/icon.svg"),
+    logo: absoluteUrl("/brand/pamar-logo-lockup.png"),
     email: site.contact.email,
     telephone: site.contact.phone,
     address: {

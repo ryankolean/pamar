@@ -8,7 +8,7 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-sm px-5 py-3 font-display text-sm font-semibold uppercase tracking-wider transition-colors disabled:cursor-not-allowed disabled:opacity-60";
 
 const variants: Record<ButtonVariant, string> = {
-  primary: "bg-brand-500 text-ink-950 hover:bg-brand-400",
+  primary: "bg-brand-500 text-ink-950 hover:bg-brand-600",
   dark: "bg-ink-950 text-white hover:bg-ink-800",
   outline: "border-2 border-ink-950 text-ink-950 hover:bg-ink-950 hover:text-white",
   "outline-light": "border-2 border-white text-white hover:bg-white hover:text-ink-950",

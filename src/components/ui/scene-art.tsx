@@ -1,6 +1,6 @@
 /**
  * On-brand construction illustrations used wherever a photo hasn't been supplied yet.
- * Flat, duotone (charcoal + safety amber) scenes drawn on a 400×300 canvas that scales to fill
+ * Flat, duotone (charcoal + Pamar yellow) scenes drawn on a 400×300 canvas that scales to fill
  * any frame. Decorative: the wrapping element carries the accessible label.
  */
 export const scenes = [
@@ -28,8 +28,8 @@ const C = {
   rockLight: "#4a5460",
   steel: "#9aa3ad",
   white: "#e7e9ec",
-  amber: "#f2a900",
-  amberDark: "#c98a00",
+  amber: "#f7c92d",
+  amberDark: "#e7b304",
   amberDeep: "#9a6700",
 };
 
