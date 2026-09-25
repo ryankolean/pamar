@@ -1,0 +1,14 @@
+/* https://www.pamarenterprises.com/wp-content/themes/alpha/print.css */
+nav{
+display: none;
+}
+body {
+font-size: 12pt;
+font-family: Georgia,Times, serif;
+color: #000;
+background: #fff;
+}
+img {
+display:none;
+}
+.site-branding img{display:block;max-width:200px;height:auto;}
