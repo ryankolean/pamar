@@ -25,7 +25,7 @@ describe("projects content", () => {
   });
 
   it("excludes the project itself from related projects", async () => {
-    const project = (await getProjectBySlug("downtown-sewer-separation"))!;
+    const project = (await getProjectBySlug("cso-3-5-phase-ii-control-123688"))!;
     const related = await getRelatedProjects(project);
     expect(related.map((p) => p.slug)).not.toContain(project.slug);
   });

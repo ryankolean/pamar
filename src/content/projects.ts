@@ -1,9 +1,10 @@
 /**
  * Project portfolio.
  *
- * PLACEHOLDER content: these are sample entries that show the layout, illustrated with job site
- * photos from the live site. Replace them with Pamar's real project list and details
- * (SUMMIT-228). Accessors are async
+ * Pamar's project list as published on www.pamarenterprises.com (docs/brand/source/copy.md),
+ * with the live site's URL slugs. The live site gives no completion years, contract values,
+ * durations, or per-project photos, so those fields are left empty rather than invented and the
+ * photos are Pamar's general job site photography. Accessors are async
  * so this module can be swapped for a CMS query (SUMMIT-237).
  */
 import type { Scene } from "@/components/ui/scene-art";
@@ -34,183 +35,167 @@ export type Project = {
   services: string[];
   market: Market;
   location: string;
-  /** Year of completion. */
-  year: number;
+  /** Year of completion, when known. */
+  year?: number;
   owner: string;
+  engineer?: string;
+  /** Contract name when it differs from the title. */
+  jobName?: string;
   valueRange?: string;
   duration?: string;
   scope: string[];
-  challenge: string;
-  result: string;
+  challenge?: string;
+  result?: string;
   featured?: boolean;
   images: ProjectImage[];
 };
 
 const projects: Project[] = [
   {
-    slug: "downtown-sewer-separation",
-    title: "Downtown Sewer Separation",
-    summary: "Separated combined sewers beneath an active downtown corridor to reduce overflows.",
-    services: ["underground-utilities", "roadway-infrastructure"],
+    slug: "cso-3-5-phase-ii-control-123688",
+    title: "CSO #3 & #5, Phase II, Control #123688",
+    summary:
+      "Installation of sanitary sewer, 2,500 LF of 8″ through 24″, and over 10,000 LF of 12″ through 42″ C76-IV RCP storm sewer.",
+    services: ["underground-utilities"],
     market: "Municipal",
-    location: "Downtown district",
-    year: 2024,
-    owner: "Municipal client",
-    valueRange: "$5M–$10M",
-    duration: "14 months",
+    location: "Dearborn, MI",
+    owner: "City of Dearborn",
+    engineer: "City of Dearborn",
     scope: [
-      "New storm sewer from 12 to 48 inches",
-      "Sanitary lateral reconnections",
-      "Full-depth road restoration",
-      "Staged maintenance of traffic",
+      "2,500 LF of sanitary sewer, 8″ through 24″",
+      "Over 10,000 LF of 12″ through 42″ C76-IV RCP storm sewer",
     ],
-    challenge:
-      "Work ran beneath a busy commercial corridor with businesses open throughout construction and shallow, undocumented utilities.",
-    result:
-      "Phased the work block by block to keep every storefront accessible, and finished the underground work ahead of the paving window.",
     featured: true,
     images: [
       {
         src: "/images/site/sewer-shaft-pipe.jpg",
-        alt: "Storm pipe being set inside a lined shaft",
+        alt: "Concrete sewer pipe set inside a lined shaft",
       },
-      { src: "/images/site/crew-setting-pipe.jpg", alt: "Crew setting pipe in an open trench" },
+      {
+        src: "/images/site/crew-setting-pipe.jpg",
+        alt: "Pamar crew setting pipe in an open trench",
+      },
     ],
   },
   {
-    slug: "water-main-replacement-program",
-    title: "Water Main Replacement Program",
-    summary: "Replaced aging cast-iron water main across several residential neighborhoods.",
-    services: ["underground-utilities"],
+    slug: "water-main-replacement-using-pipeburst",
+    title: "Water Main Replacement and Road Resurfacing",
+    jobName: "Water Main Replacement and HMA Road Resurfacing",
+    summary:
+      "Pipe bursting 27,000 LF of 6″ and 8″ diameter pipe up to 10″ diameter HDPE SDR pipe, with milling and resurfacing of over 5 miles of residential roads.",
+    services: ["underground-utilities", "roadway-infrastructure"],
     market: "Municipal",
-    location: "Residential neighborhoods",
-    year: 2023,
-    owner: "Municipal water utility",
-    valueRange: "$1M–$5M",
-    duration: "8 months",
+    location: "Rochester Hills, MI",
+    owner: "City of Rochester Hills",
+    engineer: "City of Rochester Hills",
     scope: [
-      "8-inch and 12-inch ductile iron water main",
-      "Hydrant and valve replacement",
-      "Service transfers",
-      "Lawn and driveway restoration",
+      "Pipe bursting 27,000 LF of 6″ and 8″ pipe, upsized to 10″ HDPE SDR pipe",
+      "Milling and HMA resurfacing of over 5 miles of residential roads",
     ],
-    challenge:
-      "Homes needed to keep water service throughout, with only short, pre-announced shutoffs.",
-    result: "Used temporary bypass services so residents had only brief, scheduled interruptions.",
-    featured: true,
-    images: [{ src: "/images/site/crew-at-trench.jpg", alt: "Crew at an open water main trench" }],
-  },
-  {
-    slug: "industrial-park-site-development",
-    title: "Industrial Park Site Development",
-    summary: "Mass grading and site utilities for a new multi-building industrial park.",
-    services: ["site-development", "excavation-earthwork", "underground-utilities"],
-    market: "Industrial",
-    location: "Industrial corridor",
-    year: 2022,
-    owner: "Private developer",
-    valueRange: "$10M+",
-    duration: "18 months",
-    scope: [
-      "Mass grading and cut-and-fill balancing",
-      "Storm detention basins",
-      "Sanitary, storm, and water site utilities",
-      "Building pads and truck court preparation",
-    ],
-    challenge: "Poor soils across much of the site threatened the grading schedule.",
-    result:
-      "Stabilized the soils in place instead of hauling them off, which saved truck traffic and kept the building pads on schedule.",
     featured: true,
     images: [
-      { src: "/images/site/mass-grading.jpg", alt: "Excavators mass grading the site" },
       {
-        src: "/images/site/yard-aerial.jpg",
-        alt: "Aerial view of the graded site and staging area",
+        src: "/images/site/crew-at-trench.jpg",
+        alt: "Pamar crew and excavator at an open water main trench",
+      },
+      {
+        src: "/images/site/excavators-grading.jpg",
+        alt: "Pamar excavators working along a residential road",
       },
     ],
   },
   {
-    slug: "county-road-reconstruction",
-    title: "County Road Reconstruction",
-    summary: "Full reconstruction of a two-mile county road with new drainage and culverts.",
-    services: ["roadway-infrastructure", "excavation-earthwork"],
-    market: "Transportation",
-    location: "County road",
-    year: 2021,
-    owner: "County road agency",
-    valueRange: "$5M–$10M",
-    duration: "6 months",
-    scope: ["Pavement removal and subgrade repair", "Culvert replacement", "Ditching and drainage"],
-    challenge: "The road had to stay open to local traffic and school buses.",
-    result: "Worked one lane at a time with flaggers and completed before the school year.",
-    images: [
-      { src: "/images/site/excavators-grading.jpg", alt: "Excavators grading the road corridor" },
+    slug: "2017-water-main-replacement",
+    title: "2017 Water Main Replacement",
+    summary:
+      "Over 6,000 LF of 8″ water main installation using trenchless technologies, with concrete pavement replacement in a densely populated Fraser subdivision.",
+    services: ["underground-utilities", "roadway-infrastructure"],
+    market: "Municipal",
+    location: "Fraser, MI",
+    year: 2017,
+    owner: "City of Fraser",
+    engineer: "Anderson, Eckstein & Westrick, Inc.",
+    scope: [
+      "Over 6,000 LF of 8″ water main installed with trenchless technologies",
+      "Concrete pavement replacement within a densely populated subdivision",
     ],
-  },
-  {
-    slug: "retail-center-redevelopment",
-    title: "Retail Center Redevelopment",
-    summary: "Demolition and site prep to redevelop an aging retail center.",
-    services: ["demolition", "site-development"],
-    market: "Commercial",
-    location: "Suburban retail corridor",
-    year: 2023,
-    owner: "Commercial developer",
-    valueRange: "$1M–$5M",
-    duration: "5 months",
-    scope: ["Building and pavement demolition", "Concrete recycling", "Site utility relocation"],
-    challenge: "Neighboring tenants stayed open during demolition.",
-    result: "Controlled dust, noise, and access so neighboring businesses stayed open throughout.",
-    images: [
-      {
-        src: "/images/site/wet-ground-excavation.jpg",
-        alt: "Excavators clearing the redevelopment site",
-      },
-    ],
-  },
-  {
-    slug: "subdivision-utilities",
-    title: "Subdivision Utilities & Grading",
-    summary: "Utilities and grading for a new residential subdivision.",
-    services: ["underground-utilities", "site-development"],
-    market: "Residential Development",
-    location: "New subdivision",
-    year: 2025,
-    owner: "Residential builder",
-    valueRange: "$1M–$5M",
-    duration: "7 months",
-    scope: ["Sanitary, storm, and water mains", "Mass and finish grading", "Road base preparation"],
-    challenge: "The builder needed lots ready in phases to match home sales.",
-    result: "Delivered lots phase by phase so home construction could start early.",
+    featured: true,
     images: [
       {
         src: "/images/site/excavator-loading-truck.jpg",
-        alt: "Excavator loading spoils during utility installation",
+        alt: "Pamar excavator loading a haul truck beside a residential street",
       },
     ],
   },
   {
-    slug: "emergency-interceptor-repair",
-    title: "Emergency Interceptor Repair",
-    summary: "Rapid repair of a collapsed sanitary interceptor to restore service.",
-    services: ["emergency-response", "underground-utilities"],
+    slug: "section-24-area-3-southfield",
+    title: "Section 24 Area 3, Southfield",
+    jobName: "Section 24 Area 3",
+    summary:
+      "Pump station with wet well, 4,200 LF of water main, 4,200 LF of sanitary sewer (10″ to 30″), and concrete pavement replacement in Southfield neighborhoods, including partial reconstruction of 10 Mile Road.",
+    services: ["underground-utilities", "roadway-infrastructure"],
     market: "Municipal",
-    location: "Regional interceptor",
-    year: 2022,
-    owner: "Regional sewer authority",
-    duration: "3 weeks",
-    scope: ["Bypass pumping", "Deep excavation with shoring", "Pipe and manhole replacement"],
-    challenge: "A deep sewer collapse put service and nearby property at risk.",
-    result: "Mobilized crews quickly, set up bypass pumping, and restored full service.",
+    location: "Southfield, MI",
+    owner: "City of Southfield",
+    engineer: "Hubbell, Roth & Clark, Inc.",
+    scope: [
+      "Pump station installation with wet well",
+      "4,200 LF of water main",
+      "4,200 LF of sanitary sewer, 10″ to 30″ diameter, open cut trench method",
+      "Concrete pavement replacement in residential neighborhoods",
+      "Partial reconstruction of 10 Mile Road, a major thoroughfare",
+    ],
     images: [
-      { src: "/images/site/tunnel-work.jpg", alt: "Crew working inside the interceptor tunnel" },
+      { src: "/images/site/tunnel-work.jpg", alt: "Pamar crew working inside a lined shaft" },
+      { src: "/images/site/mass-grading.jpg", alt: "Pamar excavators grading a work site" },
+    ],
+  },
+  {
+    slug: "brown-road-widening",
+    title: "Brown Road Widening",
+    summary:
+      "Over a mile of road widening with water main relocation and abandonment, gas main removal and abandonment, and traffic signal modernization.",
+    services: ["roadway-infrastructure", "underground-utilities"],
+    market: "Municipal",
+    location: "Orion Township, MI",
+    owner: "Charter Township of Orion",
+    engineer: "OHM Advisors, Inc.",
+    scope: [
+      "1+ miles of road widening",
+      "Water main relocation and abandonment",
+      "Gas main removal and abandonment",
+      "Traffic signal modernization",
+    ],
+    images: [
+      {
+        src: "/images/site/excavators-grading.jpg",
+        alt: "Pamar excavators grading along a roadway",
+      },
+    ],
+  },
+  {
+    slug: "worth-township-contract-4",
+    title: "Worth Township Contract #4 Sanitary Installation",
+    jobName: "Contract #4",
+    summary: "Sanitary sewer installation for Worth Township under Contract #4.",
+    services: ["underground-utilities"],
+    market: "Municipal",
+    location: "Worth Township, MI",
+    owner: "Worth Township",
+    engineer: "Prein & Newhof",
+    scope: ["Sanitary sewer installation"],
+    images: [
+      {
+        src: "/images/site/wet-ground-excavation.jpg",
+        alt: "Pamar excavators working in wet ground",
+      },
     ],
   },
 ];
 
 export async function getProjects(): Promise<Project[]> {
-  // Newest first.
-  return [...projects].sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
+  // Site order (as published), which the client can reorder here.
+  return [...projects];
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | undefined> {
