@@ -18,7 +18,7 @@ export const site = {
 export type NavItem = { label: string; href: string };
 
 /** Primary navigation. Each feature adds its own entry as its routes land. */
-export const mainNav: NavItem[] = [];
+export const mainNav: NavItem[] = [{ label: "Services", href: "/services" }];
 
 /** Header call to action. */
 export const headerCta: NavItem | null = null;

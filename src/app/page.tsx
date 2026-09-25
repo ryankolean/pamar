@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button";
 import { ArrowRightIcon } from "@/components/ui/icons";
+import { ServiceCard } from "@/components/services/service-card";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { getServices } from "@/content/services";
 import { site } from "@/lib/site";
 
 const pathways = [
@@ -43,7 +45,9 @@ const principles = [
   },
 ] as const;
 
-export default function HomePage() {
+export default async function HomePage() {
+  const services = await getServices();
+
   return (
     <>
       <section className="bg-hatch relative isolate overflow-hidden bg-ink-950 text-white">
@@ -94,6 +98,29 @@ export default function HomePage() {
                 >
                   {item.cta} <ArrowRightIcon />
                 </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="py-20" aria-labelledby="capabilities-heading">
+        <div className="container-page">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <SectionHeading
+              id="capabilities-heading"
+              eyebrow="Capabilities"
+              title="What we build"
+              intro="Self-performed heavy civil work, from the first cut to final restoration."
+            />
+            <ButtonLink href="/services" variant="outline" className="self-start md:self-auto">
+              All services
+            </ButtonLink>
+          </div>
+          <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <li key={service.slug}>
+                <ServiceCard service={service} />
               </li>
             ))}
           </ul>

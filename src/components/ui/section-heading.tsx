@@ -8,6 +8,8 @@ type SectionHeadingProps = {
   /** Render on a dark background. */
   inverse?: boolean;
   as?: "h1" | "h2";
+  /** id for the heading element, for use with aria-labelledby. */
+  id?: string;
   className?: string;
 };
 
@@ -18,6 +20,7 @@ export function SectionHeading({
   align = "left",
   inverse = false,
   as: Heading = "h2",
+  id,
   className,
 }: SectionHeadingProps) {
   return (
@@ -33,6 +36,7 @@ export function SectionHeading({
         </p>
       )}
       <Heading
+        id={id}
         className={cn(
           "text-3xl font-bold uppercase sm:text-4xl",
           inverse ? "text-white" : "text-ink-950",
