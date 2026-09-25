@@ -47,9 +47,10 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           {headerCta && (
-            <ButtonLink href={headerCta.href} className="hidden sm:inline-flex">
-              {headerCta.label}
-            </ButtonLink>
+            // Wrapper controls visibility: ButtonLink's own inline-flex would override "hidden".
+            <div className="hidden sm:block">
+              <ButtonLink href={headerCta.href}>{headerCta.label}</ButtonLink>
+            </div>
           )}
           {mainNav.length > 0 && (
             <button

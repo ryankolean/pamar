@@ -1,16 +1,11 @@
 import { markets, type Market, type Project } from "@/content/projects";
+import { firstParam, pickParam, type SearchParams } from "@/lib/search-params";
 
 export type ProjectFilters = {
   service?: string;
   market?: Market;
   year?: number;
 };
-
-type SearchParams = Record<string, string | string[] | undefined>;
-
-function first(value: string | string[] | undefined): string | undefined {
-  return Array.isArray(value) ? value[0] : value;
-}
 
 /**
  * Read filters from URL search params. Unknown or malformed values are dropped,
@@ -22,13 +17,13 @@ export function parseProjectFilters(
 ): ProjectFilters {
   const filters: ProjectFilters = {};
 
-  const service = first(params.service);
-  if (service && allowed.services.includes(service)) filters.service = service;
+  const service = pickParam(params, "service", allowed.services);
+  if (service) filters.service = service;
 
-  const market = first(params.market);
-  if (market && (markets as readonly string[]).includes(market)) filters.market = market as Market;
+  const market = pickParam(params, "market", markets);
+  if (market) filters.market = market;
 
-  const year = Number(first(params.year));
+  const year = Number(firstParam(params.year));
   if (Number.isInteger(year) && allowed.years.includes(year)) filters.year = year;
 
   return filters;
