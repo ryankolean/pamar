@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { type ReactNode, useActionState } from "react";
+import { type ReactNode, useActionState, useEffect, useRef } from "react";
 import { useFormStatus } from "react-dom";
 import { buttonClasses } from "@/components/ui/button";
 import { type FormState, initialFormState } from "@/lib/forms/form-state";
@@ -440,11 +440,31 @@ export function SubmitButton({
 
 /** Form-level status banner. */
 export function FormMessage({ state }: { state: FormState }) {
-  if (state.status !== "error" || !state.message) return null;
+  const ref = useRef<HTMLDivElement>(null);
+  const visible = state.status === "error" && Boolean(state.message);
+
+  // Forms remount after each submission, so this runs once per failed attempt: move focus
+  // to the summary so keyboard and screen-reader users (and long forms) land on the errors.
+  useEffect(() => {
+    if (!visible) return;
+    ref.current?.focus({ preventScroll: true });
+    // Scroll on the next frame: React's post-action form reset can adjust scroll after effects run.
+    const frame = requestAnimationFrame(() =>
+      ref.current?.scrollIntoView({
+        block: "start",
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      }),
+    );
+    return () => cancelAnimationFrame(frame);
+  }, [visible]);
+
+  if (!visible) return null;
   return (
     <div
+      ref={ref}
       role="alert"
-      className="border-l-4 border-red-600 bg-red-50 p-4 text-sm font-medium text-red-800"
+      tabIndex={-1}
+      className="scroll-mt-28 border-l-4 border-red-600 bg-red-50 p-4 text-sm font-medium text-red-800"
     >
       {state.message}
     </div>

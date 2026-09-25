@@ -1,0 +1,23 @@
+import type { Metadata } from "next";
+import { ButtonLink } from "@/components/ui/button";
+
+export const metadata: Metadata = {
+  title: "Registration received",
+  robots: { index: false },
+};
+
+export default function RegistrationThanksPage() {
+  return (
+    <section className="container-page flex flex-col items-start gap-6 py-24">
+      <span aria-hidden="true" className="block h-1 w-16 bg-brand-500" />
+      <h1 className="text-4xl font-bold uppercase sm:text-5xl">Registration received</h1>
+      <p className="max-w-2xl text-lg text-ink-700">
+        Thanks for registering! We’ve emailed you a confirmation. Our estimating team will review
+        your information and reach out about packages that match your trades.
+      </p>
+      <ButtonLink href="/subcontractors/opportunities" variant="dark">
+        View open opportunities
+      </ButtonLink>
+    </section>
+  );
+}
