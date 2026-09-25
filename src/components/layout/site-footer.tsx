@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { mainNav, site } from "@/lib/site";
+import { headerCta, mainNav, site, telHref } from "@/lib/site";
 import { Logo } from "./logo";
 
 export function SiteFooter() {
@@ -19,7 +19,7 @@ export function SiteFooter() {
               Explore
             </h2>
             <ul className="grid grid-cols-2 gap-2 text-sm">
-              {mainNav.map((item) => (
+              {[...mainNav, ...(headerCta ? [headerCta] : [])].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="hover:text-white">
                     {item.label}
@@ -36,10 +36,7 @@ export function SiteFooter() {
           </h2>
           <ul className="space-y-2 text-sm">
             <li>
-              <a
-                href={`tel:${site.contact.phone.replace(/[^\d+]/g, "")}`}
-                className="hover:text-white"
-              >
+              <a href={telHref(site.contact.phone)} className="hover:text-white">
                 {site.contact.phone}
               </a>
             </li>
