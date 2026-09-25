@@ -8,5 +8,4 @@ This repository is public, so it holds no pricing. The cost estimate and the pri
 out of the repo and go to the client by email. This copy of the deck has no speaker notes; the
 presenter version with notes is kept privately.
 
-The deck's screenshots show the preview site before the brand update (placeholder colors and
-wordmark).
+Screenshots are from the current preview site (September 25, 2026), in Pamar's brand.
