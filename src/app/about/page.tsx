@@ -3,8 +3,8 @@ import { ButtonLink } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/page-hero";
 import { ProjectPhoto } from "@/components/projects/project-photo";
 import { CountUp } from "@/components/ui/count-up";
-import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { founders, initials, leadership } from "@/content/leadership";
 import { revealDelay } from "@/lib/motion";
 import { site } from "@/lib/site";
 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: `The history, values, and leadership of ${site.name}.`,
 };
 
-// PLACEHOLDER copy and leadership until provided by the client (SUMMIT-228).
+// PLACEHOLDER values copy until confirmed by the client (SUMMIT-228).
 const values = [
   {
     title: "Safety",
@@ -34,12 +34,6 @@ const stats = [
   { label: "Years in business in 2026", value: 50, count: true },
 ];
 
-const leadership = [
-  { name: "Leader name", role: "President" },
-  { name: "Leader name", role: "Vice President, Operations" },
-  { name: "Leader name", role: "Chief Estimator" },
-];
-
 export default function AboutPage() {
   return (
     <>
@@ -48,14 +42,17 @@ export default function AboutPage() {
       <section className="py-16 sm:py-20">
         <div className="container-page grid items-center gap-12 lg:grid-cols-2">
           <div className="space-y-5 text-lg text-ink-700">
-            <SectionHeading eyebrow="Our story" title="Built on hard work" />
+            <SectionHeading eyebrow="Our story" title="Family owned since 1968" />
             <p>
-              Company history goes here: when and where Pamar was founded, how it grew, and the
-              kinds of work it’s known for today.
+              Pamar Enterprises is a family-owned business approaching 50 years in operation. Over
+              those years we have built a reputation for taking on tough infrastructure projects and
+              for responding quickly to utility maintenance and emergencies.
             </p>
             <p>
-              A second paragraph can cover the markets and region served, the size of the team, and
-              what makes Pamar different to work with.
+              Today Pamar is known for deep experience across heavy civil construction: underground
+              utilities, road construction, bridge work, and site preparation. A team of more than
+              120 people handles estimating, budgeting, design, development, and complete execution
+              for MDOT, local municipalities, businesses, and private developers.
             </p>
           </div>
           <ProjectPhoto
@@ -109,19 +106,47 @@ export default function AboutPage() {
 
       <section className="py-16 sm:py-20">
         <div className="container-page">
-          <SectionHeading eyebrow="Leadership" title="Our team" />
-          <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <SectionHeading
+            eyebrow="Leadership"
+            title="Our team"
+            intro="The second generation of the Acciavatti family leads Pamar today, alongside a management team with decades in heavy civil construction."
+          />
+          <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {leadership.map((person, index) => (
-              <li key={person.role} data-reveal style={revealDelay(index)}>
-                <PlaceholderImage
-                  label={`${person.role} headshot`}
-                  className="aspect-square w-full"
-                />
+              <li key={person.name} data-reveal style={revealDelay(index)}>
+                {person.photo ? (
+                  <ProjectPhoto
+                    image={{ src: person.photo, alt: `${person.name}, ${person.role}` }}
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    className="aspect-square w-full"
+                  />
+                ) : (
+                  <div
+                    aria-hidden="true"
+                    className="flex aspect-square w-full items-center justify-center bg-teal-700 font-display text-5xl font-bold text-white"
+                  >
+                    {initials(person.name)}
+                  </div>
+                )}
                 <h3 className="mt-4 text-xl font-bold uppercase">{person.name}</h3>
-                <p className="text-ink-600">{person.role}</p>
+                <p className="font-semibold text-teal-700">{person.role}</p>
+                {person.bio && <p className="mt-2 text-sm text-ink-600">{person.bio}</p>}
               </li>
             ))}
           </ul>
+
+          <div
+            data-reveal
+            className="mt-16 grid gap-8 border-t-4 border-brand-500 bg-ink-50 p-8 lg:grid-cols-[1fr_2fr]"
+          >
+            <div>
+              <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">
+                Our founders
+              </p>
+              <h3 className="mt-2 text-2xl font-bold uppercase">{founders.names}</h3>
+            </div>
+            <p className="text-ink-700">{founders.story}</p>
+          </div>
         </div>
       </section>
 
