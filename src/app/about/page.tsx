@@ -111,7 +111,7 @@ export default function AboutPage() {
             title="Our team"
             intro="The second generation of the Acciavatti family leads Pamar today, alongside a management team with decades in heavy civil construction."
           />
-          <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {leadership.map((person, index) => (
               <li key={person.name} data-reveal style={revealDelay(index)}>
                 {person.photo ? (
