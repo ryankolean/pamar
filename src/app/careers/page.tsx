@@ -4,7 +4,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { FaqList } from "@/components/ui/faq-list";
 import { FilterBar } from "@/components/ui/filter-bar";
 import { PageHero } from "@/components/ui/page-hero";
-import { PlaceholderImage } from "@/components/ui/placeholder-image";
+import { ProjectPhoto } from "@/components/projects/project-photo";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { careersFaqs } from "@/content/faqs";
 import { departments, employmentTypes, getJobs } from "@/content/jobs";
@@ -72,7 +72,11 @@ export default async function CareersPage(props: PageProps<"/careers">) {
               training, good equipment, and people who want to see you succeed.
             </p>
           </div>
-          <PlaceholderImage label="Crew on a job site" className="aspect-[4/3] w-full" />
+          <ProjectPhoto
+            image={{ src: "/images/site/crew-on-site.jpg", alt: "Pamar crews on a job site" }}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="aspect-[4/3] w-full"
+          />
         </div>
       </section>
 

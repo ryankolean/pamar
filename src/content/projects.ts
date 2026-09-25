@@ -1,8 +1,9 @@
 /**
  * Project portfolio.
  *
- * PLACEHOLDER content: these are sample entries that show the layout. Replace them with
- * Pamar's real project list, details, and photography (SUMMIT-228). Accessors are async
+ * PLACEHOLDER content: these are sample entries that show the layout, illustrated with job site
+ * photos from the live site. Replace them with Pamar's real project list and details
+ * (SUMMIT-228). Accessors are async
  * so this module can be swapped for a CMS query (SUMMIT-237).
  */
 import type { Scene } from "@/components/ui/scene-art";
@@ -68,7 +69,13 @@ const projects: Project[] = [
     result:
       "Phased the work block by block to keep every storefront accessible, and finished the underground work ahead of the paving window.",
     featured: true,
-    images: [{ alt: "Crew setting storm pipe in a downtown trench" }, { alt: "Restored roadway" }],
+    images: [
+      {
+        src: "/images/site/sewer-shaft-pipe.jpg",
+        alt: "Storm pipe being set inside a lined shaft",
+      },
+      { src: "/images/site/crew-setting-pipe.jpg", alt: "Crew setting pipe in an open trench" },
+    ],
   },
   {
     slug: "water-main-replacement-program",
@@ -91,7 +98,7 @@ const projects: Project[] = [
       "Homes needed to keep water service throughout, with only short, pre-announced shutoffs.",
     result: "Used temporary bypass services so residents had only brief, scheduled interruptions.",
     featured: true,
-    images: [{ alt: "Water main installation", scene: "excavator" }],
+    images: [{ src: "/images/site/crew-at-trench.jpg", alt: "Crew at an open water main trench" }],
   },
   {
     slug: "industrial-park-site-development",
@@ -115,8 +122,11 @@ const projects: Project[] = [
       "Stabilized the soils in place instead of hauling them off, which saved truck traffic and kept the building pads on schedule.",
     featured: true,
     images: [
-      { alt: "Aerial view of graded industrial site", scene: "crane" },
-      { alt: "Detention basin", scene: "site" },
+      { src: "/images/site/mass-grading.jpg", alt: "Excavators mass grading the site" },
+      {
+        src: "/images/site/yard-aerial.jpg",
+        alt: "Aerial view of the graded site and staging area",
+      },
     ],
   },
   {
@@ -133,7 +143,9 @@ const projects: Project[] = [
     scope: ["Pavement removal and subgrade repair", "Culvert replacement", "Ditching and drainage"],
     challenge: "The road had to stay open to local traffic and school buses.",
     result: "Worked one lane at a time with flaggers and completed before the school year.",
-    images: [{ alt: "Road reconstruction" }],
+    images: [
+      { src: "/images/site/excavators-grading.jpg", alt: "Excavators grading the road corridor" },
+    ],
   },
   {
     slug: "retail-center-redevelopment",
@@ -149,7 +161,12 @@ const projects: Project[] = [
     scope: ["Building and pavement demolition", "Concrete recycling", "Site utility relocation"],
     challenge: "Neighboring tenants stayed open during demolition.",
     result: "Controlled dust, noise, and access so neighboring businesses stayed open throughout.",
-    images: [{ alt: "Demolition of retail building" }],
+    images: [
+      {
+        src: "/images/site/wet-ground-excavation.jpg",
+        alt: "Excavators clearing the redevelopment site",
+      },
+    ],
   },
   {
     slug: "subdivision-utilities",
@@ -165,7 +182,12 @@ const projects: Project[] = [
     scope: ["Sanitary, storm, and water mains", "Mass and finish grading", "Road base preparation"],
     challenge: "The builder needed lots ready in phases to match home sales.",
     result: "Delivered lots phase by phase so home construction could start early.",
-    images: [{ alt: "Subdivision utilities", scene: "site" }],
+    images: [
+      {
+        src: "/images/site/excavator-loading-truck.jpg",
+        alt: "Excavator loading spoils during utility installation",
+      },
+    ],
   },
   {
     slug: "emergency-interceptor-repair",
@@ -180,7 +202,9 @@ const projects: Project[] = [
     scope: ["Bypass pumping", "Deep excavation with shoring", "Pipe and manhole replacement"],
     challenge: "A deep sewer collapse put service and nearby property at risk.",
     result: "Mobilized crews quickly, set up bypass pumping, and restored full service.",
-    images: [{ alt: "Emergency bypass pumping setup" }],
+    images: [
+      { src: "/images/site/tunnel-work.jpg", alt: "Crew working inside the interceptor tunnel" },
+    ],
   },
 ];
 

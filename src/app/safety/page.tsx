@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/page-hero";
-import { PlaceholderImage } from "@/components/ui/placeholder-image";
+import { ProjectPhoto } from "@/components/projects/project-photo";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { site } from "@/lib/site";
 
@@ -49,7 +49,14 @@ export default function SafetyPage() {
 
       <section className="py-16 sm:py-20">
         <div className="container-page grid items-center gap-12 lg:grid-cols-2">
-          <PlaceholderImage label="Crew safety briefing" className="aspect-[4/3] w-full" />
+          <ProjectPhoto
+            image={{
+              src: "/images/site/crew-at-trench.jpg",
+              alt: "Pamar crew in hard hats and safety shirts at an open trench",
+            }}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="aspect-[4/3] w-full"
+          />
           <div className="space-y-5 text-lg text-ink-700">
             <SectionHeading eyebrow="Our commitment" title="Safety first, every shift" />
             <p>

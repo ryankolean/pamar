@@ -14,11 +14,17 @@ export type Service = {
   description: string[];
   capabilities: string[];
   equipment: string[];
+  /** Photo for the detail page. Omit to render a placeholder. */
+  image?: { src: string; alt: string };
 };
 
 const services: Service[] = [
   {
     slug: "underground-utilities",
+    image: {
+      src: "/images/site/sewer-shaft-pipe.jpg",
+      alt: "Concrete sewer pipe being set inside a lined shaft",
+    },
     name: "Underground Utilities",
     summary: "Sanitary sewer, storm sewer, and water main installation, replacement, and repair.",
     description: [
@@ -36,6 +42,10 @@ const services: Service[] = [
   },
   {
     slug: "excavation-earthwork",
+    image: {
+      src: "/images/site/mass-grading.jpg",
+      alt: "Two Pamar excavators mass grading a site",
+    },
     name: "Excavation & Earthwork",
     summary: "Mass excavation, grading, and soil management for projects of every size.",
     description: [
@@ -52,6 +62,10 @@ const services: Service[] = [
   },
   {
     slug: "site-development",
+    image: {
+      src: "/images/site/excavator-loading-truck.jpg",
+      alt: "Pamar excavator loading a haul truck on a development site",
+    },
     name: "Site Development",
     summary: "Complete site packages that take raw land to a building-ready pad.",
     description: [
@@ -67,6 +81,10 @@ const services: Service[] = [
   },
   {
     slug: "roadway-infrastructure",
+    image: {
+      src: "/images/site/excavators-grading.jpg",
+      alt: "Pamar excavators grading along a roadway",
+    },
     name: "Roadway & Infrastructure",
     summary: "Road reconstruction, culverts, and public infrastructure improvements.",
     description: [
@@ -82,6 +100,10 @@ const services: Service[] = [
   },
   {
     slug: "demolition",
+    image: {
+      src: "/images/site/wet-ground-excavation.jpg",
+      alt: "Pamar excavators working in wet ground",
+    },
     name: "Demolition",
     summary: "Safe, efficient structure and pavement removal with responsible disposal.",
     description: [
@@ -96,6 +118,10 @@ const services: Service[] = [
   },
   {
     slug: "emergency-response",
+    image: {
+      src: "/images/site/crew-at-trench.jpg",
+      alt: "Pamar crew and excavator at an open utility trench",
+    },
     name: "Emergency Response & Repair",
     summary: "Rapid-response crews for water main breaks, sewer collapses, and urgent repairs.",
     description: [

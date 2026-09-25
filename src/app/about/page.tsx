@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/page-hero";
+import { ProjectPhoto } from "@/components/projects/project-photo";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { site } from "@/lib/site";
@@ -48,7 +49,14 @@ export default function AboutPage() {
               what makes Pamar different to work with.
             </p>
           </div>
-          <PlaceholderImage label="Pamar crew and equipment" className="aspect-[4/3] w-full" />
+          <ProjectPhoto
+            image={{
+              src: "/images/site/crew-setting-pipe.jpg",
+              alt: "Pamar crew setting pipe in an open trench",
+            }}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="aspect-[4/3] w-full"
+          />
         </div>
       </section>
 

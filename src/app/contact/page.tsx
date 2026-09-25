@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ProjectPhoto } from "@/components/projects/project-photo";
 import { ContactForm } from "@/components/contact/contact-form";
 import { PageHero } from "@/components/ui/page-hero";
 import { mapUrl, site, telHref } from "@/lib/site";
@@ -24,6 +25,14 @@ export default function ContactPage() {
             <ContactForm preview={isPreviewMode()} />
           </div>
           <aside className="space-y-8">
+            <ProjectPhoto
+              image={{
+                src: "/images/site/office.jpg",
+                alt: "Pamar Enterprises office on Pamar Court in New Haven, Michigan",
+              }}
+              sizes="(min-width: 1024px) 30vw, 100vw"
+              className="aspect-[23/10] w-full"
+            />
             {site.offices.map((office) => (
               <div key={office.name} className="bg-ink-950 p-8 text-white">
                 <h2 className="text-lg font-bold uppercase text-white">{office.name}</h2>

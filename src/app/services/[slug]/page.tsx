@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { ButtonLink } from "@/components/ui/button";
 import { FaqList } from "@/components/ui/faq-list";
 import { PageHero } from "@/components/ui/page-hero";
-import { PlaceholderImage } from "@/components/ui/placeholder-image";
+import { ProjectPhoto } from "@/components/projects/project-photo";
 import { getProjectsForService } from "@/content/projects";
 import { getServiceFaqs } from "@/content/faqs";
 import { getServiceBySlug, getServices } from "@/content/services";
@@ -50,7 +50,11 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
-          <PlaceholderImage label={service.name} className="aspect-[4/3] w-full" />
+          <ProjectPhoto
+            image={service.image ?? { alt: service.name }}
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            className="aspect-[4/3] w-full"
+          />
         </div>
       </section>
 
