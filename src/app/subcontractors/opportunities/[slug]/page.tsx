@@ -6,12 +6,16 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { BidForm } from "@/components/subcontractors/bid-form";
 import { StatusBadge } from "@/components/subcontractors/status-badge";
 import { ButtonLink } from "@/components/ui/button";
-import { getOpportunityBySlug } from "@/content/opportunities";
+import { getOpportunities, getOpportunityBySlug } from "@/content/opportunities";
 import { acceptAttribute, uploadLimits } from "@/lib/forms/files";
 import { dueLabel, formatDateTime, opportunityStatus } from "@/lib/opportunities";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { isPreviewMode } from "@/lib/site-mode";
 import { telHref } from "@/lib/site";
+
+export async function generateStaticParams() {
+  return (await getOpportunities()).map(({ slug }) => ({ slug }));
+}
 
 export async function generateMetadata(
   props: PageProps<"/subcontractors/opportunities/[slug]">,
@@ -30,7 +34,9 @@ export default async function OpportunityPage(
   const opportunity = await getOpportunityBySlug((await props.params).slug);
   if (!opportunity) notFound();
 
-  await connection(); // Status depends on the current time.
+  // Status depends on the current time, so render per request. The static preview build
+  // (STATIC_EXPORT=1, see next.config.ts) has no server and uses the build time instead.
+  if (process.env.STATIC_EXPORT !== "1") await connection();
   const now = new Date();
   const status = opportunityStatus(opportunity, now);
   const due = dueLabel(opportunity, now);

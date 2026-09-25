@@ -16,3 +16,13 @@ export function pickParam<T extends string>(
     ? (value as T)
     : undefined;
 }
+
+/** URLSearchParams as the record shape the filter parsers take; repeated keys become arrays. */
+export function toSearchParams(params: URLSearchParams): SearchParams {
+  const record: SearchParams = {};
+  for (const key of new Set(params.keys())) {
+    const values = params.getAll(key);
+    record[key] = values.length > 1 ? values : values[0];
+  }
+  return record;
+}

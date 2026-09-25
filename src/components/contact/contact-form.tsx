@@ -12,7 +12,7 @@ import {
   Turnstile,
   useFormAction,
 } from "@/components/forms/fields";
-import { submitContact } from "@/app/contact/actions";
+import { submitContact } from "@/lib/forms/actions";
 import { contactTopics } from "@/lib/submissions/contact-topics";
 
 export function ContactForm({

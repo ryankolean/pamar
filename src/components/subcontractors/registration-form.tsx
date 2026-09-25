@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { submitRegistration } from "@/app/subcontractors/register/actions";
+import { submitRegistration } from "@/lib/forms/actions";
 import {
   CheckboxGroup,
   ConsentCheckbox,

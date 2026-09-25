@@ -9,6 +9,9 @@ import { site } from "@/lib/site";
  * /llms.txt: a plain-language map of the site for AI assistants and answer engines
  * (see https://llmstxt.org). Generated from the same content as the pages, so it stays current.
  */
+/** Prerendered in the static export (see next.config.ts). */
+export const dynamic = "force-static";
+
 export async function GET() {
   const [services, jobs, opportunities] = await Promise.all([
     getServices(),

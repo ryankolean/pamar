@@ -19,6 +19,9 @@ const staticPaths = [
   "/contact",
 ];
 
+/** Prerendered in the static export (see next.config.ts). */
+export const dynamic = "force-static";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [services, projects, jobs, opportunities] = await Promise.all([
     getServices(),
