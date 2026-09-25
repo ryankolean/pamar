@@ -974,10 +974,52 @@
           <h2><span class="num">2</span>Logo</h2>
           <p>
             One logo is in use: a teal dome (arc) with a yellow three-point star cut through it, a
-            registered-trademark mark at the right edge of the dome, and the wordmark "Pamar
-            Enterprises" in teal with "Inc." in yellow beneath it. Three raster files were found. No
-            SVG or other vector file is served anywhere on the site.
+            registered-trademark symbol at the right edge of the dome, and the wordmark "Pamar
+            Enterprises" in teal with "Inc." in yellow beneath it.
           </p>
+          <div class="note">
+            <b>Registered trademark.</b> Pamar has confirmed the logo is a registered mark (®) and
+            stays in use as-is on the new site. Treat the supplied files below as the master
+            artwork. Do not redesign, re-proportion, re-typeset, or recolor it; any vector version
+            must be a faithful trace. Keep the ® symbol on every reproduction of the dome-and-star
+            mark and the full lockup.
+          </div>
+
+          <h3>Supplied by Pamar (master files)</h3>
+          <div class="logos">
+            <div class="logo-card">
+              <div class="bg" style="background: #fff">
+                <img
+                  src="logo/pamar-logo-lockup.png"
+                  alt="Pamar Enterprises Inc. logo, full lockup, supplied by Pamar"
+                />
+              </div>
+              <div class="meta">
+                <b>Full lockup</b><br />
+                <code>docs/brand/logo/pamar-logo-lockup.png</code>, PNG, 684 x 238 px, opaque white
+                background. Largest and cleanest file available; use it for every web and print
+                placement on white until a vector arrives.
+              </div>
+            </div>
+            <div class="logo-card">
+              <div class="bg" style="background: #fff">
+                <img
+                  src="logo/pamar-logo-mark.png"
+                  alt="Pamar dome-and-star mark with registered symbol, supplied by Pamar"
+                  style="max-height: 110px"
+                />
+              </div>
+              <div class="meta">
+                <b>Mark only</b><br />
+                <code>docs/brand/logo/pamar-logo-mark.png</code>, PNG, 338 x 148 px, opaque white
+                background. Cropped from the lockup (a sliver of the wordmark shows along the bottom
+                edge), so re-crop before use as an icon, avatar, or favicon.
+              </div>
+            </div>
+          </div>
+
+          <h3>Found on the live site</h3>
+          <p>Three raster files. No SVG or other vector file is served anywhere on the site.</p>
 
           <div class="logos">
             <div class="logo-card">
@@ -988,9 +1030,10 @@
                 />
               </div>
               <div class="meta">
-                <b>Primary (header)</b><br />
+                <b>Site header</b><br />
                 <code>logo-2.png</code>, PNG with transparency, 377 x 127 px, 22 KB.<br />
-                Used in the site header on a white panel. Best file available.
+                Used in the site header on a white panel. The only file with a transparent
+                background.
               </div>
             </div>
             <div class="logo-card">
@@ -1027,25 +1070,31 @@
             <table>
               <tr>
                 <th>Element</th>
-                <th>Sampled HEX</th>
-                <th>Nearest site color</th>
+                <th>Site file (logo-2.png)</th>
+                <th>Supplied file (pamar-logo-lockup.png)</th>
+                <th>Site CSS</th>
               </tr>
               <tr>
-                <td class="chip" style="--c: #0394a6">
-                  <span class="chip" style="background: #0394a6"></span>Dome, "Pamar Enterprises"
-                </td>
-                <td>#0394A6</td>
-                <td>#0094A5 (site teal). Within JPEG/PNG rounding; treat as the same color.</td>
+                <td>Dome, "Pamar Enterprises"</td>
+                <td><span class="chip" style="background: #0394a6"></span>#0394A6</td>
+                <td><span class="chip" style="background: #4192a3"></span>#4192A3</td>
+                <td><span class="chip" style="background: #0094a5"></span>#0094A5</td>
               </tr>
               <tr>
-                <td><span class="chip" style="background: #f4ca39"></span>Star, "Inc."</td>
-                <td>#F4CA39</td>
-                <td>
-                  #F7C92D (site yellow). Close but not identical; the source file's exact value is
-                  unknown.
-                </td>
+                <td>Star, "Inc."</td>
+                <td><span class="chip" style="background: #f4ca39"></span>#F4CA39</td>
+                <td><span class="chip" style="background: #efcb53"></span>#EFCB53</td>
+                <td><span class="chip" style="background: #f7c92d"></span>#F7C92D</td>
               </tr>
             </table>
+          </div>
+          <div class="note">
+            The site file and the site CSS agree (the teal differs by rounding only). The supplied
+            PNG is noticeably lighter and less saturated in both colors, which points to a re-export
+            through a different color profile rather than a different brand color. The guide uses
+            the CSS values, #0094A5 and #F7C92D, as the brand colors; a vector master should be set
+            to those values unless Pamar has a Pantone or original-artwork reference that says
+            otherwise (see <a href="#questions">open questions</a>).
           </div>
 
           <h3>Backgrounds it sits on</h3>
@@ -1068,7 +1117,7 @@
           <div class="figure">
             <div class="clearspace">
               <img
-                src="source/assets/logo-b0ea44-logo-2.png"
+                src="logo/pamar-logo-lockup.png"
                 alt="Logo with recommended clear space shown as a dashed boundary"
               />
               <span style="top: 8px; left: 50%; transform: translateX(-50%)"
@@ -1084,9 +1133,23 @@
           <div class="logos">
             <div class="logo-card do">
               <div class="bg" style="background: #fff">
-                <img src="source/assets/logo-b0ea44-logo-2.png" alt="Logo on white" />
+                <img src="logo/pamar-logo-lockup.png" alt="Logo on white, supplied master file" />
               </div>
-              <div class="meta">On white, transparent PNG. Matches every use on the site.</div>
+              <div class="meta">
+                On white, from the supplied master file, ® intact. Matches every use on the site.
+              </div>
+            </div>
+            <div class="logo-card dont">
+              <div class="bg" style="background: #fff; overflow: hidden">
+                <img
+                  src="logo/pamar-logo-lockup.png"
+                  alt="Logo with the registered symbol cropped away"
+                  style="clip-path: inset(0 15% 0 0); margin-right: -12%"
+                />
+              </div>
+              <div class="meta">
+                Cropping or hiding the ® symbol. It is part of the registered mark.
+              </div>
             </div>
             <div class="logo-card dont">
               <div class="bg" style="background: #0094a5">
@@ -1145,11 +1208,13 @@
           </div>
 
           <div class="note">
-            Vector status: <b>a vector redraw is needed</b> unless the client has the original
-            artwork. The 377 px PNG is too small for print, large hero use, or high-density screens
-            (it is already upscaled on 2x phones). Also note a site bug: the
-            <code>og:image</code> on every page points at <code>logo-1.png</code>, which is actually
-            the MITA association logo, so social shares show the wrong logo.
+            Vector status: <b>a faithful vector trace is still needed</b> unless Pamar has the
+            original artwork. The supplied 684 px PNG covers the header at 2x but is too small for
+            print, signage, or hero use, and it carries an opaque white background. Trace it exactly
+            (a registered mark must not be redrawn) and set the fills to #0094A5 and #F7C92D. Also
+            note a site bug: the <code>og:image</code> on every page points at
+            <code>logo-1.png</code>, which is actually the MITA association logo, so social shares
+            show the wrong logo.
           </div>
         </div>
       </section>
@@ -2536,12 +2601,16 @@
               </tr>
               <tr>
                 <td>Logo</td>
-                <td>Raster dome-and-star lockup, teal and yellow, on white only</td>
+                <td>
+                  Registered dome-and-star lockup, teal and yellow, on white only. Master files in
+                  <code>docs/brand/logo/</code>.
+                </td>
                 <td>Text wordmark with an amber bar in <code>logo.tsx</code></td>
                 <td>
-                  Replace with an image logo: request vector from client or redraw as SVG; provide
-                  full lockup, mark only, and a reversed version for dark headers. Keep the white
-                  header panel if the client cannot approve a reversed logo.
+                  Replace the text wordmark with the supplied lockup (served from
+                  <code>public/</code> as PNG now, SVG after a faithful trace). Keep the ® symbol.
+                  Keep the logo on a white header panel; do not create a reversed or recolored
+                  version unless Pamar confirms the registration allows it.
                 </td>
               </tr>
               <tr>
@@ -2629,21 +2698,23 @@
           <h2><span class="num">12</span>Open questions for the client</h2>
           <ol>
             <li>
-              Do you have the original logo artwork (AI, EPS, SVG, or PDF)? If not, may we redraw it
-              as a vector, and who approves the redraw?
+              Do you have the original logo artwork (AI, EPS, SVG, or PDF) behind the PNGs you sent?
+              If not, may we trace the PNG into a vector, and who approves the result?
             </li>
             <li>
               Are the teal (#0094A5) and yellow (#F7C92D) exact brand values, or were they picked by
-              the 2017 web designer? Do you have Pantone or paint references from trucks, signage,
-              or uniforms?
+              the 2017 web designer? The PNGs you sent are lighter (#4192A3 and #EFCB53). Do you
+              have Pantone or paint references from trucks, signage, or uniforms?
             </li>
             <li>
               Is there a brand font for print materials, or was Open Sans chosen for the website
               only?
             </li>
             <li>
-              Legal name and punctuation: "Pamar Enterprises, Inc." with the comma, or without? Is
-              the ® on the logo registered, and should it stay on the web version?
+              Legal name and punctuation: "Pamar Enterprises, Inc." with the comma, or without? Does
+              the trademark registration cover the mark alone, the full lockup, or both, and does it
+              claim the colors? This decides whether a white (reversed) version or the mark on its
+              own may be used.
             </li>
             <li>
               Founding dates: the site says 1968 (P&amp;M Contracting), 1972 (incorporation), and
