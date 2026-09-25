@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { type ReactNode, useActionState, useEffect, useRef } from "react";
+import { type ReactNode, useActionState, useEffect, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { buttonClasses } from "@/components/ui/button";
 import { type FormState, initialFormState } from "@/lib/forms/form-state";
@@ -321,6 +321,8 @@ type FileFieldProps = {
   accept: string;
   required?: boolean;
   hint?: string;
+  /** Reject larger files in the browser before uploading (the server re-checks). */
+  maxBytes?: number;
   className?: string;
 };
 
@@ -331,10 +333,12 @@ export function FileField({
   accept,
   required,
   hint,
+  maxBytes,
   className,
 }: FileFieldProps) {
   const id = `field-${name}`;
-  const errors = errorsFor(state, name);
+  const [tooLarge, setTooLarge] = useState<string | null>(null);
+  const errors = tooLarge ? [tooLarge] : errorsFor(state, name);
   // Browsers can't restore a chosen file after a round trip, so remind the user to re-attach it.
   const fullHint =
     state.status === "error"
@@ -357,6 +361,18 @@ export function FileField({
         required={required}
         aria-invalid={errors?.length ? true : undefined}
         aria-describedby={describedBy(id, fullHint, errors)}
+        onChange={(event) => {
+          const file = event.currentTarget.files?.[0];
+          if (maxBytes && file && file.size > maxBytes) {
+            // Clear the selection so an oversized file never gets uploaded.
+            event.currentTarget.value = "";
+            setTooLarge(
+              `That file is ${(file.size / 1024 / 1024).toFixed(1)} MB. The limit is ${Math.floor(maxBytes / 1024 / 1024)} MB.`,
+            );
+          } else {
+            setTooLarge(null);
+          }
+        }}
         className="block w-full text-sm text-ink-700 file:mr-4 file:rounded-sm file:border-0 file:bg-ink-100 file:px-4 file:py-2.5 file:font-semibold file:text-ink-900 hover:file:bg-ink-200"
       />
     </FieldShell>

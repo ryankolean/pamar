@@ -104,6 +104,7 @@ function BidFields({
             label="Bid document"
             required
             accept={document.accept}
+            maxBytes={document.maxMb * 1024 * 1024}
             hint={`PDF with scope, inclusions, and exclusions. Up to ${document.maxMb} MB.`}
           />
         </div>

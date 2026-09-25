@@ -12,7 +12,9 @@ type ProjectPhotoProps = {
 
 /** Renders a project photo, or a placeholder until real photography is supplied. */
 export function ProjectPhoto({ image, sizes, className, priority }: ProjectPhotoProps) {
-  if (!image.src) return <PlaceholderImage label={image.alt} className={className} />;
+  if (!image.src) {
+    return <PlaceholderImage label={image.alt} scene={image.scene} className={className} />;
+  }
 
   return (
     <div className={cn("relative overflow-hidden bg-ink-800", className)}>

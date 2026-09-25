@@ -5,6 +5,8 @@
  * Pamar's real project list, details, and photography (SUMMIT-228). Accessors are async
  * so this module can be swapped for a CMS query (SUMMIT-237).
  */
+import type { Scene } from "@/components/ui/scene-art";
+
 export const markets = [
   "Municipal",
   "Commercial",
@@ -19,6 +21,8 @@ export type ProjectImage = {
   /** Path under /public or a remote URL allowed in next.config. Omit to render a placeholder. */
   src?: string;
   alt: string;
+  /** Illustration shown until a photo is supplied; picked from the alt text when omitted. */
+  scene?: Scene;
 };
 
 export type Project = {
@@ -87,7 +91,7 @@ const projects: Project[] = [
       "Homes needed to keep water service throughout, with only short, pre-announced shutoffs.",
     result: "Used temporary bypass services so residents had only brief, scheduled interruptions.",
     featured: true,
-    images: [{ alt: "Water main installation" }],
+    images: [{ alt: "Water main installation", scene: "excavator" }],
   },
   {
     slug: "industrial-park-site-development",
@@ -110,7 +114,10 @@ const projects: Project[] = [
     result:
       "Stabilized the soils in place instead of hauling them off, which saved truck traffic and kept the building pads on schedule.",
     featured: true,
-    images: [{ alt: "Aerial view of graded industrial site" }, { alt: "Detention basin" }],
+    images: [
+      { alt: "Aerial view of graded industrial site", scene: "crane" },
+      { alt: "Detention basin", scene: "site" },
+    ],
   },
   {
     slug: "county-road-reconstruction",
@@ -158,7 +165,7 @@ const projects: Project[] = [
     scope: ["Sanitary, storm, and water mains", "Mass and finish grading", "Road base preparation"],
     challenge: "The builder needed lots ready in phases to match home sales.",
     result: "Delivered lots phase by phase so home construction could start early.",
-    images: [{ alt: "Subdivision utilities" }],
+    images: [{ alt: "Subdivision utilities", scene: "site" }],
   },
   {
     slug: "emergency-interceptor-repair",

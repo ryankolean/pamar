@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button";
 import { ArrowRightIcon } from "@/components/ui/icons";
+import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { ProjectGrid } from "@/components/projects/project-card";
 import { ServiceCard } from "@/components/services/service-card";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -53,26 +54,40 @@ export default async function HomePage() {
   return (
     <>
       <section className="bg-hatch relative isolate overflow-hidden bg-ink-950 text-white">
-        <div className="container-page flex min-h-[70vh] flex-col justify-center py-24">
-          <p className="mb-4 font-display text-sm font-semibold uppercase tracking-[0.25em] text-brand-400">
-            {site.name}
-          </p>
-          <h1 className="max-w-4xl text-5xl font-bold uppercase leading-[1.05] text-white sm:text-6xl lg:text-7xl">
-            {site.tagline}
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-ink-200 sm:text-xl">{site.description}</p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <ButtonLink href="/projects">View Our Work</ButtonLink>
-            <ButtonLink href="/careers" variant="outline-light">
-              Join Our Team
-            </ButtonLink>
+        <div className="container-page grid min-h-[70vh] items-center gap-14 py-20 lg:grid-cols-[1.15fr_1fr] lg:py-24">
+          <div className="flex flex-col">
+            <p className="mb-4 font-display text-sm font-semibold uppercase tracking-[0.25em] text-brand-400">
+              {site.name}
+            </p>
+            <h1 className="max-w-4xl text-5xl font-bold uppercase leading-[1.05] text-white sm:text-6xl xl:text-7xl">
+              {site.tagline}
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg text-ink-200 sm:text-xl">{site.description}</p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <ButtonLink href="/projects">View Our Work</ButtonLink>
+              <ButtonLink href="/careers" variant="outline-light">
+                Join Our Team
+              </ButtonLink>
+            </div>
+            <Link
+              href="/subcontractors"
+              className="mt-6 inline-flex items-center gap-2 self-start font-display text-sm font-semibold uppercase tracking-wider text-ink-200 hover:text-white"
+            >
+              Subcontract Opportunities <ArrowRightIcon />
+            </Link>
           </div>
-          <Link
-            href="/subcontractors"
-            className="mt-6 inline-flex items-center gap-2 self-start font-display text-sm font-semibold uppercase tracking-wider text-ink-200 hover:text-white"
-          >
-            Subcontract Opportunities <ArrowRightIcon />
-          </Link>
+          {/* Hero visual: swap for a project photo or video when Pamar supplies one. */}
+          <div className="relative hidden lg:block">
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-5 -right-5 h-full w-full bg-brand-500"
+            />
+            <PlaceholderImage
+              label="Pamar excavator at work"
+              scene="excavator"
+              className="relative aspect-[4/3] w-full shadow-2xl"
+            />
+          </div>
         </div>
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-2 bg-brand-500" />
       </section>
