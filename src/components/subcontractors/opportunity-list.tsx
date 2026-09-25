@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Opportunity } from "@/content/opportunities";
 import { dueLabel, formatDateTime, opportunityStatus } from "@/lib/opportunities";
+import { revealDelay } from "@/lib/motion";
 import { StatusBadge } from "./status-badge";
 
 export function OpportunityList({
@@ -12,13 +13,15 @@ export function OpportunityList({
 }) {
   return (
     <ul className="space-y-4">
-      {opportunities.map((opportunity) => {
+      {opportunities.map((opportunity, index) => {
         const status = opportunityStatus(opportunity, now);
         const due = dueLabel(opportunity, now);
         return (
           <li
             key={opportunity.slug}
-            className="group relative border border-ink-100 bg-white p-6 transition-shadow hover:shadow-lg"
+            data-reveal
+            style={revealDelay(index)}
+            className="group relative border border-ink-100 bg-white p-6 transition-[translate,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-lg"
           >
             <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
               <div className="space-y-2">

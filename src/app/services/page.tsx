@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ServiceCard } from "@/components/services/service-card";
 import { PageHero } from "@/components/ui/page-hero";
+import { revealDelay } from "@/lib/motion";
 import { getServices } from "@/content/services";
 
 export const metadata: Metadata = {
@@ -21,8 +22,8 @@ export default async function ServicesPage() {
       />
       <section className="py-20">
         <ul className="container-page grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <li key={service.slug}>
+          {services.map((service, index) => (
+            <li key={service.slug} data-reveal style={revealDelay(index)}>
               <ServiceCard service={service} />
             </li>
           ))}

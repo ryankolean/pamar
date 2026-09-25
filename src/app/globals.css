@@ -89,3 +89,107 @@
     transparent 2px 14px
   );
 }
+
+/*
+ * Motion. One vocabulary (rise and fade), transform and opacity only, 150 to 600 ms, ease-out.
+ * `data-reveal` elements rise in when scrolled into view (RevealObserver adds `is-visible`);
+ * `hero-in` elements rise in on page load. Both stagger through a CSS variable set by
+ * src/lib/motion.ts. Everything collapses to static under prefers-reduced-motion, and the
+ * hidden state only applies once JavaScript has marked <html class="js">.
+ */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer components {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-in {
+    animation: rise-in 0.6s ease-out both;
+    animation-delay: var(--in-delay, 0ms);
+  }
+
+  /* Slow push-in on hero and title-band photos. */
+  .kenburns img,
+  .kenburns-bg > img {
+    animation: kenburns 24s ease-out both;
+  }
+
+  /* Photo zoom inside a hovered `group` card. */
+  .card-zoom img {
+    transition: transform 0.6s ease-out;
+  }
+  .group:hover .card-zoom img {
+    transform: scale(1.04);
+  }
+
+  /* FAQ answers slide open where the browser supports animating <details>. */
+  details.faq::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition:
+      block-size 0.3s ease-out,
+      content-visibility 0.3s allow-discrete;
+  }
+  details.faq[open]::details-content {
+    block-size: auto;
+  }
+  details.faq {
+    interpolate-size: allow-keywords;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .hero-in,
+    .kenburns img,
+    .kenburns-bg > img {
+      animation: none;
+    }
+    .card-zoom img,
+    details.faq::details-content {
+      transition: none;
+    }
+  }
+}
