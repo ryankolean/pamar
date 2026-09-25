@@ -1,6 +1,6 @@
 "use client";
 
-import { submitApplication } from "@/app/careers/apply/actions";
+import { submitApplication } from "@/lib/forms/actions";
 import {
   CheckboxGroup,
   ConsentCheckbox,

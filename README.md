@@ -48,6 +48,21 @@ Brand colors, fonts, and the logo follow [`docs/brand/brand-style-guide.html`](d
 
 ## Preview deployment (for client review)
 
+### GitHub Pages (current)
+
+Every push to `main` publishes a static preview to
+<https://ryankolean.github.io/pamar/> (`.github/workflows/pages.yml`). It is built with
+`STATIC_EXPORT=1 SITE_MODE=preview`, which turns on the Summit Software Solutions preview header,
+keeps the site out of search engines, and makes forms show a preview confirmation instead of
+sending. Static hosting means no password, no redirects, and no image optimization; the same build
+locally:
+
+```bash
+STATIC_EXPORT=1 NEXT_PUBLIC_BASE_PATH=/pamar SITE_MODE=preview npm run build   # writes out/
+```
+
+### Vercel (optional, password-protected)
+
 Deploy to [Vercel](https://vercel.com) (free Hobby plan works):
 
 1. **Add New → Project**, import `ryankolean/pamar`, keep the detected Next.js settings.

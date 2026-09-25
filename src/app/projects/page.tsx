@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
-import { ProjectGrid } from "@/components/projects/project-card";
-import { FilterBar } from "@/components/ui/filter-bar";
+import { Suspense } from "react";
+import { ProjectListing } from "@/components/projects/project-listing";
 import { PageHero } from "@/components/ui/page-hero";
-import { markets, getProjects } from "@/content/projects";
+import { getProjects } from "@/content/projects";
 import { getServices } from "@/content/services";
-import {
-  filterProjects,
-  hasActiveFilters,
-  parseProjectFilters,
-  projectYears,
-} from "@/lib/project-filters";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -19,18 +13,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/projects" },
 };
 
-export default async function ProjectsPage(props: PageProps<"/projects">) {
-  const [projects, services, searchParams] = await Promise.all([
-    getProjects(),
-    getServices(),
-    props.searchParams,
-  ]);
-  const years = projectYears(projects);
-  const filters = parseProjectFilters(searchParams, {
-    services: services.map((s) => s.slug),
-    years,
-  });
-  const results = filterProjects(projects, filters);
+export default async function ProjectsPage() {
+  const [projects, services] = await Promise.all([getProjects(), getServices()]);
 
   return (
     <>
@@ -41,42 +25,13 @@ export default async function ProjectsPage(props: PageProps<"/projects">) {
       />
       <section className="bg-ink-50 py-12 sm:py-16">
         <div className="container-page space-y-10">
-          <FilterBar
-            action="/projects"
-            resultCount={results.length}
-            resultNoun={{ one: "project", other: "projects" }}
-            showClear={hasActiveFilters(filters)}
-            fields={[
-              {
-                name: "service",
-                label: "Service",
-                allLabel: "All services",
-                value: filters.service,
-                options: services.map((s) => ({ value: s.slug, label: s.name })),
-              },
-              {
-                name: "market",
-                label: "Market",
-                allLabel: "All markets",
-                value: filters.market,
-                options: markets.map((m) => ({ value: m, label: m })),
-              },
-              {
-                name: "year",
-                label: "Year completed",
-                allLabel: "Any year",
-                value: filters.year?.toString(),
-                options: years.map((y) => ({ value: String(y), label: String(y) })),
-              },
-            ]}
-          />
-          {results.length > 0 ? (
-            <ProjectGrid projects={results} />
-          ) : (
-            <p className="border border-dashed border-ink-300 bg-white p-10 text-center text-ink-600">
-              No projects match those filters. Try clearing one or more filters.
-            </p>
-          )}
+          {/* Filters come from the URL on the client so the page itself stays static. */}
+          <Suspense fallback={null}>
+            <ProjectListing
+              projects={projects}
+              services={services.map((s) => ({ slug: s.slug, name: s.name }))}
+            />
+          </Suspense>
         </div>
       </section>
     </>

@@ -31,7 +31,9 @@ const steps = [
 ];
 
 export default async function SubcontractorsPage() {
-  await connection(); // Open/closed status depends on the current time.
+  // Open/closed status depends on the current time, so render per request; the static preview
+  // build (STATIC_EXPORT=1) uses the build time instead.
+  if (process.env.STATIC_EXPORT !== "1") await connection();
   const now = new Date();
   const open = sortOpportunities(
     (await getOpportunities()).filter((o) => opportunityStatus(o, now) === "Open"),

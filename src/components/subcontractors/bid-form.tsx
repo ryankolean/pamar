@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { TrackEvent } from "@/components/analytics/track-event";
-import { submitBid } from "@/app/subcontractors/opportunities/[slug]/actions";
+import { submitBid } from "@/lib/forms/actions";
 import {
   CheckboxGroup,
   FileField,
