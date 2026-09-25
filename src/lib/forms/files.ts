@@ -6,6 +6,8 @@ const MB = 1024 * 1024;
 
 export const uploadLimits = {
   resume: { maxBytes: 5 * MB, kinds: ["pdf", "doc", "docx"] as FileKind[] },
+  /** Certificate of insurance and W-9 on subcontractor registration (each). */
+  companyDocument: { maxBytes: 5 * MB, kinds: ["pdf"] as FileKind[] },
 } as const;
 
 /** File signatures ("magic bytes") so a renamed executable can't pass as a PDF. */
