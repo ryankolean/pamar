@@ -12,6 +12,8 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Careers",
   description: `Join the ${site.name} team. See open positions for operators, laborers, foremen, project managers, and more.`,
+  // Filtered views (?service=…) share one canonical URL.
+  alternates: { canonical: "/careers" },
 };
 
 // PLACEHOLDER benefits until confirmed by HR (SUMMIT-228).

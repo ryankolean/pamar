@@ -8,7 +8,15 @@ export const site = {
   tagline: "Building the infrastructure our communities run on.",
   description:
     "Pamar Enterprises is a construction contractor delivering infrastructure projects safely, on schedule, and built to last.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  /**
+   * Public origin for canonical URLs, the sitemap, and links in emails. Set NEXT_PUBLIC_SITE_URL
+   * per environment; production builds fall back to the live domain rather than localhost.
+   */
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.NODE_ENV === "production"
+      ? "https://www.pamarenterprises.com"
+      : "http://localhost:3000"),
   /** Time zone for bid due dates and meeting times. PLACEHOLDER: confirm with client. */
   timeZone: "America/New_York",
   contact: {

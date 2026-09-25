@@ -2,8 +2,11 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/oswald";
 import "./globals.css";
+import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { JsonLd } from "@/components/seo/json-ld";
+import { organizationJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -13,6 +16,14 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    locale: "en_US",
+    title: site.name,
+    description: site.description,
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {
@@ -34,6 +45,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <SiteFooter />
+        <JsonLd data={organizationJsonLd()} />
+        <GoogleAnalytics />
       </body>
     </html>
   );

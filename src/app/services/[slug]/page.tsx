@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProjectGrid } from "@/components/projects/project-card";
+import { JsonLd } from "@/components/seo/json-ld";
 import { ButtonLink } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/page-hero";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { getProjectsForService } from "@/content/projects";
 import { getServiceBySlug, getServices } from "@/content/services";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -26,6 +28,13 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: service.name, path: `/services/${service.slug}` },
+        ])}
+      />
       <PageHero eyebrow="Services" title={service.name} intro={service.summary} />
 
       <section className="py-16 sm:py-20">

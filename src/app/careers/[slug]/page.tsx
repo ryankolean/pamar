@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/seo/json-ld";
 import { ButtonLink } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/page-hero";
 import { getJobBySlug, getJobs } from "@/content/jobs";
 import { formatDate } from "@/lib/dates";
+import { breadcrumbJsonLd, jobPostingJsonLd } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -46,6 +48,14 @@ export default async function JobPage(props: PageProps<"/careers/[slug]">) {
 
   return (
     <>
+      <JsonLd data={jobPostingJsonLd(job)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Careers", path: "/careers" },
+          { name: job.title, path: `/careers/${job.slug}` },
+        ])}
+      />
       <PageHero
         eyebrow={`${job.department} · ${job.employmentType}`}
         title={job.title}

@@ -1,5 +1,6 @@
 "use client";
 
+import { TrackEvent } from "@/components/analytics/track-event";
 import {
   FormMessage,
   FormSuccess,
@@ -20,6 +21,7 @@ export function ContactForm({ defaultTopic }: { defaultTopic?: string }) {
   if (state.status === "success") {
     return (
       <FormSuccess title="Message sent">
+        <TrackEvent name="contact_submitted" />
         <p>{state.message}</p>
       </FormSuccess>
     );

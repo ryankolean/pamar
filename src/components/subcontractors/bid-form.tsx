@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { TrackEvent } from "@/components/analytics/track-event";
 import { submitBid } from "@/app/subcontractors/opportunities/[slug]/actions";
 import {
   CheckboxGroup,
@@ -117,6 +118,12 @@ export function BidForm({ opportunitySlug, trades, document }: BidFormProps) {
   if (state.status === "success") {
     return (
       <FormSuccess title="Submission received">
+        <TrackEvent
+          name={
+            state.values?.submissionType === "bid" ? "bid_submitted" : "intent_to_bid_submitted"
+          }
+          params={{ package: opportunitySlug }}
+        />
         <p>{state.message}</p>
       </FormSuccess>
     );

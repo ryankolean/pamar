@@ -3,10 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProjectGrid } from "@/components/projects/project-card";
 import { ProjectPhoto } from "@/components/projects/project-photo";
+import { JsonLd } from "@/components/seo/json-ld";
 import { ButtonLink } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/page-hero";
 import { getProjectBySlug, getProjects, getRelatedProjects } from "@/content/projects";
 import { getServices } from "@/content/services";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -40,6 +42,13 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Projects", path: "/projects" },
+          { name: project.title, path: `/projects/${project.slug}` },
+        ])}
+      />
       <PageHero
         eyebrow={`${project.market} · ${project.year}`}
         title={project.title}
