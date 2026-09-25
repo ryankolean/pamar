@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ProjectGrid } from "@/components/projects/project-card";
 import { ButtonLink } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/page-hero";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
+import { getProjectsForService } from "@/content/projects";
 import { getServiceBySlug, getServices } from "@/content/services";
 
 export const dynamicParams = false;
@@ -20,6 +22,7 @@ export async function generateMetadata(props: PageProps<"/services/[slug]">): Pr
 export default async function ServicePage(props: PageProps<"/services/[slug]">) {
   const service = await getServiceBySlug((await props.params).slug);
   if (!service) notFound();
+  const projects = await getProjectsForService(service.slug);
 
   return (
     <>
@@ -63,7 +66,25 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
         </div>
       </section>
 
-      <section className="py-16">
+      {projects.length > 0 && (
+        <section className="py-16 sm:py-20">
+          <div className="container-page">
+            <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <h2 className="text-3xl font-bold uppercase">{service.name} projects</h2>
+              <ButtonLink
+                href={`/projects?service=${service.slug}`}
+                variant="outline"
+                className="self-start"
+              >
+                See all
+              </ButtonLink>
+            </div>
+            <ProjectGrid projects={projects} />
+          </div>
+        </section>
+      )}
+
+      <section className="border-t border-ink-100 py-16">
         <div className="container-page flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-display text-2xl font-bold uppercase text-ink-950">
             Explore our other capabilities
