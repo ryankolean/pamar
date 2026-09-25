@@ -1,4 +1,6 @@
+import type { Faq } from "@/content/faqs";
 import type { Job } from "@/content/jobs";
+import type { Service } from "@/content/services";
 import { site } from "@/lib/site";
 
 /** Absolute URL for a site path. */
@@ -90,4 +92,30 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
 /** Serialize JSON-LD safely for inline <script> tags. */
 export function serializeJsonLd(data: unknown): string {
   return JSON.stringify(data).replace(/</g, "\\u003c");
+}
+
+/** schema.org FAQPage: questions answered on the page, in a form answer engines can quote. */
+export function faqJsonLd(faqs: Faq[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+}
+
+/** schema.org Service for a capability page, tied to the company as provider. */
+export function serviceJsonLd(service: Service) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.name,
+    serviceType: service.name,
+    description: service.summary,
+    url: absoluteUrl(`/services/${service.slug}`),
+    provider: { "@type": "GeneralContractor", name: site.name, url: site.url },
+  };
 }

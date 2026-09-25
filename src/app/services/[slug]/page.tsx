@@ -3,11 +3,13 @@ import { notFound } from "next/navigation";
 import { ProjectGrid } from "@/components/projects/project-card";
 import { JsonLd } from "@/components/seo/json-ld";
 import { ButtonLink } from "@/components/ui/button";
+import { FaqList } from "@/components/ui/faq-list";
 import { PageHero } from "@/components/ui/page-hero";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { getProjectsForService } from "@/content/projects";
+import { getServiceFaqs } from "@/content/faqs";
 import { getServiceBySlug, getServices } from "@/content/services";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -24,10 +26,14 @@ export async function generateMetadata(props: PageProps<"/services/[slug]">): Pr
 export default async function ServicePage(props: PageProps<"/services/[slug]">) {
   const service = await getServiceBySlug((await props.params).slug);
   if (!service) notFound();
-  const projects = await getProjectsForService(service.slug);
+  const [projects, faqs] = await Promise.all([
+    getProjectsForService(service.slug),
+    getServiceFaqs(service.slug),
+  ]);
 
   return (
     <>
+      <JsonLd data={serviceJsonLd(service)} />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
@@ -89,6 +95,14 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
               </ButtonLink>
             </div>
             <ProjectGrid projects={projects} />
+          </div>
+        </section>
+      )}
+
+      {faqs.length > 0 && (
+        <section className="bg-ink-50 py-16 sm:py-20">
+          <div className="container-page">
+            <FaqList faqs={faqs} />
           </div>
         </section>
       )}
