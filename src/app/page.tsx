@@ -1,14 +1,13 @@
 import Link from "next/link";
+import { HomeHero } from "@/components/home/home-hero";
 import { ButtonLink } from "@/components/ui/button";
 import { ArrowRightIcon } from "@/components/ui/icons";
-import { ProjectPhoto } from "@/components/projects/project-photo";
 import { ProjectGrid } from "@/components/projects/project-card";
 import { ServiceCard } from "@/components/services/service-card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { getFeaturedProjects } from "@/content/projects";
 import { getServices } from "@/content/services";
-import { inDelay, revealDelay } from "@/lib/motion";
-import { site } from "@/lib/site";
+import { revealDelay } from "@/lib/motion";
 
 const pathways = [
   {
@@ -54,55 +53,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <section className="bg-hatch on-dark relative isolate overflow-hidden bg-teal-800 text-white">
-        <div className="container-page grid min-h-[70vh] items-center gap-14 py-20 lg:grid-cols-[1.15fr_1fr] lg:py-24">
-          <div className="flex flex-col">
-            <p className="hero-in mb-4 font-display text-sm font-semibold uppercase tracking-[0.25em] text-brand-400">
-              {site.name}
-            </p>
-            <h1
-              className="hero-in max-w-4xl text-5xl font-bold uppercase leading-[1.05] text-white sm:text-6xl xl:text-7xl"
-              style={inDelay(80)}
-            >
-              {site.tagline}
-            </h1>
-            <p
-              className="hero-in mt-6 max-w-2xl text-lg text-teal-50 sm:text-xl"
-              style={inDelay(160)}
-            >
-              {site.description}
-            </p>
-            <div className="hero-in mt-10 flex flex-wrap gap-4" style={inDelay(240)}>
-              <ButtonLink href="/projects">View Our Work</ButtonLink>
-              <ButtonLink href="/careers" variant="outline-light">
-                Join Our Team
-              </ButtonLink>
-            </div>
-            <Link
-              href="/subcontractors"
-              className="hero-in group mt-6 inline-flex items-center gap-2 self-start font-display text-sm font-semibold uppercase tracking-wider text-teal-100 hover:text-white"
-              style={inDelay(320)}
-            >
-              Subcontract Opportunities{" "}
-              <ArrowRightIcon className="transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
-          <div className="relative hidden lg:block">
-            <div
-              aria-hidden="true"
-              className="hero-in absolute -bottom-5 -right-5 h-full w-full bg-brand-500"
-              style={inDelay(400)}
-            />
-            <ProjectPhoto
-              image={{ src: "/images/site/excavator.jpg", alt: "Pamar excavator at work" }}
-              sizes="(min-width: 1024px) 45vw, 100vw"
-              className="hero-in kenburns relative aspect-[4/3] w-full shadow-2xl"
-              priority
-            />
-          </div>
-        </div>
-        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-2 bg-brand-500" />
-      </section>
+      <HomeHero />
 
       <section className="py-20" aria-labelledby="pathways-heading">
         <div className="container-page">
