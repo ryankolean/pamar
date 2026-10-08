@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { EmploymentNotices } from "@/components/careers/employment-notices";
 import { JobListing } from "@/components/careers/job-listing";
 import { ButtonLink } from "@/components/ui/button";
 import { FaqList } from "@/components/ui/faq-list";
@@ -131,6 +132,8 @@ export default async function CareersPage() {
           </ButtonLink>
         </div>
       </section>
+
+      <EmploymentNotices />
     </>
   );
 }
