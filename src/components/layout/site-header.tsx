@@ -7,7 +7,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { CloseIcon, MenuIcon } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
 import { inDelay } from "@/lib/motion";
-import { headerCta, mainNav } from "@/lib/site";
+import { headerCta, mainNav, site, telHref } from "@/lib/site";
 import { Logo } from "./logo";
 
 function isActive(pathname: string, href: string) {
@@ -37,97 +37,109 @@ export function SiteHeader() {
   // The mobile menu closes itself whenever the route changes.
   const open = openFor === pathname;
   const scrolled = useScrolled();
+  const office = site.offices[0];
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-40 border-b border-ink-100 bg-white/95 backdrop-blur transition-shadow duration-300",
-        scrolled && "shadow-md",
-      )}
-    >
-      <div
+    <>
+      {/* Teal contact bar, as on the live site. It scrolls away; the sticky header below stays. */}
+      <div className="on-dark bg-teal-700 text-white">
+        <div className="container-page flex h-9 items-center justify-end gap-6 text-xs font-semibold sm:justify-between sm:text-sm">
+          <p className="hidden sm:block">{office.address.join(", ")}</p>
+          <a href={telHref(site.contact.phone)} className="hover:underline">
+            {site.contact.phone}
+          </a>
+        </div>
+      </div>
+      <header
         className={cn(
-          "container-page flex items-center justify-between gap-6 transition-[height] duration-300",
-          scrolled ? "h-16" : "h-20",
+          "sticky top-0 z-40 border-b border-ink-100 bg-white/95 backdrop-blur transition-shadow duration-300",
+          scrolled && "shadow-md",
         )}
       >
         <div
-          className={cn("origin-left transition-transform duration-300", scrolled && "scale-90")}
-        >
-          <Logo />
-        </div>
-
-        <nav aria-label="Main" className="hidden lg:block">
-          <ul className="flex items-center gap-7">
-            {mainNav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  aria-current={isActive(pathname, item.href) ? "page" : undefined}
-                  className={cn(
-                    navLink,
-                    isActive(pathname, item.href)
-                      ? "text-ink-950 after:scale-x-100"
-                      : "text-ink-600 after:scale-x-0 hover:text-ink-950 hover:after:scale-x-100",
-                  )}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="flex items-center gap-3">
-          {headerCta && (
-            // Wrapper controls visibility: ButtonLink's own inline-flex would override "hidden".
-            <div className="hidden sm:block">
-              <ButtonLink href={headerCta.href}>{headerCta.label}</ButtonLink>
-            </div>
+          className={cn(
+            "container-page flex items-center justify-between gap-6 transition-[height] duration-300",
+            scrolled ? "h-16" : "h-20",
           )}
-          {mainNav.length > 0 && (
-            <button
-              type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-sm text-2xl text-ink-950 lg:hidden"
-              aria-expanded={open}
-              aria-controls="mobile-menu"
-              onClick={() => setOpenFor(open ? null : pathname)}
-            >
-              <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
-              {open ? <CloseIcon /> : <MenuIcon />}
-            </button>
-          )}
-        </div>
-      </div>
-
-      {open && (
-        <nav
-          id="mobile-menu"
-          aria-label="Main"
-          className="animate-[menu-in_0.25s_ease-out] border-t border-ink-100 bg-white lg:hidden"
         >
-          <ul className="container-page flex flex-col py-4">
-            {mainNav.map((item, index) => (
-              <li key={item.href} className="hero-in" style={inDelay(index * 40)}>
-                <Link
-                  href={item.href}
-                  aria-current={isActive(pathname, item.href) ? "page" : undefined}
-                  className="block border-b border-ink-100 py-4 font-display text-lg font-semibold uppercase tracking-wider text-ink-900"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+          <div
+            className={cn("origin-left transition-transform duration-300", scrolled && "scale-90")}
+          >
+            <Logo />
+          </div>
+
+          <nav aria-label="Main" className="hidden lg:block">
+            <ul className="flex items-center gap-7">
+              {mainNav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={isActive(pathname, item.href) ? "page" : undefined}
+                    className={cn(
+                      navLink,
+                      isActive(pathname, item.href)
+                        ? "text-navy after:scale-x-100"
+                        : "text-ink-600 after:scale-x-0 hover:text-navy hover:after:scale-x-100",
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="flex items-center gap-3">
             {headerCta && (
-              <li className="pt-4 sm:hidden">
-                <ButtonLink href={headerCta.href} className="w-full">
-                  {headerCta.label}
-                </ButtonLink>
-              </li>
+              // Wrapper controls visibility: ButtonLink's own inline-flex would override "hidden".
+              <div className="hidden sm:block">
+                <ButtonLink href={headerCta.href}>{headerCta.label}</ButtonLink>
+              </div>
             )}
-          </ul>
-        </nav>
-      )}
-    </header>
+            {mainNav.length > 0 && (
+              <button
+                type="button"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-sm text-2xl text-navy lg:hidden"
+                aria-expanded={open}
+                aria-controls="mobile-menu"
+                onClick={() => setOpenFor(open ? null : pathname)}
+              >
+                <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+                {open ? <CloseIcon /> : <MenuIcon />}
+              </button>
+            )}
+          </div>
+        </div>
+
+        {open && (
+          <nav
+            id="mobile-menu"
+            aria-label="Main"
+            className="animate-[menu-in_0.25s_ease-out] border-t border-ink-100 bg-white lg:hidden"
+          >
+            <ul className="container-page flex flex-col py-4">
+              {mainNav.map((item, index) => (
+                <li key={item.href} className="hero-in" style={inDelay(index * 40)}>
+                  <Link
+                    href={item.href}
+                    aria-current={isActive(pathname, item.href) ? "page" : undefined}
+                    className="block border-b border-ink-100 py-4 font-display text-lg font-semibold uppercase tracking-wider text-navy"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              {headerCta && (
+                <li className="pt-4 sm:hidden">
+                  <ButtonLink href={headerCta.href} className="w-full">
+                    {headerCta.label}
+                  </ButtonLink>
+                </li>
+              )}
+            </ul>
+          </nav>
+        )}
+      </header>
+    </>
   );
 }

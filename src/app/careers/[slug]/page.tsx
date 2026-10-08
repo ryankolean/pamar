@@ -83,18 +83,18 @@ export default async function JobPage(props: PageProps<"/careers/[slug]">) {
             )}
             <Link
               href="/careers#openings"
-              className="inline-block font-semibold text-ink-700 underline"
+              className="inline-block font-semibold text-teal-700 underline"
             >
               ← All open positions
             </Link>
           </div>
 
-          <aside className="h-fit space-y-6 bg-ink-950 p-8 text-white lg:sticky lg:top-28">
+          <aside className="on-dark h-fit space-y-6 bg-teal-800 p-8 text-white lg:sticky lg:top-28">
             <h2 className="text-lg font-bold uppercase text-white">Position details</h2>
             <dl className="space-y-4">
               {facts.map((fact) => (
-                <div key={fact.label} className="border-b border-ink-800 pb-4">
-                  <dt className="font-display text-xs uppercase tracking-widest text-ink-400">
+                <div key={fact.label} className="border-b border-teal-700 pb-4">
+                  <dt className="font-display text-xs uppercase tracking-widest text-teal-200">
                     {fact.label}
                   </dt>
                   <dd className="mt-1 text-lg">{fact.value}</dd>

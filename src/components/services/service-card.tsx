@@ -14,7 +14,7 @@ export function ServiceCard({ service }: { service: Service }) {
       <p className="mt-3 flex-1 text-ink-600">{service.summary}</p>
       <span
         aria-hidden="true"
-        className="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-ink-950 group-hover:text-brand-700"
+        className="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-ink-950 group-hover:text-teal-700"
       >
         Learn more <ArrowRightIcon className="transition-transform group-hover:translate-x-1" />
       </span>

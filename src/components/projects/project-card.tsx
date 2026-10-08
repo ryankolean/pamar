@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Project } from "@/content/projects";
+import { BuildingIcon, MapPinIcon } from "@/components/ui/icons";
 import { revealDelay } from "@/lib/motion";
 import { ProjectPhoto } from "./project-photo";
 
@@ -12,7 +13,7 @@ export function ProjectCard({ project }: { project: Project }) {
         className="card-zoom aspect-[4/3] w-full"
       />
       <div className="flex flex-1 flex-col border-x border-b border-ink-100 p-6">
-        <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">
+        <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-teal-700">
           {project.market}
           {project.year !== undefined && ` · ${project.year}`}
         </p>
@@ -22,6 +23,22 @@ export function ProjectCard({ project }: { project: Project }) {
           </Link>
         </h3>
         <p className="mt-2 text-sm text-ink-600">{project.summary}</p>
+        <dl className="mt-auto space-y-2 pt-4 text-sm text-ink-700">
+          <div className="flex items-start gap-2">
+            <dt className="mt-0.5 shrink-0 text-brand-700">
+              <MapPinIcon />
+              <span className="sr-only">Location</span>
+            </dt>
+            <dd className="min-w-0 break-words">{project.location}</dd>
+          </div>
+          <div className="flex items-start gap-2">
+            <dt className="mt-0.5 shrink-0 text-brand-700">
+              <BuildingIcon />
+              <span className="sr-only">Owner</span>
+            </dt>
+            <dd className="min-w-0 break-words">{project.owner}</dd>
+          </div>
+        </dl>
       </div>
     </article>
   );

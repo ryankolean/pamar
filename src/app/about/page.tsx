@@ -140,7 +140,7 @@ export default function AboutPage() {
             className="mt-16 grid gap-8 border-t-4 border-brand-500 bg-ink-50 p-8 lg:grid-cols-[1fr_2fr]"
           >
             <div>
-              <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">
+              <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
                 Our founders
               </p>
               <h3 className="mt-2 text-2xl font-bold uppercase">{founders.names}</h3>
