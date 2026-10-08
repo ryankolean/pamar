@@ -93,6 +93,26 @@ describe("handleBidSubmission", () => {
     expect(sent[0].attachments?.[0].filename).toBe("Curb_Co-Bid-bid.pdf");
   });
 
+  it("includes the bid ID and owner job number in the estimating email when set", async () => {
+    const { sent, deps } = setup({
+      getOpportunity: async () => ({
+        ...opportunity,
+        bidId: "PE-26-101",
+        ownerJobNumber: "CITY-2026-014",
+      }),
+    });
+    await handleBidSubmission(form({ ...base, submissionType: "intent" }), deps);
+    expect(sent[0].text).toContain("Bid ID:\nPE-26-101");
+    expect(sent[0].text).toContain("Owner job #:\nCITY-2026-014");
+  });
+
+  it("leaves the reference labels out of the email when not set", async () => {
+    const { sent, deps } = setup();
+    await handleBidSubmission(form({ ...base, submissionType: "intent" }), deps);
+    expect(sent[0].text).not.toContain("Bid ID");
+    expect(sent[0].text).not.toContain("Owner job #");
+  });
+
   it("rejects submissions once the due date has passed", async () => {
     const { sent, deps } = setup({ now: () => new Date("2026-10-16T14:00:00-04:00") });
     const state = await handleBidSubmission(form({ ...base, submissionType: "intent" }), deps);

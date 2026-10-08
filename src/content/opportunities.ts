@@ -14,6 +14,10 @@ export type OpportunityDocument = {
 
 export type Opportunity = {
   slug: string;
+  /** Pamar's bid package number. Subs quote it on their bids. */
+  bidId?: string;
+  /** The owner's job or contract number, used to match plan-room documents. */
+  ownerJobNumber?: string;
   projectName: string;
   owner: string;
   location: string;
@@ -36,6 +40,8 @@ const estimating = { name: "Estimating Department", email: "estimating@pamarente
 const opportunities: Opportunity[] = [
   {
     slug: "downtown-streetscape-restoration",
+    bidId: "PE-26-101",
+    ownerJobNumber: "CITY-2026-014",
     projectName: "Downtown Streetscape – Phase 2",
     owner: "Municipal client",
     location: "Downtown district",
@@ -57,6 +63,8 @@ const opportunities: Opportunity[] = [
   },
   {
     slug: "interceptor-rehab-dewatering",
+    bidId: "PE-26-098",
+    ownerJobNumber: "RSA-26-0007",
     projectName: "Interceptor Rehabilitation",
     owner: "Regional sewer authority",
     location: "Regional interceptor corridor",
@@ -73,6 +81,7 @@ const opportunities: Opportunity[] = [
   },
   {
     slug: "industrial-park-paving",
+    bidId: "PE-26-104",
     projectName: "Industrial Park – Site Paving",
     owner: "Private developer",
     location: "Industrial corridor",
@@ -87,6 +96,8 @@ const opportunities: Opportunity[] = [
   },
   {
     slug: "water-main-program-trucking",
+    bidId: "PE-26-087",
+    ownerJobNumber: "WU-2026-03",
     projectName: "Water Main Replacement Program – Year 3",
     owner: "Municipal water utility",
     location: "Residential neighborhoods",
@@ -99,6 +110,8 @@ const opportunities: Opportunity[] = [
   },
   {
     slug: "county-road-surveying",
+    bidId: "PE-26-072",
+    ownerJobNumber: "CRA-26-112",
     projectName: "County Road Reconstruction",
     owner: "County road agency",
     location: "County road",

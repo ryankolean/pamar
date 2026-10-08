@@ -8,7 +8,12 @@ import { StatusBadge } from "@/components/subcontractors/status-badge";
 import { ButtonLink } from "@/components/ui/button";
 import { getOpportunities, getOpportunityBySlug } from "@/content/opportunities";
 import { acceptAttribute, uploadLimits } from "@/lib/forms/files";
-import { dueLabel, formatDateTime, opportunityStatus } from "@/lib/opportunities";
+import {
+  dueLabel,
+  formatDateTime,
+  opportunityReferences,
+  opportunityStatus,
+} from "@/lib/opportunities";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { isPreviewMode } from "@/lib/site-mode";
 import { telHref } from "@/lib/site";
@@ -207,6 +212,14 @@ export default async function OpportunityPage(
                 </dt>
                 <dd className="mt-1 text-lg">{opportunity.location}</dd>
               </div>
+              {opportunityReferences(opportunity).map(({ label, value }) => (
+                <div key={label} className="border-b border-ink-800 pb-4">
+                  <dt className="font-display text-xs uppercase tracking-widest text-ink-400">
+                    {label}
+                  </dt>
+                  <dd className="mt-1 text-lg">{value}</dd>
+                </div>
+              ))}
               <div>
                 <dt className="font-display text-xs uppercase tracking-widest text-ink-400">
                   Contact

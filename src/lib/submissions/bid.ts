@@ -15,7 +15,7 @@ import {
   type SubmissionDeps,
   text,
 } from "@/lib/forms/submission";
-import { formatDateTime, isAcceptingSubmissions } from "@/lib/opportunities";
+import { formatDateTime, isAcceptingSubmissions, opportunityReferences } from "@/lib/opportunities";
 import { site } from "@/lib/site";
 
 export type BidDeps = SubmissionDeps & {
@@ -147,6 +147,7 @@ export async function handleBidSubmission(
           "Package",
           `${opportunity.projectName} (${site.url}/subcontractors/opportunities/${opportunity.slug})`,
         ],
+        ...opportunityReferences(opportunity).map((r): [string, string] => [r.label, r.value]),
         ["Bids due", formatDateTime(opportunity.bidDueAt)],
         ["Company", data.companyName],
         ["Contact", data.contactName],

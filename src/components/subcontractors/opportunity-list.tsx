@@ -1,6 +1,11 @@
 import Link from "next/link";
 import type { Opportunity } from "@/content/opportunities";
-import { dueLabel, formatDateTime, opportunityStatus } from "@/lib/opportunities";
+import {
+  dueLabel,
+  formatDateTime,
+  opportunityReferences,
+  opportunityStatus,
+} from "@/lib/opportunities";
 import { revealDelay } from "@/lib/motion";
 import { StatusBadge } from "./status-badge";
 
@@ -16,6 +21,7 @@ export function OpportunityList({
       {opportunities.map((opportunity, index) => {
         const status = opportunityStatus(opportunity, now);
         const due = dueLabel(opportunity, now);
+        const references = opportunityReferences(opportunity);
         return (
           <li
             key={opportunity.slug}
@@ -37,6 +43,18 @@ export function OpportunityList({
                     {opportunity.projectName}
                   </Link>
                 </h3>
+                {references.length > 0 && (
+                  <dl className="flex flex-wrap gap-x-5 gap-y-1 text-sm">
+                    {references.map(({ label, value }) => (
+                      <div key={label} className="flex items-baseline gap-2">
+                        <dt className="font-display text-xs uppercase tracking-widest text-ink-500">
+                          {label}
+                        </dt>
+                        <dd className="font-semibold text-ink-800">{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
                 <p className="text-ink-600">{opportunity.summary}</p>
                 <ul className="flex flex-wrap gap-2 pt-1" aria-label="Trades">
                   {opportunity.trades.map((trade) => (
