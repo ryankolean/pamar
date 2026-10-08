@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { EmploymentNotices } from "@/components/careers/employment-notices";
 import { JsonLd } from "@/components/seo/json-ld";
 import { ButtonLink } from "@/components/ui/button";
 import { PageHero } from "@/components/ui/page-hero";
@@ -107,6 +108,8 @@ export default async function JobPage(props: PageProps<"/careers/[slug]">) {
           </aside>
         </div>
       </section>
+
+      <EmploymentNotices />
     </>
   );
 }
