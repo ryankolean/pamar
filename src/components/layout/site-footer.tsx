@@ -6,7 +6,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-teal-700 text-teal-100">
+    <footer className="on-dark bg-teal-700 text-teal-100">
       <div className="container-page grid gap-10 py-14 md:grid-cols-3">
         <div className="space-y-4">
           <Logo inverse />

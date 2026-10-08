@@ -16,7 +16,7 @@ export function FaqList({ faqs, title = "Common questions" }: { faqs: Faq[]; tit
               <span>{faq.question}</span>
               <span
                 aria-hidden="true"
-                className="font-display text-3xl leading-none text-brand-700 transition-transform group-open:rotate-45"
+                className="font-display text-3xl leading-none text-teal-700 transition-transform group-open:rotate-45"
               >
                 +
               </span>
