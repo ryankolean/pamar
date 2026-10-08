@@ -1,6 +1,6 @@
 /**
  * On-brand construction illustrations used wherever a photo hasn't been supplied yet.
- * Flat, duotone (charcoal + Pamar yellow) scenes drawn on a 400×300 canvas that scales to fill
+ * Flat, duotone (teal-tinted dark + Pamar yellow) scenes drawn on a 400×300 canvas that scales to fill
  * any frame. Decorative: the wrapping element carries the accessible label.
  */
 export const scenes = [
@@ -18,16 +18,16 @@ export const scenes = [
 export type Scene = (typeof scenes)[number];
 
 const C = {
-  sky: "#1b2026",
-  skyDeep: "#14181d",
-  hills: "#232a31",
-  ground: "#2b333b",
-  groundEdge: "#39424c",
-  trench: "#111418",
-  rock: "#3a434d",
-  rockLight: "#4a5460",
-  steel: "#9aa3ad",
-  white: "#e7e9ec",
+  sky: "#13292c",
+  skyDeep: "#0a1f22",
+  hills: "#1a3337",
+  ground: "#213d41",
+  groundEdge: "#2d4c50",
+  trench: "#0a181a",
+  rock: "#30494d",
+  rockLight: "#3f5a5e",
+  steel: "#93a9ac",
+  white: "#e6eeef",
   amber: "#f7c92d",
   amberDark: "#e7b304",
   amberDeep: "#9a6700",

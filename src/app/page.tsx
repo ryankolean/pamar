@@ -54,7 +54,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <section className="bg-hatch relative isolate overflow-hidden bg-ink-950 text-white">
+      <section className="bg-hatch on-dark relative isolate overflow-hidden bg-teal-800 text-white">
         <div className="container-page grid min-h-[70vh] items-center gap-14 py-20 lg:grid-cols-[1.15fr_1fr] lg:py-24">
           <div className="flex flex-col">
             <p className="hero-in mb-4 font-display text-sm font-semibold uppercase tracking-[0.25em] text-brand-400">
@@ -67,7 +67,7 @@ export default async function HomePage() {
               {site.tagline}
             </h1>
             <p
-              className="hero-in mt-6 max-w-2xl text-lg text-ink-200 sm:text-xl"
+              className="hero-in mt-6 max-w-2xl text-lg text-teal-50 sm:text-xl"
               style={inDelay(160)}
             >
               {site.description}
@@ -80,7 +80,7 @@ export default async function HomePage() {
             </div>
             <Link
               href="/subcontractors"
-              className="hero-in group mt-6 inline-flex items-center gap-2 self-start font-display text-sm font-semibold uppercase tracking-wider text-ink-200 hover:text-white"
+              className="hero-in group mt-6 inline-flex items-center gap-2 self-start font-display text-sm font-semibold uppercase tracking-wider text-teal-100 hover:text-white"
               style={inDelay(320)}
             >
               Subcontract Opportunities{" "}
@@ -118,14 +118,14 @@ export default async function HomePage() {
                 className="group relative flex flex-col border border-ink-100 bg-white p-8 shadow-sm transition-[translate,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <span aria-hidden="true" className="mb-6 block h-1 w-12 bg-brand-500" />
-                <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">
+                <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
                   {item.eyebrow}
                 </p>
                 <h3 className="mt-2 text-2xl font-bold uppercase">{item.title}</h3>
                 <p className="mt-3 flex-1 text-ink-600">{item.body}</p>
                 <Link
                   href={item.href}
-                  className="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-ink-950 after:absolute after:inset-0 group-hover:text-brand-700"
+                  className="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-ink-950 after:absolute after:inset-0 group-hover:text-teal-700"
                 >
                   {item.cta}{" "}
                   <ArrowRightIcon className="transition-transform group-hover:translate-x-1" />
@@ -160,9 +160,9 @@ export default async function HomePage() {
       </section>
 
       {featured.length > 0 && (
-        <section className="bg-ink-950 py-20" aria-labelledby="featured-heading">
+        <section className="bg-teal-700 py-20" aria-labelledby="featured-heading">
           <div className="container-page">
-            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div className="on-dark flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <SectionHeading
                 id="featured-heading"
                 eyebrow="Featured work"
