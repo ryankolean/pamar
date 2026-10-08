@@ -71,15 +71,15 @@ export default function SafetyPage() {
         </div>
       </section>
 
-      <section className="bg-ink-950 py-16 text-white sm:py-20">
+      <section className="bg-teal-800 py-16 text-white sm:py-20">
         <div className="container-page">
           <SectionHeading eyebrow="Programs" title="How we keep crews safe" inverse />
-          <ul className="mt-12 grid gap-px bg-ink-800 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-12 grid gap-px bg-teal-700 sm:grid-cols-2 lg:grid-cols-3">
             {programs.map((program) => (
-              <li key={program.title} className="bg-ink-950 p-8">
+              <li key={program.title} className="bg-teal-800 p-8">
                 <span aria-hidden="true" className="mb-4 block h-1 w-10 bg-brand-500" />
                 <h3 className="text-xl font-bold uppercase text-white">{program.title}</h3>
-                <p className="mt-2 text-ink-300">{program.body}</p>
+                <p className="mt-2 text-teal-100">{program.body}</p>
               </li>
             ))}
           </ul>

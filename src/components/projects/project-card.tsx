@@ -12,7 +12,7 @@ export function ProjectCard({ project }: { project: Project }) {
         className="card-zoom aspect-[4/3] w-full"
       />
       <div className="flex flex-1 flex-col border-x border-b border-ink-100 p-6">
-        <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">
+        <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-teal-700">
           {project.market}
           {project.year !== undefined && ` · ${project.year}`}
         </p>

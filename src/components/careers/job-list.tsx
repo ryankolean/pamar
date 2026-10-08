@@ -29,7 +29,7 @@ export function JobList({ jobs }: { jobs: Job[] }) {
               </span>
               <ArrowRightIcon
                 aria-hidden="true"
-                className="hidden text-xl text-ink-400 group-hover:text-brand-700 sm:block"
+                className="hidden text-xl text-ink-400 group-hover:text-teal-700 sm:block"
               />
             </div>
           </div>

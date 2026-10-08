@@ -34,16 +34,16 @@ export default function ContactPage() {
               className="aspect-[23/10] w-full"
             />
             {site.offices.map((office) => (
-              <div key={office.name} className="bg-ink-950 p-8 text-white">
+              <div key={office.name} className="on-dark bg-teal-800 p-8 text-white">
                 <h2 className="text-lg font-bold uppercase text-white">{office.name}</h2>
-                <address className="mt-4 not-italic text-ink-200">
+                <address className="mt-4 not-italic text-teal-50">
                   {office.address.map((line) => (
                     <span key={line} className="block">
                       {line}
                     </span>
                   ))}
                 </address>
-                <p className="mt-4 text-ink-200">{office.hours}</p>
+                <p className="mt-4 text-teal-50">{office.hours}</p>
                 <ul className="mt-6 space-y-2">
                   <li>
                     <a
@@ -70,7 +70,7 @@ export default function ContactPage() {
               <h2 className="text-lg font-bold uppercase">Email</h2>
               <a
                 href={`mailto:${site.contact.email}`}
-                className="mt-3 block font-semibold text-ink-900 underline"
+                className="mt-3 block font-semibold text-teal-700 underline"
               >
                 {site.contact.email}
               </a>
