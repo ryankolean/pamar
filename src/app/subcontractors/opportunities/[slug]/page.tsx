@@ -213,8 +213,8 @@ export default async function OpportunityPage(
                 <dd className="mt-1 text-lg">{opportunity.location}</dd>
               </div>
               {opportunityReferences(opportunity).map(({ label, value }) => (
-                <div key={label} className="border-b border-ink-800 pb-4">
-                  <dt className="font-display text-xs uppercase tracking-widest text-ink-400">
+                <div key={label} className="border-b border-teal-700 pb-4">
+                  <dt className="font-display text-xs uppercase tracking-widest text-teal-200">
                     {label}
                   </dt>
                   <dd className="mt-1 text-lg">{value}</dd>
