@@ -34,7 +34,7 @@
   --color-brand-800: #6e4a00;
   --color-brand-900: #472f00;
 
-  /* Pamar teal (#0094a5): structure, links, footer, focus. 600+ meets AA for white or body text. */
+  /* Pamar teal (#0094a5): bands, links, eyebrows, footer. 600+ meets AA for white or body text. */
   --color-teal-50: #e6f5f7;
   --color-teal-100: #c2e8ec;
   --color-teal-200: #8fd6de;
@@ -45,8 +45,10 @@
   --color-teal-700: #00626e;
   --color-teal-800: #004a53;
   --color-teal-900: #00333a;
+  /* Teal-tinted near-black, for the few bands that need to read dark (in place of #191919). */
+  --color-teal-950: #0a1f22;
 
-  /* Navy from the live navigation: text on yellow. */
+  /* Navy from the live navigation: text on yellow, and the focus ring on light backgrounds. */
   --color-navy: #0a2742;
 }
 
@@ -72,13 +74,20 @@
     @apply font-display tracking-tight text-ink-950;
   }
 
+  /* Navy ring on light backgrounds; `on-dark` switches it to yellow on teal and dark bands. */
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-teal-600;
+    outline: 2px solid var(--focus-ring, var(--color-navy));
+    outline-offset: 2px;
   }
 }
 
 @utility container-page {
   @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+/* Marks a teal or dark surface: focus rings inside it turn yellow so they stay visible. */
+@utility on-dark {
+  --focus-ring: var(--color-brand-500);
 }
 
 /* Subtle diagonal hatch used behind dark hero sections and image placeholders. */

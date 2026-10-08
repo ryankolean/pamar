@@ -59,7 +59,7 @@ export default async function SubcontractorsPage() {
           <ol className="mt-12 grid gap-8 md:grid-cols-3">
             {steps.map((step, index) => (
               <li key={step.title} className="border-t-4 border-brand-500 bg-ink-50 p-8">
-                <span className="font-display text-4xl font-bold text-brand-700">
+                <span className="font-display text-4xl font-bold text-teal-700">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-3 text-xl font-bold uppercase">{step.title}</h3>
@@ -110,9 +110,9 @@ export default async function SubcontractorsPage() {
               ))}
             </ul>
           </div>
-          <div className="bg-ink-950 p-8 text-white">
+          <div className="on-dark bg-teal-800 p-8 text-white">
             <h2 className="text-2xl font-bold uppercase text-white">DBE / MBE / WBE firms</h2>
-            <p className="mt-4 text-ink-200">
+            <p className="mt-4 text-teal-50">
               We actively seek certified disadvantaged, minority-, women-, and veteran-owned
               businesses on our public projects. Include your certifications when you register so we
               can reach out when a package fits.

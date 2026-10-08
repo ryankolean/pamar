@@ -20,6 +20,19 @@ export function isAcceptingSubmissions(opportunity: Opportunity, now: Date = new
   return opportunityStatus(opportunity, now) === "Open";
 }
 
+export type OpportunityReference = { label: string; value: string };
+
+/** Bid ID and owner job number, in display order, skipping any that aren't set. */
+export function opportunityReferences(opportunity: Opportunity): OpportunityReference[] {
+  const references: Array<[label: string, value: string | undefined]> = [
+    ["Bid ID", opportunity.bidId],
+    ["Owner job #", opportunity.ownerJobNumber],
+  ];
+  return references
+    .map(([label, value]) => ({ label, value: value?.trim() ?? "" }))
+    .filter((reference) => reference.value !== "");
+}
+
 const DAY = 24 * 60 * 60 * 1000;
 
 /** Short relative label for an open package, e.g. "Due in 5 days". */

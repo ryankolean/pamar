@@ -5,6 +5,7 @@ import {
   filterOpportunities,
   formatDateTime,
   isAcceptingSubmissions,
+  opportunityReferences,
   opportunityStatus,
   parseOpportunityFilters,
   sortOpportunities,
@@ -104,5 +105,24 @@ describe("formatDateTime", () => {
   it("formats in the company time zone", () => {
     expect(formatDateTime("2026-10-16T18:00:00Z")).toBe("Fri, Oct 16, 2026, 2:00 PM EDT");
     expect(formatDateTime("2026-12-01T19:00:00Z")).toBe("Tue, Dec 1, 2026, 2:00 PM EST");
+  });
+});
+
+describe("opportunityReferences", () => {
+  it("lists the bid ID and owner job number when set", () => {
+    expect(opportunityReferences(opp({ bidId: "PE-26-101", ownerJobNumber: "CITY-14" }))).toEqual([
+      { label: "Bid ID", value: "PE-26-101" },
+      { label: "Owner job #", value: "CITY-14" },
+    ]);
+  });
+
+  it("skips whichever is missing or blank", () => {
+    expect(opportunityReferences(opp({ bidId: "PE-26-101" }))).toEqual([
+      { label: "Bid ID", value: "PE-26-101" },
+    ]);
+    expect(opportunityReferences(opp({ bidId: " ", ownerJobNumber: "CITY-14" }))).toEqual([
+      { label: "Owner job #", value: "CITY-14" },
+    ]);
+    expect(opportunityReferences(opp({}))).toEqual([]);
   });
 });

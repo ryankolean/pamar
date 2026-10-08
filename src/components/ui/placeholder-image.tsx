@@ -18,7 +18,7 @@ export function PlaceholderImage({ label, scene, className }: PlaceholderImagePr
     <div
       role="img"
       aria-label={label}
-      className={cn("relative overflow-hidden bg-ink-900", className)}
+      className={cn("relative overflow-hidden bg-teal-950", className)}
     >
       <SceneArt scene={scene ?? sceneForLabel(label)} className="absolute inset-0 h-full w-full" />
     </div>

@@ -8,7 +8,12 @@ import { StatusBadge } from "@/components/subcontractors/status-badge";
 import { ButtonLink } from "@/components/ui/button";
 import { getOpportunities, getOpportunityBySlug } from "@/content/opportunities";
 import { acceptAttribute, uploadLimits } from "@/lib/forms/files";
-import { dueLabel, formatDateTime, opportunityStatus } from "@/lib/opportunities";
+import {
+  dueLabel,
+  formatDateTime,
+  opportunityReferences,
+  opportunityStatus,
+} from "@/lib/opportunities";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { isPreviewMode } from "@/lib/site-mode";
 import { telHref } from "@/lib/site";
@@ -55,11 +60,11 @@ export default async function OpportunityPage(
           },
         ])}
       />
-      <section className="bg-hatch bg-ink-950 text-white">
+      <section className="bg-hatch on-dark bg-teal-900 text-white">
         <div className="container-page py-16 sm:py-20">
           <Link
             href="/subcontractors/opportunities"
-            className="font-display text-sm font-semibold uppercase tracking-widest text-ink-300 hover:text-white"
+            className="font-display text-sm font-semibold uppercase tracking-widest text-teal-100 hover:text-white"
           >
             ← All opportunities
           </Link>
@@ -70,7 +75,7 @@ export default async function OpportunityPage(
           <h1 className="mt-4 max-w-4xl text-4xl font-bold uppercase text-white sm:text-5xl">
             {opportunity.projectName}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-ink-200">{opportunity.summary}</p>
+          <p className="mt-4 max-w-2xl text-lg text-teal-50">{opportunity.summary}</p>
         </div>
       </section>
 
@@ -111,7 +116,7 @@ export default async function OpportunityPage(
                     <li key={doc.name} className="flex items-center justify-between gap-4 p-4">
                       <span className="font-medium text-ink-900">{doc.name}</span>
                       {doc.url ? (
-                        <a href={doc.url} className="text-sm font-semibold text-ink-900 underline">
+                        <a href={doc.url} className="text-sm font-semibold text-teal-700 underline">
                           Download
                         </a>
                       ) : (
@@ -134,7 +139,7 @@ export default async function OpportunityPage(
                     {formatDateTime(opportunity.bidDueAt)}. Need documents or have questions? Email{" "}
                     <a
                       href={`mailto:${opportunity.contact.email}?subject=${mailSubject}`}
-                      className="font-semibold underline"
+                      className="font-semibold text-teal-700 underline"
                     >
                       {opportunity.contact.email}
                     </a>
@@ -167,11 +172,11 @@ export default async function OpportunityPage(
             </div>
           </div>
 
-          <aside className="h-fit space-y-6 bg-ink-950 p-8 text-white lg:sticky lg:top-28">
+          <aside className="on-dark h-fit space-y-6 bg-teal-800 p-8 text-white lg:sticky lg:top-28">
             <h2 className="text-lg font-bold uppercase text-white">Key details</h2>
             <dl className="space-y-4">
-              <div className="border-b border-ink-800 pb-4">
-                <dt className="font-display text-xs uppercase tracking-widest text-ink-400">
+              <div className="border-b border-teal-700 pb-4">
+                <dt className="font-display text-xs uppercase tracking-widest text-teal-200">
                   Bids due
                 </dt>
                 <dd className="mt-1 text-lg">
@@ -181,34 +186,42 @@ export default async function OpportunityPage(
                 </dd>
               </div>
               {opportunity.preBid && (
-                <div className="border-b border-ink-800 pb-4">
-                  <dt className="font-display text-xs uppercase tracking-widest text-ink-400">
+                <div className="border-b border-teal-700 pb-4">
+                  <dt className="font-display text-xs uppercase tracking-widest text-teal-200">
                     Pre-bid meeting{opportunity.preBid.mandatory ? " (mandatory)" : ""}
                   </dt>
                   <dd className="mt-1 text-lg">
                     <time dateTime={opportunity.preBid.at}>
                       {formatDateTime(opportunity.preBid.at)}
                     </time>
-                    <span className="block text-base text-ink-300">
+                    <span className="block text-base text-teal-100">
                       {opportunity.preBid.location}
                     </span>
                   </dd>
                 </div>
               )}
-              <div className="border-b border-ink-800 pb-4">
-                <dt className="font-display text-xs uppercase tracking-widest text-ink-400">
+              <div className="border-b border-teal-700 pb-4">
+                <dt className="font-display text-xs uppercase tracking-widest text-teal-200">
                   Owner
                 </dt>
                 <dd className="mt-1 text-lg">{opportunity.owner}</dd>
               </div>
-              <div className="border-b border-ink-800 pb-4">
-                <dt className="font-display text-xs uppercase tracking-widest text-ink-400">
+              <div className="border-b border-teal-700 pb-4">
+                <dt className="font-display text-xs uppercase tracking-widest text-teal-200">
                   Location
                 </dt>
                 <dd className="mt-1 text-lg">{opportunity.location}</dd>
               </div>
+              {opportunityReferences(opportunity).map(({ label, value }) => (
+                <div key={label} className="border-b border-teal-700 pb-4">
+                  <dt className="font-display text-xs uppercase tracking-widest text-teal-200">
+                    {label}
+                  </dt>
+                  <dd className="mt-1 text-lg">{value}</dd>
+                </div>
+              ))}
               <div>
-                <dt className="font-display text-xs uppercase tracking-widest text-ink-400">
+                <dt className="font-display text-xs uppercase tracking-widest text-teal-200">
                   Contact
                 </dt>
                 <dd className="mt-1 space-y-1">
