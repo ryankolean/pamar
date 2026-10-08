@@ -39,28 +39,32 @@ export function FilterBar({ action, fields, resultCount, resultNoun, showClear }
       action={action}
       scroll={false}
       replace
-      className="flex flex-col gap-4 border border-ink-100 bg-white p-5 md:flex-row md:items-end"
+      className="flex flex-col gap-4 border border-ink-100 bg-white p-5 lg:flex-row lg:items-end"
     >
-      {fields.map((field) => (
-        <label key={field.name} className="flex flex-1 flex-col gap-1.5">
-          <span className="font-display text-xs font-semibold uppercase tracking-widest text-ink-600">
-            {field.label}
-          </span>
-          <select
-            name={field.name}
-            defaultValue={field.value ?? ""}
-            onChange={() => formRef.current?.requestSubmit()}
-            className="h-11 rounded-sm border border-ink-200 bg-white px-3 text-ink-900"
-          >
-            <option value="">{field.allLabel}</option>
-            {field.options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </label>
-      ))}
+      {/* Fields share one row from md; minmax(0, 1fr) lets a long option shrink its column
+          instead of widening the bar. Actions drop to their own row until lg. */}
+      <div className="grid min-w-0 gap-4 md:auto-cols-[minmax(0,1fr)] md:grid-flow-col lg:flex-1">
+        {fields.map((field) => (
+          <label key={field.name} className="flex min-w-0 flex-col gap-1.5">
+            <span className="font-display text-xs font-semibold uppercase tracking-widest text-ink-600">
+              {field.label}
+            </span>
+            <select
+              name={field.name}
+              defaultValue={field.value ?? ""}
+              onChange={() => formRef.current?.requestSubmit()}
+              className="h-11 w-full min-w-0 rounded-sm border border-ink-200 bg-white px-3 text-ink-900"
+            >
+              <option value="">{field.allLabel}</option>
+              {field.options.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
+        ))}
+      </div>
       <div className="flex items-center gap-4">
         <button type="submit" className={buttonClasses("dark", "h-11 py-0")}>
           Apply
@@ -74,10 +78,10 @@ export function FilterBar({ action, fields, resultCount, resultNoun, showClear }
             Clear
           </Link>
         )}
+        <p aria-live="polite" className="ml-auto whitespace-nowrap text-sm text-ink-600">
+          {resultCount} {resultCount === 1 ? resultNoun.one : resultNoun.other}
+        </p>
       </div>
-      <p aria-live="polite" className="text-sm text-ink-600 md:ml-auto md:self-end md:pb-3">
-        {resultCount} {resultCount === 1 ? resultNoun.one : resultNoun.other}
-      </p>
     </Form>
   );
 }
