@@ -116,19 +116,19 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
             )}
           </div>
 
-          <aside className="h-fit space-y-8 bg-ink-950 p-8 text-white lg:sticky lg:top-28">
+          <aside className="on-dark h-fit space-y-8 bg-teal-800 p-8 text-white lg:sticky lg:top-28">
             <h2 className="text-lg font-bold uppercase text-white">Project facts</h2>
             <dl className="space-y-4">
               {facts.map((fact) => (
-                <div key={fact.label} className="border-b border-ink-800 pb-4">
-                  <dt className="font-display text-xs uppercase tracking-widest text-ink-400">
+                <div key={fact.label} className="border-b border-teal-700 pb-4">
+                  <dt className="font-display text-xs uppercase tracking-widest text-teal-200">
                     {fact.label}
                   </dt>
                   <dd className="mt-1 text-lg">{fact.value}</dd>
                 </div>
               ))}
               <div>
-                <dt className="font-display text-xs uppercase tracking-widest text-ink-400">
+                <dt className="font-display text-xs uppercase tracking-widest text-teal-200">
                   Services
                 </dt>
                 <dd className="mt-2">
@@ -137,7 +137,7 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
                       <li key={service.slug}>
                         <Link
                           href={`/services/${service.slug}`}
-                          className="inline-block border border-ink-700 px-3 py-1 text-sm hover:border-brand-500 hover:text-brand-400"
+                          className="inline-block border border-teal-600 px-3 py-1 text-sm hover:border-brand-500 hover:text-brand-400"
                         >
                           {service.name}
                         </Link>

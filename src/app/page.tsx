@@ -1,14 +1,13 @@
 import Link from "next/link";
+import { HomeHero } from "@/components/home/home-hero";
 import { ButtonLink } from "@/components/ui/button";
 import { ArrowRightIcon } from "@/components/ui/icons";
-import { ProjectPhoto } from "@/components/projects/project-photo";
 import { ProjectGrid } from "@/components/projects/project-card";
 import { ServiceCard } from "@/components/services/service-card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { getFeaturedProjects } from "@/content/projects";
 import { getServices } from "@/content/services";
-import { inDelay, revealDelay } from "@/lib/motion";
-import { site } from "@/lib/site";
+import { revealDelay } from "@/lib/motion";
 
 const pathways = [
   {
@@ -54,55 +53,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <section className="bg-hatch relative isolate overflow-hidden bg-ink-950 text-white">
-        <div className="container-page grid min-h-[70vh] items-center gap-14 py-20 lg:grid-cols-[1.15fr_1fr] lg:py-24">
-          <div className="flex flex-col">
-            <p className="hero-in mb-4 font-display text-sm font-semibold uppercase tracking-[0.25em] text-brand-400">
-              {site.name}
-            </p>
-            <h1
-              className="hero-in max-w-4xl text-5xl font-bold uppercase leading-[1.05] text-white sm:text-6xl xl:text-7xl"
-              style={inDelay(80)}
-            >
-              {site.tagline}
-            </h1>
-            <p
-              className="hero-in mt-6 max-w-2xl text-lg text-ink-200 sm:text-xl"
-              style={inDelay(160)}
-            >
-              {site.description}
-            </p>
-            <div className="hero-in mt-10 flex flex-wrap gap-4" style={inDelay(240)}>
-              <ButtonLink href="/projects">View Our Work</ButtonLink>
-              <ButtonLink href="/careers" variant="outline-light">
-                Join Our Team
-              </ButtonLink>
-            </div>
-            <Link
-              href="/subcontractors"
-              className="hero-in group mt-6 inline-flex items-center gap-2 self-start font-display text-sm font-semibold uppercase tracking-wider text-ink-200 hover:text-white"
-              style={inDelay(320)}
-            >
-              Subcontract Opportunities{" "}
-              <ArrowRightIcon className="transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
-          <div className="relative hidden lg:block">
-            <div
-              aria-hidden="true"
-              className="hero-in absolute -bottom-5 -right-5 h-full w-full bg-brand-500"
-              style={inDelay(400)}
-            />
-            <ProjectPhoto
-              image={{ src: "/images/site/excavator.jpg", alt: "Pamar excavator at work" }}
-              sizes="(min-width: 1024px) 45vw, 100vw"
-              className="hero-in kenburns relative aspect-[4/3] w-full shadow-2xl"
-              priority
-            />
-          </div>
-        </div>
-        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-2 bg-brand-500" />
-      </section>
+      <HomeHero />
 
       <section className="py-20" aria-labelledby="pathways-heading">
         <div className="container-page">
@@ -118,14 +69,14 @@ export default async function HomePage() {
                 className="group relative flex flex-col border border-ink-100 bg-white p-8 shadow-sm transition-[translate,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <span aria-hidden="true" className="mb-6 block h-1 w-12 bg-brand-500" />
-                <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-brand-700">
+                <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
                   {item.eyebrow}
                 </p>
                 <h3 className="mt-2 text-2xl font-bold uppercase">{item.title}</h3>
                 <p className="mt-3 flex-1 text-ink-600">{item.body}</p>
                 <Link
                   href={item.href}
-                  className="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-ink-950 after:absolute after:inset-0 group-hover:text-brand-700"
+                  className="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-ink-950 after:absolute after:inset-0 group-hover:text-teal-700"
                 >
                   {item.cta}{" "}
                   <ArrowRightIcon className="transition-transform group-hover:translate-x-1" />
@@ -160,9 +111,9 @@ export default async function HomePage() {
       </section>
 
       {featured.length > 0 && (
-        <section className="bg-ink-950 py-20" aria-labelledby="featured-heading">
+        <section className="bg-teal-700 py-20" aria-labelledby="featured-heading">
           <div className="container-page">
-            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div className="on-dark flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <SectionHeading
                 id="featured-heading"
                 eyebrow="Featured work"

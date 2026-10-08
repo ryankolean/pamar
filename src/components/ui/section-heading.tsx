@@ -32,7 +32,7 @@ export function SectionHeading({
         <p
           className={cn(
             "mb-3 font-display text-sm font-semibold uppercase tracking-[0.2em]",
-            inverse ? "text-brand-400" : "text-brand-700",
+            inverse ? "text-brand-400" : "text-teal-700",
           )}
         >
           {eyebrow}
@@ -48,7 +48,7 @@ export function SectionHeading({
         {title}
       </Heading>
       {intro && (
-        <p className={cn("mt-4 text-lg", inverse ? "text-ink-200" : "text-ink-600")}>{intro}</p>
+        <p className={cn("mt-4 text-lg", inverse ? "text-teal-50" : "text-ink-600")}>{intro}</p>
       )}
     </div>
   );
