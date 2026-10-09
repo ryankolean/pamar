@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withPayload } from "@payloadcms/next/withPayload";
 import { legacyRedirects } from "./src/lib/redirects";
 
 /**
@@ -19,6 +20,11 @@ const nextConfig: NextConfig = {
       }
     : {}),
   experimental: {
+    // D1 proof: each route that imports the Payload config spins up its own wrangler
+    // platform proxy, and parallel page-data collection makes them contend on the same
+    // local D1 file (SQLITE_BUSY). Serialising the build is the workaround under test.
+    cpus: 1,
+    workerThreads: false,
     serverActions: {
       // Form uploads (resumes, COI/W-9, bid documents) are sent through Server Actions; the
       // default limit is 1 MB. Keep this just above the largest per-form upload limit in
@@ -33,6 +39,10 @@ const nextConfig: NextConfig = {
           return legacyRedirects.map((redirect) => ({ ...redirect, permanent: true }));
         },
       }),
+  // Packages with workerd-specific code, per the OpenNext Cloudflare guidance.
+  // drizzle-kit is required dynamically by Payload's drizzle adapters for migrations;
+  // Turbopack rewrites the specifier and esbuild then cannot resolve it, so keep it external.
+  serverExternalPackages: ["jose", "pg-cloudflare", "drizzle-kit"],
 };
 
-export default nextConfig;
+export default withPayload(nextConfig, { devBundleServerPackages: false });
