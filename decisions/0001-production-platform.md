@@ -1,11 +1,14 @@
 # 0001: Production platform
 
 - **Jira:** [SUMMIT-260](https://ryan-kolean.atlassian.net/browse/SUMMIT-260)
-- **Status:** Proposed. Needs Ryan's approval, plus two answers from Pamar (marked below).
-- **Date:** 2026-10-08
+- **Status:** Proposed. The adapter proof is done; still needs Ryan's approval and two
+  answers from Pamar (marked below).
+- **Date:** 2026-10-08, adapter proof 2026-10-09
 - **Blocks:** SUMMIT-236, SUMMIT-237, SUMMIT-257, SUMMIT-259
 - **Full options survey:** [0001-appendix-options-survey.md](./0001-appendix-options-survey.md),
   covering every host, database, storage, CMS, ATS, email and auth option considered
+- **Adapter proof:** branch `claude/db-adapter-proof`, see its `PROOF.md`. Both adapters
+  work; Turso is the easier one; the measured worker bundle is 19.2 MiB uncompressed
 
 ## Context
 
@@ -48,22 +51,24 @@ Four coherent bundles, rather than mixing a vendor per row.
 
 ### A. Cloudflare Workers (recommended)
 
-Workers Paid via the OpenNext adapter, D1 or Turso for the database, R2 for private files, Payload
-for the CMS, staff sign-in and the applicant records, Resend for email, Turnstile for spam.
-Everything but the $5 Workers plan sits on a free tier.
+Workers Paid via the OpenNext adapter, Turso for the database, R2 for private files, Payload for
+the CMS, staff sign-in and the applicant records, Resend for email, Turnstile for spam. Everything
+but the $5 Workers plan sits on a free tier.
 
 - The framework's hosting rule already defaults to Cloudflare (`docs/STACK_DECISION.md`), and
   Turnstile is wired in this repo, so the Cloudflare account exists either way.
-- One account covers DNS, headers, redirects, Turnstile, D1 and R2.
+- One account covers DNS, headers, redirects, Turnstile and R2.
 - The 100 MB body limit means today's upload code ships unchanged.
-- Cheapest of the four. With a free-tier database and R2, the Workers Paid plan is the only line
+- Cheapest of the four. With Turso and the R2 free tier, the Workers Paid plan is the only line
   item.
-- Payload ships an official `with-cloudflare-d1` template, so this is a supported path rather than
-  an improvisation.
-- **Risk:** `@payloadcms/db-d1-sqlite` is still marked beta. Turso on `@payloadcms/db-sqlite` is
-  the free alternative on a more established adapter; Neon on the Postgres adapter is the paid one
-  at $5 to $15. The proof in "Before this is final" picks between them. Nothing else in the record
-  changes either way.
+- **Proven, not assumed.** The adapter proof on `claude/db-adapter-proof` built this stack,
+  migrated the real schema, and drove a draft-to-publish-to-application workflow against both D1
+  on workerd and libSQL on Node, with identical results. The measured worker bundle is 19.2 MiB
+  uncompressed against a 64 MiB limit.
+- **Known cost:** adopting Payload ends the GitHub Pages static preview, because Payload's API
+  routes are incompatible with `output: "export"`. The preview moves to a Cloudflare preview
+  environment. See the proof's `PROOF.md` for the full prerequisite list, including the Next pin
+  at 16.3.8 and the move to a webpack build.
 
 ### B. Vercel
 
@@ -142,29 +147,29 @@ plan fee.
 
 Every row in the SUMMIT-260 table, with its reason.
 
-| Concern              | Decision                                                | Reason                                                                                                                                                                                                                                                                                                                              |
-| -------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hosting              | Cloudflare Workers Paid via OpenNext                    | Framework default, one account with Turnstile, D1, R2 and DNS, 100 MB request bodies, lowest cost. The $5 plan is required because Workers Free allows 10 ms CPU per request and SSR does not fit in it.                                                                                                                            |
-| Database             | Cloudflare D1 or Turso, decided by the adapter proof    | Both are free at this workload with no pausing. D1 sits in the host's account; Turso is more generous, portable across hosts and uses Payload's more established SQLite adapter. Fallback for either is Neon at $5 to $15.                                                                                                          |
-| Private file storage | Cloudflare R2, signed URLs with a short expiry          | Same account as the host, no egress charges, and resumes must never be publicly addressable.                                                                                                                                                                                                                                        |
-| Staff sign-in        | Payload's built-in auth, email and password, with roles | No extra vendor or per-seat cost. Revisit only if Pamar wants single sign-on (open question 1).                                                                                                                                                                                                                                     |
-| CMS and admin        | Payload, in the same Next app on the same database      | Gives SUMMIT-237 (content), SUMMIT-259 (draft, review, publish) and most of SUMMIT-257 (applicant list views) from one choice. Self-hosted, no per-seat fee. Payload supports Next 16.3.3+; this repo is on 16.3.6.                                                                                                                 |
-| Applicant tracking   | Build in the Payload admin                              | Free ATS plans cap at one open job (Zoho Recruit, BreezyHR) and paid ones start near $189 a month, 38x this stack. Applications become a Payload collection with status, notes and an owner. Keeping postings on Pamar's own domain also feeds Google for Jobs, which is free and crawls `JobPosting` JSON-LD from the site itself. |
-| Email                | Keep Resend, add SPF and DKIM on pamarenterprises.com   | Already wired in `src/lib/email`. Deliverability of application notifications depends on the DNS records, which Pamar has to add (open question 2).                                                                                                                                                                                 |
-| Spam protection      | Turnstile, keys added at launch                         | Already wired in `src/lib/forms/spam.ts`.                                                                                                                                                                                                                                                                                           |
+| Concern              | Decision                                                | Reason                                                                                                                                                                                                                                                                                                                                                         |
+| -------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hosting              | Cloudflare Workers Paid via OpenNext                    | Framework default, one account with Turnstile, D1, R2 and DNS, 100 MB request bodies, lowest cost. The $5 plan is required because Workers Free allows 10 ms CPU per request and SSR does not fit in it.                                                                                                                                                       |
+| Database             | **Turso**, settled by the proof                         | Both adapters work and behave identically, so this came down to friction. D1 has no connection string: it needs top-level await and wrangler's proxy to resolve a binding, and it forces a serialised build because parallel page-data collection deadlocks on the local D1 file. Turso is a URL and a token with none of that. Fallback is Neon at $5 to $15. |
+| Private file storage | Cloudflare R2, signed URLs with a short expiry          | Same account as the host, no egress charges, and resumes must never be publicly addressable.                                                                                                                                                                                                                                                                   |
+| Staff sign-in        | Payload's built-in auth, email and password, with roles | No extra vendor or per-seat cost. Revisit only if Pamar wants single sign-on (open question 1).                                                                                                                                                                                                                                                                |
+| CMS and admin        | Payload, in the same Next app on the same database      | Gives SUMMIT-237 (content), SUMMIT-259 (draft, review, publish) and most of SUMMIT-257 (applicant list views) from one choice. Self-hosted, no per-seat fee. Payload supports Next 16.3.3+; this repo is on 16.3.6.                                                                                                                                            |
+| Applicant tracking   | Build in the Payload admin                              | Free ATS plans cap at one open job (Zoho Recruit, BreezyHR) and paid ones start near $189 a month, 38x this stack. Applications become a Payload collection with status, notes and an owner. Keeping postings on Pamar's own domain also feeds Google for Jobs, which is free and crawls `JobPosting` JSON-LD from the site itself.                            |
+| Email                | Keep Resend, add SPF and DKIM on pamarenterprises.com   | Already wired in `src/lib/email`. Deliverability of application notifications depends on the DNS records, which Pamar has to add (open question 2).                                                                                                                                                                                                            |
+| Spam protection      | Turnstile, keys added at launch                         | Already wired in `src/lib/forms/spam.ts`.                                                                                                                                                                                                                                                                                                                      |
 
 ## Monthly running cost
 
 Prices checked 2026-10-08. Sources at the bottom.
 
-| Service            | Plan      | Expected | Notes                                                                                                                                                                                  |
-| ------------------ | --------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cloudflare Workers | Paid      | $5       | The only line item. Flat, and covers this site's request volume many times over. Required because Workers Free caps CPU at 10 ms per request, which SSR exceeds.                       |
-| Cloudflare D1      | Free tier | $0       | 5 GB, 5M rows read and 100k written per day. A contractor's job postings, applications and bid packages will not approach it. Paid Workers raises the ceiling further if it ever does. |
-| Cloudflare R2      | Free tier | $0       | 10 GB stored, 1M Class A operations, free egress. Standard storage is $0.015 per GB-month after that, so even passing it costs cents.                                                  |
-| Resend             | Free      | $0       | 3,000 a month and 100 a day. Form notifications are far below that; the daily cap is the one to watch if a bid deadline ever fans out.                                                 |
-| Turnstile          | Free      | $0       |                                                                                                                                                                                        |
-| **Total**          |           | **$5**   | Rising to $10 to $20 only if the D1 adapter forces a move to Neon.                                                                                                                     |
+| Service            | Plan      | Expected | Notes                                                                                                                                                                                                        |
+| ------------------ | --------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Cloudflare Workers | Paid      | $5       | The only line item. Flat, and covers this site's request volume many times over. Required because Workers Free caps CPU at 10 ms per request, which SSR exceeds.                                             |
+| Turso              | Free tier | $0       | 5 GB, 500M rows read and 10M written a month. A contractor's job postings, applications and bid packages will not approach it. Chosen over D1 by the adapter proof: same behaviour, far less build friction. |
+| Cloudflare R2      | Free tier | $0       | 10 GB stored, 1M Class A operations, free egress. Standard storage is $0.015 per GB-month after that, so even passing it costs cents.                                                                        |
+| Resend             | Free      | $0       | 3,000 a month and 100 a day. Form notifications are far below that; the daily cap is the one to watch if a bid deadline ever fans out.                                                                       |
+| Turnstile          | Free      | $0       |                                                                                                                                                                                                              |
+| **Total**          |           | **$5**   | Rising to $10 to $20 only if Turso is later swapped for Neon.                                                                                                                                                |
 
 For comparison: a genuinely free build (option D) is $0, and option B on Vercel is $30 to $45,
 because Vercel Pro is $20 per developer seat per month and commercial projects cannot stay on
@@ -178,22 +183,22 @@ billed to Pamar, which also keeps the accounts in Summit's control. Noted for SU
 Accounts go in Pamar's name wherever the account holds Pamar's data or DNS, so nothing is hostage
 to Summit's billing. Summit holds the accounts that are purely build infrastructure.
 
-| Account                                      | Owner                                           | Why                                                                                                                   |
-| -------------------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| Cloudflare (DNS, Workers, D1, R2, Turnstile) | Pamar, Summit added as a member                 | It holds the domain, the database and the applicant files. Pamar must be able to revoke our access and keep the site. |
-| Neon, only if D1 is dropped                  | Pamar, Summit as a member                       | Would hold applicant and subcontractor data.                                                                          |
-| Resend                                       | Pamar                                           | Sends as their domain, and the DKIM records are theirs.                                                               |
-| GitHub repo                                  | Summit, transferred on handoff per the contract | Build infrastructure until handoff (SUMMIT-241).                                                                      |
-| Google Analytics 4                           | Pamar                                           | Already their property.                                                                                               |
+| Account                                  | Owner                                           | Why                                                                                                     |
+| ---------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Cloudflare (DNS, Workers, R2, Turnstile) | Pamar, Summit added as a member                 | It holds the domain and the applicant files. Pamar must be able to revoke our access and keep the site. |
+| Turso                                    | Pamar, Summit as a member                       | Holds applicant and subcontractor data. Neon instead, if it is ever swapped in.                         |
+| Resend                                   | Pamar                                           | Sends as their domain, and the DKIM records are theirs.                                                 |
+| GitHub repo                              | Summit, transferred on handoff per the contract | Build infrastructure until handoff (SUMMIT-241).                                                        |
+| Google Analytics 4                       | Pamar                                           | Already their property.                                                                                 |
 
 ## Before this is final
 
-1. **Database adapter proof, half a day.** Stand up Payload on `@payloadcms/db-d1-sqlite` from the
-   official `with-cloudflare-d1` template, then on `@payloadcms/db-sqlite` against Turso, build
-   both with OpenNext, and keep whichever migrates and runs the admin more cleanly. The D1 adapter
-   is beta, which is the one piece worth proving before the blocked tickets are written against it.
-   If neither is clean, switch to Neon and add $5 to $15 a month. Cost is $0 either way between D1
-   and Turso.
+1. ~~**Database adapter proof, half a day.**~~ **Done, 2026-10-09.** Both adapters work and behave
+   identically; Turso wins on friction. Branch `claude/db-adapter-proof`, with findings in its
+   `PROOF.md`. It also retired the bundle-size question with a measurement (19.2 MiB uncompressed,
+   4.3 MiB gzipped) and surfaced six prerequisites that apply to Payload regardless of adapter,
+   the two largest being that the package becomes ESM and that the GitHub Pages static preview
+   has to move to Cloudflare.
 2. **Open question for Pamar (via Virgil):** does Pamar use Microsoft 365 or Google Workspace? If
    so, staff single sign-on is worth more than it costs, and the staff auth row changes to Better
    Auth with that provider. Ask before building the admin. (Better Auth, not Auth.js: the Auth.js
@@ -213,6 +218,10 @@ and now checks only an uncompressed 64 MiB limit, on every plan. The concern no 
 - `recordSubmission` in `src/lib/submissions/store.ts` becomes a Payload write. The handlers and
   every page stay as they are, because dependencies are already injected.
 - File uploads move to presigned R2 URLs as a scheduled improvement rather than a launch blocker.
+- Two migration tickets fall out of the proof and belong under SUMMIT-262: flip the package to
+  ESM and pin Next to 16.3.8 with a webpack build, and move the client preview off GitHub Pages
+  onto a Cloudflare preview environment, since Payload's API routes cannot coexist with
+  `output: "export"`.
 - The four blocked tickets can be written against a known platform: SUMMIT-237 (Payload collections
   and the admin), SUMMIT-259 (draft and publish on the jobs collection), SUMMIT-257 (applications
   collection with status and notes), SUMMIT-236 (a second auth scope for subcontractors plus signed
