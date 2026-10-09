@@ -10,6 +10,21 @@
 - **Adapter proof:** branch `claude/db-adapter-proof`, see its `PROOF.md`. Both adapters
   work; Turso is the easier one; the measured worker bundle is 19.2 MiB uncompressed
 
+## Standing constraint: fully managed, no servers to administer
+
+Summit does not run machines. Every component here has to be a managed or serverless service that
+someone else patches, backs up and keeps alive. That rules out a VPS with Coolify or Dokploy, and
+self-hosted Postgres on a box, regardless of what they cost. It is a standing rule, not a judgment
+call for this project, so the options below are scored against it rather than re-arguing it.
+
+The recommendation already satisfies it: Workers, Turso, R2, Resend and Turnstile are all managed.
+Nothing in it is a server Summit keeps running.
+
+One wording trap, because it reads the wrong way: Payload, Strapi and Better Auth get called
+"self-hosted" in their own docs. That means self-operated as opposed to a vendor SaaS, not a
+machine to administer. Payload is a library that runs inside this Next app on Workers. Adopting it
+adds no server.
+
 ## Context
 
 The site is feature complete as a frontend. Content comes from typed modules in `src/content/`,
@@ -113,8 +128,8 @@ result is that only two layers are in question, and only one of them is close.
 | Database             | PlanetScale, Xata       | **Gone.** Both retired their free tiers, in April 2024 and 2025. Listed because they are still widely recommended in older posts.                                                                                                                                      |
 | Private file storage | Cloudflare R2 free tier | **Sufficient for years.** 10 GB stored, 1M Class A operations, free egress. Resumes and bid PDFs will not approach it.                                                                                                                                                 |
 | Email                | Resend Free             | **Sufficient.** 3,000 a month, 100 a day, 3 custom domains. Form notifications are nowhere near that.                                                                                                                                                                  |
-| Staff sign-in        | Payload auth            | Free at every tier. Self-hosted, no per-seat cost.                                                                                                                                                                                                                     |
-| CMS and admin        | Payload                 | Open source and self-hosted. Free at every tier.                                                                                                                                                                                                                       |
+| Staff sign-in        | Payload auth            | Free at every tier. Runs inside the app, no per-seat cost and no server to administer.                                                                                                                                                                                 |
+| CMS and admin        | Payload                 | Open source, and runs inside the app rather than on a box of ours. Free at every tier.                                                                                                                                                                                 |
 | Spam protection      | Turnstile               | Free at this scale.                                                                                                                                                                                                                                                    |
 
 So the $0 bundle is real: **Cloud Run plus Turso**, with R2, Resend and Turnstile free alongside.
@@ -153,7 +168,7 @@ Every row in the SUMMIT-260 table, with its reason.
 | Database             | **Turso**, settled by the proof                         | Both adapters work and behave identically, so this came down to friction. D1 has no connection string: it needs top-level await and wrangler's proxy to resolve a binding, and it forces a serialised build because parallel page-data collection deadlocks on the local D1 file. Turso is a URL and a token with none of that. Fallback is Neon at $5 to $15. |
 | Private file storage | Cloudflare R2, signed URLs with a short expiry          | Same account as the host, no egress charges, and resumes must never be publicly addressable.                                                                                                                                                                                                                                                                   |
 | Staff sign-in        | Payload's built-in auth, email and password, with roles | No extra vendor or per-seat cost. Revisit only if Pamar wants single sign-on (open question 1).                                                                                                                                                                                                                                                                |
-| CMS and admin        | Payload, in the same Next app on the same database      | Gives SUMMIT-237 (content), SUMMIT-259 (draft, review, publish) and most of SUMMIT-257 (applicant list views) from one choice. Self-hosted, no per-seat fee. Payload supports Next 16.3.3+; this repo is on 16.3.6.                                                                                                                                            |
+| CMS and admin        | Payload, in the same Next app on the same database      | Gives SUMMIT-237 (content), SUMMIT-259 (draft, review, publish) and most of SUMMIT-257 (applicant list views) from one choice. Runs inside the app, so it adds no server to administer and no per-seat fee. Payload supports Next 16.3.3+; this repo is on 16.3.6.                                                                                             |
 | Applicant tracking   | Build in the Payload admin                              | Free ATS plans cap at one open job (Zoho Recruit, BreezyHR) and paid ones start near $189 a month, 38x this stack. Applications become a Payload collection with status, notes and an owner. Keeping postings on Pamar's own domain also feeds Google for Jobs, which is free and crawls `JobPosting` JSON-LD from the site itself.                            |
 | Email                | Keep Resend, add SPF and DKIM on pamarenterprises.com   | Already wired in `src/lib/email`. Deliverability of application notifications depends on the DNS records, which Pamar has to add (open question 2).                                                                                                                                                                                                            |
 | Spam protection      | Turnstile, keys added at launch                         | Already wired in `src/lib/forms/spam.ts`.                                                                                                                                                                                                                                                                                                                      |
@@ -269,6 +284,12 @@ and leaves the domain spoofable. That is a small, concrete win Summit can hand t
 - `recordSubmission` in `src/lib/submissions/store.ts` becomes a Payload write. The handlers and
   every page stay as they are, because dependencies are already injected.
 - File uploads move to presigned R2 URLs as a scheduled improvement rather than a launch blocker.
+- **Deploys and migrations run in GitHub Actions, not from a laptop.** The repo already deploys
+  on a schedule through `deploy.yml`, so this follows the existing pattern: CI runs the OpenNext
+  build, applies `payload migrate`, then deploys the worker. Nothing requires a local
+  `wrangler deploy`, and no state lives on anyone's machine. This is also a quiet point in Turso's
+  favour: a URL and a token are two CI secrets, whereas D1 migrations from CI need wrangler auth
+  and remote bindings.
 - Moving DNS to Cloudflare means a nameserver change at Bluehost, away from HostMonster. That is
   the gating step for headers, redirects and the cutover, and it needs whoever holds the Bluehost
   account. Lower the TTL first, and do not schedule it last.

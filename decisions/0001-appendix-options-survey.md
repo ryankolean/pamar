@@ -8,6 +8,10 @@ here was checked on 2026-10-08. Prices and quotas move; re-check before relying 
 Most options die on one of five filters, not on price. Running the filters first is what keeps the
 list short:
 
+0. **Is it fully managed?** Summit does not administer servers. Anything that means owning a box,
+   patching it and being responsible for its backups is out before price is considered. This rules
+   out the VPS and self-hosted-database rows below, which are kept only so the comparison is
+   honest about what was given up.
 1. **Does the licence permit a client project?** Several free tiers are personal-use only. This is
    a contract question, not a quota question, and it cannot be engineered around.
 2. **Can it server-render?** The careers funnel, the bid board and the staff admin all need a
@@ -34,7 +38,7 @@ list short:
 | Render Starter                         | $7/mo                 | n/a, paid           | —            | Yes                  | Fine, slightly more than Workers for less.                                                                                                                                                               |
 | Railway                                | ~$5/mo via Hobby cap  | Trial needs a card  | —            | Yes                  | Best developer experience of the container hosts. Per-second billing with a $5 spend cap.                                                                                                                |
 | Fly.io                                 | $5 to $10/mo          | Trial needs a card  | —            | Yes                  | Cheapest at scale thanks to $0.02/GB egress. More operations surface than this project needs.                                                                                                            |
-| VPS + Coolify or Dokploy               | €5 to €14/mo          | n/a, paid           | Yours to set | Yes                  | Cheapest at volume and no quota cliffs, but Summit becomes responsible for patching, backups and uptime on a client's production box. Wrong trade for one small site.                                    |
+| VPS + Coolify or Dokploy               | €5 to €14/mo          | n/a, paid           | Yours to set | Yes                  | **Out on the managed-only rule.** Cheapest at volume and no quota cliffs, but Summit would own patching, backups and uptime on a client's production box. Not a cost question.                           |
 | GitHub Pages                           | $0                    | Yes                 | n/a          | Yes                  | Already the preview host. Static only: no 301s, no headers, no server actions. Not a production candidate.                                                                                               |
 
 **The $0 shortlist is Cloud Run and Netlify Free.** Cloud Run is the stronger of the two: no deploy
@@ -54,7 +58,7 @@ overage instead of refusing it.
 | PlanetScale               | **None**                                            | Yes                  | **Out.** No free tier since April 2024. Cheapest is $5/mo.                                                                                                                                                          |
 | Xata                      | **None**                                            | Yes                  | **Out.** The 15 GB free tier was retired; now usage-billed with no free plan.                                                                                                                                       |
 | Railway / Render Postgres | Bundled with the host's plan                        | Yes                  | Only sensible if the app is already hosted there.                                                                                                                                                                   |
-| Postgres on the VPS       | $0 beyond the box                                   | Yes                  | Cheapest and most durable, and makes backups Summit's job.                                                                                                                                                          |
+| Postgres on the VPS       | $0 beyond the box                                   | Yes                  | **Out on the managed-only rule.** Cheapest and most durable, and makes backups Summit's problem.                                                                                                                    |
 
 ## 3. Private file storage
 
@@ -73,8 +77,8 @@ No public bucket, ever, for applicant files.
 
 | Option              | Licence     | Cost                        | Verdict                                                                                                                                                                                                |
 | ------------------- | ----------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Payload**         | MIT         | $0 self-hosted              | **Recommended.** Runs inside this Next app, drafts and publish states, role-based access, list views. Covers SUMMIT-237, 259 and most of 257 by configuration. Official Cloudflare D1 template exists. |
-| Strapi              | MIT         | $0 self-hosted              | Mature and genuinely free, but a separate app to deploy and a REST or GraphQL hop from the site.                                                                                                       |
+| **Payload**         | MIT         | $0, runs in the app         | **Recommended.** Runs inside this Next app, drafts and publish states, role-based access, list views. Covers SUMMIT-237, 259 and most of 257 by configuration. Official Cloudflare D1 template exists. |
+| Strapi              | MIT         | $0, but a separate service  | Mature and genuinely free, but a separate app to deploy and a REST or GraphQL hop from the site.                                                                                                       |
 | Directus            | **BSL 1.1** | $0 under $5M revenue        | Good product, but the licence restricts offering it as a managed service to clients. Summit's framework reuses this stack across clients, so this needs a lawyer's read before it becomes a default.   |
 | Keystatic / TinaCMS | MIT         | $0                          | Git-backed editing. Fine for marketing copy, wrong for applications, which need a database and access control.                                                                                         |
 | Sanity              | Hosted      | Free tier exists            | **Out for this project.** The free tier has no private datasets: content is publicly readable by API key. Unusable for applicant data.                                                                 |
@@ -118,7 +122,7 @@ notification that lands in spam is the same as no application.
 | Option           | Cost                            | Verdict                                                                                                                                                                                                                     |
 | ---------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Payload auth** | $0                              | **Recommended.** Already there if Payload is the CMS. Email, password and roles, no extra vendor.                                                                                                                           |
-| Better Auth      | $0, self-hosted                 | **The fallback if Pamar wants single sign-on.** Note: the Auth.js team joined Better Auth in late 2025, and new projects are pointed at Better Auth. The main record's earlier reference to Auth.js is updated accordingly. |
+| Better Auth      | $0, a library in the app        | **The fallback if Pamar wants single sign-on.** Note: the Auth.js team joined Better Auth in late 2025, and new projects are pointed at Better Auth. The main record's earlier reference to Auth.js is updated accordingly. |
 | Clerk            | Free to 50,000 MAU, then $25/mo | Generous, but a hosted dependency and another account for a handful of staff logins.                                                                                                                                        |
 | Supabase Auth    | Free to 50k MAU                 | Drags the paused-project problem along.                                                                                                                                                                                     |
 | WorkOS           | Free SSO up to a user count     | Only worth it if Pamar turns out to be an enterprise Microsoft 365 shop and wants SAML.                                                                                                                                     |
