@@ -199,17 +199,68 @@ to Summit's billing. Summit holds the accounts that are purely build infrastruct
    4.3 MiB gzipped) and surfaced six prerequisites that apply to Payload regardless of adapter,
    the two largest being that the package becomes ESM and that the GitHub Pages static preview
    has to move to Cloudflare.
-2. **Open question for Pamar (via Virgil):** does Pamar use Microsoft 365 or Google Workspace? If
-   so, staff single sign-on is worth more than it costs, and the staff auth row changes to Better
-   Auth with that provider. Ask before building the admin. (Better Auth, not Auth.js: the Auth.js
-   team joined Better Auth in late 2025 and new projects are pointed there.)
-3. **Open question for Pamar:** who controls DNS for pamarenterprises.com today? SPF and DKIM for
-   Resend, and the eventual cutover, both go through whoever that is.
+2. **Largely answered by DNS, worth one confirmation from Virgil.** There is no Microsoft 365 or
+   Google Workspace signal on the domain (see "What the DNS says" below), so Payload's own auth
+   stays the plan. Proofpoint masks the mailbox provider, so confirm rather than assume. If Pamar
+   turns out to be on M365, the staff auth row changes to Better Auth with that provider. (Better
+   Auth, not Auth.js: the Auth.js team joined Better Auth in late 2025.)
+3. ~~**Who controls DNS?**~~ **Answered, with a correction.** The zone is at Bluehost and
+   HostMonster, not at the website vendor. See "What the DNS says" below. What remains is a
+   people question, not a technical one: get Pamar to confirm who holds the Bluehost login.
 4. **Ryan's call:** $5 a month on the retainer, or the $0 build in option D with its outage modes.
 
 The earlier draft of this record carried a fifth item, a proof that Payload's admin fits inside a
 Worker. Cloudflare removed the 3 MiB free and 10 MiB paid compressed bundle caps in September 2026
 and now checks only an uncompressed 64 MiB limit, on every plan. The concern no longer applies.
+
+## What the DNS says
+
+Looked up 2026-10-09. Ryan's understanding was that webascender.com handles the domain. The
+website, probably; the DNS, no. Worth separating, because the cutover depends on getting the
+distinction right.
+
+| Record                | Value                                                                                                     | What it means                                                                                                                                                                  |
+| --------------------- | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Registrar             | Bluehost Inc.                                                                                             | Not the website vendor. Whoever holds this login controls the cutover.                                                                                                         |
+| Nameservers           | `ns1`/`ns2.hostmonster.com`                                                                               | HostMonster, same parent as Bluehost (Newfold). Authoritative DNS lives here.                                                                                                  |
+| Registrant            | an individual's name, no organisation                                                                     | A person, not Pamar Enterprises. See the risk below.                                                                                                                           |
+| Created / expires     | 2001-06-13 / 2027-06-13                                                                                   | A 25-year-old domain. All of Pamar's search equity is in it.                                                                                                                   |
+| A record              | `199.16.172.151` (Pressable)                                                                              | Managed WordPress hosting. Consistent with an agency-built site, and with the WPBakery and "Simple Job Board" assets already captured in `docs/brand/source/`.                 |
+| MX                    | `mxa`/`mxb-0095a102.gslb.pphosted.com`                                                                    | Proofpoint Essentials, a filtering gateway in front of the real mail server.                                                                                                   |
+| SPF                   | `ip4:173.167.13.49 ip4:65.183.171.35 include:_spf.psm.knowbe4.com include:spf-0095a102.pphosted.com -all` | Comcast and 123.Net (a Michigan ISP) addresses, which look like on-premises mail rather than a cloud tenant. KnowBe4 means somebody runs security awareness training for them. |
+| DMARC                 | **none**                                                                                                  | No `_dmarc` record exists.                                                                                                                                                     |
+| M365 / Google markers | **none found**                                                                                            | No `autodiscover`, `msoid`, `enterpriseregistration`, `selector1`/`selector2._domainkey`, or `google._domainkey`.                                                              |
+
+Three things follow.
+
+**The website vendor and the DNS holder are probably different parties.** Pressable hosting fits a
+WordPress agency; the zone sits at Bluehost and HostMonster. So "ask Web Ascender" may not be the
+route to an SPF record. The question for Pamar is narrower and more useful: _who has the Bluehost
+login?_ It could be Pamar, the web vendor, or whoever set up Proofpoint and KnowBe4.
+
+**Staff single sign-on is probably not on the table, which is the answer the record wanted.** No
+M365 or Google Workspace markers, and mail egresses from what look like on-premises servers on two
+Michigan ISPs. Payload's own auth stays the right call. This is strong evidence rather than proof,
+because Proofpoint sits in front and hides the backend, so it is still worth one question to
+Virgil before the admin is built.
+
+**Adding Resend needs an SPF edit, and DMARC is missing.** SPF ends in `-all`, so mail from an
+unlisted sender is told to fail. Resend has to be added to that record or every application
+notification is rejected. While the zone is open, Pamar should also get a `_dmarc` policy: they
+have strict SPF and no DMARC today, which is the combination that gets legitimate mail quarantined
+and leaves the domain spoofable. That is a small, concrete win Summit can hand them early.
+
+### Two risks to raise, not to solve here
+
+- **The domain is registered to a person, not to Pamar Enterprises.** On a domain created in 2001
+  that carries all of their search equity, that is a continuity problem independent of this
+  project. Worth raising under SUMMIT-263 and the handoff in SUMMIT-241: the registrant should be
+  the company, with Pamar holding the registrar account.
+- **The cutover depends on cooperation from the incumbent.** If the existing site is Web Ascender's
+  work, Summit is replacing a live vendor, and that vendor may be in the path of DNS or hosting
+  changes. Sequence it so nothing depends on their goodwill at the last minute: get the Bluehost
+  credentials confirmed, lower the TTL well before cutover, and keep the preview on Summit
+  infrastructure until the switch.
 
 ## Consequences
 
@@ -218,6 +269,9 @@ and now checks only an uncompressed 64 MiB limit, on every plan. The concern no 
 - `recordSubmission` in `src/lib/submissions/store.ts` becomes a Payload write. The handlers and
   every page stay as they are, because dependencies are already injected.
 - File uploads move to presigned R2 URLs as a scheduled improvement rather than a launch blocker.
+- Moving DNS to Cloudflare means a nameserver change at Bluehost, away from HostMonster. That is
+  the gating step for headers, redirects and the cutover, and it needs whoever holds the Bluehost
+  account. Lower the TTL first, and do not schedule it last.
 - Two migration tickets fall out of the proof and belong under SUMMIT-262: flip the package to
   ESM and pin Next to 16.3.8 with a webpack build, and move the client preview off GitHub Pages
   onto a Cloudflare preview environment, since Payload's API routes cannot coexist with
