@@ -1,0 +1,146 @@
+# Applicant and subcontractor data handling (SUMMIT-261)
+
+Companion to the drafted privacy policy at `src/app/privacy/page.tsx`. The policy is the public
+copy; this file is the internal record of what the site actually does, what retention periods we
+propose and why, and what still needs a decision.
+
+Nothing here is published. The policy page is a **draft** until Pamar and counsel confirm the
+retention periods and the privacy contact.
+
+## What the site actually collects today
+
+Read from the code, not from assumption. Every form validates server-side, calls
+`recordSubmission` (a no-op today, `src/lib/submissions/store.ts`), then emails the result.
+
+| Form                                   | Fields                                                                                                                                                                                             | Uploads                                           | Goes to                        |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------------------------ |
+| `/contact`                             | name, email, phone, company, topic, message                                                                                                                                                        | none                                              | `CONTACT_TO_EMAIL`             |
+| `/careers/apply`                       | position, name, email, phone, experience, certifications, message, accuracy confirmation                                                                                                           | resume (PDF/DOC/DOCX, ≤5 MB, required)            | `HR_TO_EMAIL` + applicant copy |
+| `/subcontractors/register`             | company name, contact name, title, email, phone, website, street/city/state/ZIP, trades, service area, years in business, business certifications, bonding capacity, insurance confirmation, notes | COI (PDF, ≤5 MB), W-9 (PDF, ≤5 MB), both optional | `ESTIMATING_TO_EMAIL`          |
+| `/subcontractors/opportunities/<slug>` | submission type, company name, contact name, email, phone, trades priced, bid amount, notes                                                                                                        | bid document (PDF, ≤15 MB)                        | `ESTIMATING_TO_EMAIL`          |
+
+Processors in the code path:
+
+- **Resend** (`src/lib/email/index.ts`) — carries every submission, including attachments.
+- **Cloudflare Turnstile** (`src/lib/forms/spam.ts`) — sees IP and browser signals when
+  `TURNSTILE_SECRET_KEY` / `NEXT_PUBLIC_TURNSTILE_SITE_KEY` are set.
+- **Google Analytics 4** (`src/lib/analytics.ts`) — only when `NEXT_PUBLIC_GA_ID` is set. Events
+  are conversion flags (`application_submitted` and friends); no form field values are sent.
+- Fonts are self-hosted via Fontsource, so no font CDN sees visitors.
+- `mapUrl()` builds an outbound Google Maps link. Nothing is requested from Google until a visitor
+  clicks it.
+
+Two facts worth keeping in view: a **W-9 carries a taxpayer identification number, often a Social
+Security number**, and today it reaches Pamar as an email attachment with no storage layer and no
+access log. SUMMIT-236 (object storage, signed URLs) and SUMMIT-237 (submission store) are where
+that gets fixed; the policy as drafted does not promise more than email delivery actually provides.
+
+## Proposed retention schedule
+
+Proposed, not confirmed. Rationale given so counsel can agree or correct.
+
+| Record                                | Proposed                                                        | Why                                                                                                                                                                                                                                                    |
+| ------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Applications and resumes (not hired)  | 2 years from application date                                   | 29 CFR 1602.14 requires 1 year for Title VII/ADA. 41 CFR 60-1.12 requires 2 years for covered federal contractors (1 year if under 150 employees and no contract ≥ $150k). Pamar's MDOT and federal-aid work makes the 2-year figure the safe default. |
+| Applications of hired candidates      | Follows the employment record schedule                          | Becomes a personnel record; out of scope for a website policy.                                                                                                                                                                                         |
+| Contact messages                      | 2 years                                                         | Business correspondence; no statutory floor. Matches the application period so one mailbox rule covers both.                                                                                                                                           |
+| Subcontractor registrations, COI, W-9 | Active or prospective status, then ≥ 4 years after last payment | IRS requires employment/payee records 4 years after the tax is due or paid; COI must be retrievable for the claim tail.                                                                                                                                |
+| Bids and intents to bid               | 7 years after project close, with the project record            | Matches typical construction contract and audit retention; aligns bid files with the job file.                                                                                                                                                         |
+| Google Analytics usage data           | Google's property-level retention setting                       | We keep no copy. **The GA4 retention setting itself still needs to be chosen — see open questions.**                                                                                                                                                   |
+
+Deletion is not automated anywhere today; these periods describe mailbox and file practice until
+SUMMIT-237 lands a store that can enforce them.
+
+## Consent approach
+
+Employment and procurement use is consent-by-notice, not opt-in. What landed:
+
+- `PrivacyNote` (`src/components/forms/fields.tsx`) sits above the submit button on all four
+  forms and links to `/privacy`. Wording is per-form so the sentence names what is being sent.
+- The application form keeps its existing required checkbox, which confirms accuracy — not
+  privacy consent. Those are different claims and should stay separate.
+- Footer links to `/privacy` site-wide; `/privacy` is in the sitemap.
+
+Deliberately **not** done, because each is a product decision rather than copy:
+
+- A second required "I consent to the processing of my data" checkbox. Only worth adding if Pamar
+  wants a recorded consent artifact per submission; it needs a schema field and a stored record to
+  mean anything (SUMMIT-237).
+- A cookie banner or GA4 consent mode. No US rule compels one here. If Pamar wants it, it is a
+  dev card: load GA4 behind consent and default `analytics_storage` to denied.
+
+## Security headers — specification for the dev card
+
+Not implemented in this branch: `next.config.ts` headers are code, and this card ran as a content
+routine. The values below are derived from the third parties the code actually loads, so the spec
+can be applied as-is.
+
+```ts
+// next.config.ts — add alongside redirects(); skipped in the STATIC_EXPORT build.
+const csp = [
+  "default-src 'self'",
+  // 'unsafe-inline' is required by the inline ga4-init script in src/components/analytics/
+  // google-analytics.tsx and the js-detection script in layout.tsx. Dropping it means moving
+  // both behind a nonce.
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: https://www.googletagmanager.com",
+  "font-src 'self'",
+  "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",
+  "frame-src https://challenges.cloudflare.com",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "upgrade-insecure-requests",
+].join("; ");
+
+async headers() {
+  return [
+    {
+      source: "/:path*",
+      headers: [
+        { key: "Content-Security-Policy", value: csp },
+        { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },
+        { key: "X-Content-Type-Options", value: "nosniff" },
+        { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        { key: "X-Frame-Options", value: "DENY" },
+        { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+        {
+          key: "Permissions-Policy",
+          value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+        },
+      ],
+    },
+  ];
+}
+```
+
+Three constraints on whoever implements it:
+
+1. `headers()` does nothing in the `STATIC_EXPORT=1` GitHub Pages preview. On static hosting the
+   headers have to come from the host, so the production host has to be settled first.
+2. Add `preload` to HSTS only after every subdomain of pamarenterprises.com serves HTTPS.
+   Preloading is hard to reverse.
+3. Verify with the real GA4 and Turnstile keys enabled, not just locally with both unset — the CSP
+   only gets exercised when those scripts actually load.
+
+## Open questions for Ryan and Pamar
+
+1. **Privacy contact.** `site.contact.email` (`info@pamarenterprises.com`) is still marked
+   PLACEHOLDER. The drafted policy therefore routes requests to the published phone number, the
+   office address, and the contact form. Confirm an address and the policy can name it.
+2. **Retention periods.** Does counsel accept the table above, in particular 2 years for
+   applications and 7 years for bid files?
+3. **OFCCP coverage.** Is Pamar a covered federal contractor, and does it have 150+ employees?
+   That decides whether the application floor is 1 or 2 years.
+4. **CCPA/CPRA.** Does Pamar meet any California threshold (revenue, or personal information on
+   100k+ consumers)? If yes the policy needs a rights section and a "do not sell" statement. The
+   draft asserts no sale of data but claims no California-specific rights.
+5. **GA4 retention setting.** 2 months or 14 months, and is GA4 live at launch at all
+   (`NEXT_PUBLIC_GA_ID`)?
+6. **Resend retention.** Confirm how long Resend keeps message content and attachments, and
+   whether a DPA is on file. Resumes and W-9s pass through it.
+7. **Production host.** Needed before the security headers can be applied, and the policy's HTTPS
+   statement depends on it.
+8. **Effective date.** The draft says October 27, 2026. Set it to the publication date.

@@ -49,9 +49,14 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-teal-600">
-        <p className="container-page py-6 text-xs text-teal-100">
-          © {year} {site.legalName} All rights reserved.
-        </p>
+        <div className="container-page flex flex-wrap items-center gap-x-4 gap-y-2 py-6 text-xs text-teal-100">
+          <p>
+            © {year} {site.legalName} All rights reserved.
+          </p>
+          <Link href="/privacy" className="hover:text-white">
+            Privacy Policy
+          </Link>
+        </div>
       </div>
     </footer>
   );

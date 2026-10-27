@@ -9,6 +9,7 @@ import {
   FormMessage,
   FormSuccess,
   Honeypot,
+  PrivacyNote,
   RadioCards,
   SubmitButton,
   TextArea,
@@ -136,6 +137,8 @@ export function BidForm({ opportunitySlug, trades, document, preview = false }: 
       <FormMessage state={state} />
       <input type="hidden" name="opportunity" value={opportunitySlug} />
       <BidFields state={state} trades={trades} document={document} />
+      <PrivacyNote what="your bid information and documents" />
+
       <Honeypot />
       <Turnstile />
       <SubmitButton pendingLabel="Submitting…">Send submission</SubmitButton>
