@@ -144,3 +144,43 @@ Three constraints on whoever implements it:
 7. **Production host.** Needed before the security headers can be applied, and the policy's HTTPS
    statement depends on it.
 8. **Effective date.** The draft says October 27, 2026. Set it to the publication date.
+
+## Accessibility statement (`src/app/accessibility/page.tsx`)
+
+The card asks for an accessibility statement alongside the privacy policy, with both linked from
+every page. The statement is drafted and linked; this is the record behind it.
+
+Claims in the draft, and what each one rests on:
+
+| Claim                                   | Basis in the code                                                                    |
+| --------------------------------------- | ------------------------------------------------------------------------------------ |
+| Headings, lists, landmarks              | `src/app/layout.tsx` renders `<main id="main">`; sections use `aria-labelledby`      |
+| Labels, hints and errors tied to fields | `src/components/forms/fields.tsx` — `htmlFor`, `aria-invalid`, `describedBy()`       |
+| Visible focus                           | `:focus-visible` rule in `src/app/globals.css`                                       |
+| Decorative images hidden                | `PageHero` photo is `alt=""` with an `aria-hidden` overlay                           |
+| Motion respects the system setting      | `prefers-reduced-motion` in `globals.css` plus `reveal-observer.tsx`, `count-up.tsx` |
+| Page language declared                  | `<html lang="en">` in `src/app/layout.tsx`                                           |
+
+Gaps the draft names on the page rather than hiding:
+
+1. No independent audit. Everything above is our own reading of the code.
+2. No skip-to-content link. `<main id="main">` already exists, so this is a few lines in
+   `site-header.tsx` plus a `.sr-only`/`:focus` style — a dev card, not a copy change.
+3. Owner- and engineer-supplied PDFs (plan sets, addenda, bid documents) are usually scans and are
+   almost certainly untagged. We do not control them, so the statement offers a phone alternative.
+4. `/careers/apply` and the bid form need JavaScript.
+
+Two claims need Pamar's confirmation before this page goes live, because they commit staff to
+something:
+
+- **The phone and mail alternative.** The draft says Pamar will take an application, a
+  registration, or a bid by phone or mail and help the caller complete it. Standard practice for a
+  public-agency contractor, but it is a commitment, not a description of code.
+- **Who answers.** Reports route to the published phone number, the office address, and the
+  contact form, for the same reason the privacy policy does — `site.contact.email` is still
+  PLACEHOLDER. Confirm whether accessibility reports should reach a named person.
+
+Also unresolved: the statement's effective date reads October 28, 2026 and should be set to the
+publication date, and WCAG 2.1 AA is asserted as a target, not as verified conformance. A real
+audit (axe or Lighthouse in CI, plus a keyboard and screen-reader pass) is a separate card; the
+repo has no accessibility test today.

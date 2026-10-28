@@ -56,6 +56,9 @@ export function SiteFooter() {
           <Link href="/privacy" className="hover:text-white">
             Privacy Policy
           </Link>
+          <Link href="/accessibility" className="hover:text-white">
+            Accessibility
+          </Link>
         </div>
       </div>
     </footer>
