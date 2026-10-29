@@ -51,6 +51,16 @@ Proposed, not confirmed. Rationale given so counsel can agree or correct.
 Deletion is not automated anywhere today; these periods describe mailbox and file practice until
 SUMMIT-237 lands a store that can enforce them.
 
+A second document reaches the same two-year figure from the same two regulations:
+`docs/applicant-data-security.md` (on branch `claude/platform-decision`, written 2026-10-09). The
+numbers agree, so there is no conflict to resolve — but the two files should not both grow into
+retention records. That one is the storage-and-tooling analysis; this one is what the published
+policy rests on. One thing it adds that belongs here: the Department of Labor proposed rescinding
+the 41 CFR Part 60-1 regulations in July 2025, and as of 2026 they remain on the books unenforced
+while the rulemaking runs. That does not move the number — the 29 CFR 1602.14 one-year EEOC floor
+is untouched and two years is safe under either reading — so the table stands as written. Counsel
+should be told the rulemaking is open rather than discover it later.
+
 ## Consent approach
 
 Employment and procurement use is consent-by-notice, not opt-in. What landed:
@@ -119,7 +129,13 @@ async headers() {
 Three constraints on whoever implements it:
 
 1. `headers()` does nothing in the `STATIC_EXPORT=1` GitHub Pages preview. On static hosting the
-   headers have to come from the host, so the production host has to be settled first.
+   headers have to come from the host. The production platform is no longer open-ended:
+   `decisions/0001-production-platform.md` (on branch `claude/platform-decision`, SUMMIT-260)
+   recommends Cloudflare Workers via the OpenNext adapter, which runs Next as a server — so the
+   `next.config.ts` block above applies as written, with no host-level rule needed. That decision
+   is **Proposed**, not approved: it still waits on Ryan and on two answers from Pamar. If it is
+   approved, this spec is the whole job; if production ends up static, the same values have to be
+   restated as host rules instead.
 2. Add `preload` to HSTS only after every subdomain of pamarenterprises.com serves HTTPS.
    Preloading is hard to reverse.
 3. Verify with the real GA4 and Turnstile keys enabled, not just locally with both unset — the CSP
@@ -141,8 +157,10 @@ Three constraints on whoever implements it:
    (`NEXT_PUBLIC_GA_ID`)?
 6. **Resend retention.** Confirm how long Resend keeps message content and attachments, and
    whether a DPA is on file. Resumes and W-9s pass through it.
-7. **Production host.** Needed before the security headers can be applied, and the policy's HTTPS
-   statement depends on it.
+7. **Production host.** Proposed as Cloudflare Workers in
+   `decisions/0001-production-platform.md` (branch `claude/platform-decision`), awaiting Ryan's
+   approval. Needed before the security headers can be applied, and the policy's HTTPS statement
+   depends on it.
 8. **Effective date.** The draft says October 27, 2026. Set it to the publication date.
 
 ## Accessibility statement (`src/app/accessibility/page.tsx`)
@@ -184,3 +202,23 @@ Also unresolved: the statement's effective date reads October 28, 2026 and shoul
 publication date, and WCAG 2.1 AA is asserted as a target, not as verified conformance. A real
 audit (axe or Lighthouse in CI, plus a keyboard and screen-reader pass) is a separate card; the
 repo has no accessibility test today.
+
+## Breakpoint verification
+
+Both drafted pages were checked in a real browser on 2026-10-29, which the two earlier passes
+recorded as not done. Headless Chromium against `next dev` on port 3011, viewports 375, 768 and
+1280, on `/privacy`, `/accessibility`, `/careers/apply` and `/about` — the last as a page neither
+this card nor its branch touches, so the footer change is shown to reach pages outside the diff.
+
+All twelve route and width combinations: HTTP 200, no horizontal overflow
+(`documentElement.scrollWidth === clientWidth` at every width), both footer links present,
+`<html lang="en">` and `<main id="main">` present, no console or page errors.
+
+One console error appeared on the first load of `/careers/apply` at 375 and did not reproduce: a
+React hydration mismatch over `style="caret-color: transparent"` on every input. `caret-color`
+appears nowhere in `src/` and nowhere in the served HTML, and three repeat runs found zero inputs
+carrying it. It was injected into the DOM by the automation environment on first launch, not by
+the site. Recorded here because a future run may see it again and should not go hunting.
+
+Not covered: no screen-reader or keyboard pass, and no axe or Lighthouse run. WCAG 2.1 AA stays a
+stated target, not verified conformance.
