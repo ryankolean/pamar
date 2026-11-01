@@ -161,7 +161,9 @@ Three constraints on whoever implements it:
    `decisions/0001-production-platform.md` (branch `claude/platform-decision`), awaiting Ryan's
    approval. Needed before the security headers can be applied, and the policy's HTTPS statement
    depends on it.
-8. **Effective date.** The draft says October 27, 2026. Set it to the publication date.
+8. **Effective date.** Both policies print `site.policyEffectiveDate` (`src/lib/site.ts`), marked
+   PLACEHOLDER. Set that one value to the publication date; the two pages cannot drift apart or
+   publish carrying two different dates.
 
 ## Accessibility statement (`src/app/accessibility/page.tsx`)
 
@@ -198,8 +200,9 @@ something:
   contact form, for the same reason the privacy policy does — `site.contact.email` is still
   PLACEHOLDER. Confirm whether accessibility reports should reach a named person.
 
-Also unresolved: the statement's effective date reads October 28, 2026 and should be set to the
-publication date, and WCAG 2.1 AA is asserted as a target, not as verified conformance. A real
+Also unresolved: the statement's effective date comes from `site.policyEffectiveDate`, the same
+PLACEHOLDER the privacy policy uses, and WCAG 2.1 AA is asserted as a target, not as verified
+conformance. A real
 audit (axe or Lighthouse in CI, plus a keyboard and screen-reader pass) is a separate card; the
 repo has no accessibility test today.
 

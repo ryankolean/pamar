@@ -13,7 +13,7 @@ export const metadata: Metadata = {
  * promise to take an application or a bid by phone or mail, and who answers accessibility
  * reports. See docs/legal/data-handling.md.
  */
-const EFFECTIVE_DATE = "October 28, 2026";
+const EFFECTIVE_DATE = site.policyEffectiveDate;
 
 const office = site.offices[0];
 

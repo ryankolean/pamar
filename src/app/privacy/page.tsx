@@ -12,7 +12,7 @@ export const metadata: Metadata = {
  * DRAFT (SUMMIT-261). The retention periods and the privacy contact below need Pamar's and
  * counsel's confirmation before this page is published; see docs/legal/data-handling.md.
  */
-const EFFECTIVE_DATE = "October 27, 2026";
+const EFFECTIVE_DATE = site.policyEffectiveDate;
 
 const office = site.offices[0];
 
