@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Script from "next/script";
 import { type ReactNode, useActionState, useEffect, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
@@ -457,6 +458,22 @@ export function ConsentCheckbox({ state, name, children }: ConsentCheckboxProps)
       </label>
       <FieldErrors id={id} errors={errors} />
     </div>
+  );
+}
+
+/**
+ * Notice of how a submission is handled, shown above the submit button on every public form.
+ * `what` names the specific thing being sent so the sentence reads true on each form.
+ */
+export function PrivacyNote({ what }: { what: string }) {
+  return (
+    <p className="text-sm text-ink-600">
+      We use {what} only to{" "}
+      <Link href="/privacy" className="font-semibold text-brand-700 hover:underline">
+        handle your request as described in our privacy policy
+      </Link>
+      . We never sell it.
+    </p>
   );
 }
 

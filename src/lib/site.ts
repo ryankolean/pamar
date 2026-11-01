@@ -27,6 +27,11 @@ export const site = {
     /** PLACEHOLDER: the live site publishes no email address, only a contact form. */
     email: "info@pamarenterprises.com",
   },
+  /**
+   * PLACEHOLDER: set this to the day Pamar publishes the policies. /privacy and /accessibility
+   * both print it, so they cannot drift apart or be published carrying two different dates.
+   */
+  policyEffectiveDate: "November 1, 2026",
   offices: [
     {
       name: "Main Office",
