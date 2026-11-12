@@ -18,6 +18,30 @@ touching pages or components.
 | Subcontractor accounts, restricted documents, alerts | New: auth provider + `src/proxy.ts` route checks; `OpportunityDocument.url` → signed download route                                 | Not built                             | SUMMIT-236                                             |
 | Analytics                                            | `src/lib/analytics.ts` → `trackEvent`; `NEXT_PUBLIC_GA_ID`                                                                          | GA4 when ID is set                    | Mark key events in GA4                                 |
 
+## Chosen services
+
+Proposed in [decisions/0001-production-platform.md](../decisions/0001-production-platform.md)
+(SUMMIT-260), pending Ryan's approval. Until that record is accepted, treat this table as the
+intended target rather than settled fact.
+
+| Attachment point                    | Service                                                        |
+| ----------------------------------- | -------------------------------------------------------------- |
+| Hosting                             | Cloudflare Workers, via the OpenNext adapter                   |
+| Content accessors in `src/content/` | Payload collections on Postgres                                |
+| `recordSubmission`                  | Payload collections (applications, registrations, bids)        |
+| File uploads                        | Cloudflare R2, private bucket, signed URLs with a short expiry |
+| Database                            | Cloudflare D1, with Neon Postgres as the fallback              |
+| Staff sign-in                       | Payload auth with roles, unless Pamar wants single sign-on     |
+| Notification email                  | Resend, with SPF and DKIM on pamarenterprises.com              |
+| Spam protection                     | Turnstile, keys added at launch                                |
+
+Vercel functions cap request bodies at 4.5 MB, which is below this site's 5 MB resume limit, so
+hosting there requires presigned direct uploads before launch. Cloudflare Workers allow 100 MB,
+which is why today's server action upload path survives the move.
+
+Everything above runs on a free tier except the host: Workers Free caps CPU at 10 ms per request,
+which server-rendered React exceeds, so the $5 Workers Paid plan is the whole running cost.
+
 ## Rules for attaching a backend
 
 - **Content accessors are already `async`.** Replace the function bodies with CMS or database
