@@ -17,6 +17,8 @@ const staticPaths = [
   "/subcontractors/opportunities",
   "/subcontractors/register",
   "/contact",
+  "/privacy",
+  "/accessibility",
 ];
 
 /** Prerendered in the static export (see next.config.ts). */

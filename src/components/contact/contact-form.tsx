@@ -5,6 +5,7 @@ import {
   FormMessage,
   FormSuccess,
   Honeypot,
+  PrivacyNote,
   SelectField,
   SubmitButton,
   TextArea,
@@ -65,6 +66,8 @@ export function ContactForm({
         defaultValue={defaultTopic}
       />
       <TextArea state={state} name="message" label="Message" required rows={6} />
+      <PrivacyNote what="your message and contact details" />
+
       <Honeypot />
       <Turnstile />
       <SubmitButton pendingLabel="Sending…">Send message</SubmitButton>

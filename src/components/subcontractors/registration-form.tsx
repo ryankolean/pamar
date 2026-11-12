@@ -8,6 +8,7 @@ import {
   FileField,
   FormMessage,
   Honeypot,
+  PrivacyNote,
   SelectField,
   SubmitButton,
   TextArea,
@@ -192,6 +193,8 @@ export function RegistrationForm({ trades, documents }: RegistrationFormProps) {
           rows={4}
         />
       </Section>
+
+      <PrivacyNote what="your company information and documents" />
 
       <Honeypot />
       <Turnstile />

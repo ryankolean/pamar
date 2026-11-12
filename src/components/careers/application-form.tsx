@@ -7,6 +7,7 @@ import {
   FileField,
   FormMessage,
   Honeypot,
+  PrivacyNote,
   SelectField,
   SubmitButton,
   TextArea,
@@ -108,6 +109,8 @@ export function ApplicationForm({ positions, defaultPosition, resume }: Applicat
       <ConsentCheckbox state={state} name="consent">
         I confirm the information in this application is accurate and complete.
       </ConsentCheckbox>
+
+      <PrivacyNote what="your application and resume" />
 
       <Honeypot />
       <Turnstile />
